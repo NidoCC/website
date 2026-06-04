@@ -1,0 +1,30 @@
+{
+  "name": "nidocc",
+  "type": "module",
+  "version": "0.0.1",
+  "engines": {
+    "node": ">=22.12.0"
+  },
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro",
+    "lint": "@biomejs/biome lint",
+    "fmt": "@biomejs/biome format --write ./src"
+  },
+  "dependencies": {
+    "@astrojs/mdx": "^6.0.2",
+    "@astrojs/svelte": "^8.1.2",
+    "@tailwindcss/vite": "^4.3.0",
+    "astro": "^6.4.4",
+    "daisyui": "^5.5.20",
+    "motion-sv": "^0.1.12",
+    "svelte": "^5.56.1",
+    "tailwindcss": "^4.3.0",
+    "typescript": "^6.0.3"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "2.4.16"
+  }
+}
