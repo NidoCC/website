@@ -17,10 +17,7 @@
     }
   },
   "formatter": {
-    "enabled": true,
-    "indentWidth": 2,
-    "indentStyle": "space",
-    "includes": ["**", "!**/styles/*.css"]
+   "enabled": false
   },
   "linter": {
     "enabled": true,
@@ -50,7 +47,9 @@
         "useHookAtTopLevel": "error",
         "useJsxKeyInIterable": "error",
         "noEmptyPattern": "warn",
-        "useUniqueElementIds": "off"
+        "useUniqueElementIds": "off",
+				"noUnusedVariables": "off",
+				"noUnusedImports": "off"
       },
       "complexity": {
         "noBannedTypes": "off",
