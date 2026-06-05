@@ -1,8 +1,12 @@
 ---
-import Title from '@components/Title.svelte';
-import Layout from '../layouts/Layout.astro';
+import Layout from "@layouts/Layout.astro";
 ---
 
 <Layout title="<NidoCC.Home />">
-  <Title client:load />
+  <section class="grid place-items-center h-screen relative">
+    <div
+      class="absolute w-screen h-48 bottom-0 left-0 bg-linear-to-t from-primary/60 to-base-200"
+    >
+    </div>
+  </section>
 </Layout>
