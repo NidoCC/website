@@ -1,11 +1,20 @@
 ---
+import { Code } from "astro:components";
 import Layout from "@layouts/Layout.astro";
+import Backlight from "@components/Backlight.svelte";
 ---
 
 <Layout title="<NidoCC.Home />">
   <section class="grid place-items-center h-screen relative">
+    <Backlight>
+      <Code
+        code={`<Nido club={clubs.coding} />`}
+        lang="html"
+        class="text-3xl p-4"
+      />
+    </Backlight>
     <div
-      class="absolute w-screen h-48 bottom-0 left-0 bg-linear-to-t from-primary/60 to-base-200"
+      class="absolute w-screen h-64 bottom-0 left-0 bg-linear-to-t from-accent/20 to-base-200 blur-lg"
     >
     </div>
   </section>
