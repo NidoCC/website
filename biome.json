@@ -12,7 +12,8 @@
   "assist": {
     "actions": {
       "source": {
-        "recommended": true
+        "recommended": true,
+        "organizeImports": "off"
       }
     }
   },
@@ -69,12 +70,6 @@
         "noNonNullAssertedOptionalChain": "warn",
         "noConfusingLabels": "off"
       }
-    }
-  },
-  "javascript": {
-    "formatter": {
-      "quoteStyle": "double",
-      "jsxQuoteStyle": "double"
     }
   },
   "json": {
