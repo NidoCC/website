@@ -1,21 +1,37 @@
 ---
-import { Code } from "astro:components";
 import Layout from "@layouts/Layout.astro";
 import Backlight from "@components/Backlight.svelte";
+import RandomizedText from "@components/RandomizedText.svelte";
 ---
 
 <Layout title="<NidoCC.Home />">
-  <section class="grid place-items-center h-screen relative">
-    <Backlight>
-      <Code
-        code={`<Nido club={clubs.coding} />`}
-        lang="html"
-        class="text-3xl p-4"
-      />
-    </Backlight>
+  <section class="flex items-center justify-between h-screen relative px-48">
+    <div>
+      <h1 class="text-3xl italic">Welcome to the...</h1>
+      <h1 class="text-7xl">
+        <RandomizedText split="chars" triggerOnView client:visible>
+          Nido Coding Club!
+        </RandomizedText>
+      </h1>
+      <p class="w-[60ch] mt-3 text-secondary-content/50">
+        <RandomizedText split="chars" triggerOnView client:visible>
+          We're a student-led club from the International School Nido de Aguilas
+          learning to code and building projects that matter, together.
+        </RandomizedText>
+      </p>
+    </div>
+
     <div
-      class="absolute w-screen h-64 bottom-0 left-0 bg-linear-to-t from-accent/20 to-base-200 blur-lg"
+      class="left-[25%] top-[45%] absolute size-64 rounded-full bg-emerald-600/20 blur-2xl opacity-40 mix-blend-screen"
+    >
+    </div>
+    <div
+      class="left-[10%] top-[35%] absolute size-96 rounded-full bg-emerald-400/30 blur-3xl opacity-40"
     >
     </div>
   </section>
+  <div
+    class="absolute w-screen h-64 bottom-0 left-0 bg-linear-to-t from-accent/20 to-base-200 blur-lg"
+  >
+  </div>
 </Layout>
