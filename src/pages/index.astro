@@ -1,32 +1,128 @@
 ---
 import Layout from "@layouts/Layout.astro";
-import Backlight from "@components/Backlight.svelte";
 import RandomizedText from "@components/RandomizedText.svelte";
+import AnimatedShinyText from "$lib/components/magic/animated-shiny-text/animated-shiny-text.svelte";
+import { Picture } from "astro:assets";
+
+const keywords = [
+  "async",
+  "await",
+  "closure",
+  "trait",
+  "lambda",
+  "const",
+  "interface",
+  "template",
+  "mixin",
+  "generator",
+  "pattern matching",
+  "typeclass",
+  "borrow checker",
+  "promise",
+  "coroutine",
+  "macro",
+  "decorator",
+  "pipeline",
+  "vector",
+  "actor",
+  "module",
+  "package",
+  "iterator",
+  "null safety",
+  "immutability",
+  "reducer",
+  "channel",
+  "metaclass",
+  "serialization",
+  "destructuring",
+  "generics",
+  "reflection",
+  "bytecode",
+  "garbage collector",
+];
+
+const wallRows = Array.from({ length: 18 }, (_, rowIndex) =>
+  Array.from({ length: 36 }, (_, columnIndex) => {
+    const index = (rowIndex * 7 + columnIndex) % keywords.length;
+
+    return keywords[index];
+  }),
+);
 ---
 
 <Layout title="<NidoCC.Home />">
-  <section class="flex items-center justify-between h-screen relative px-48">
-    <div>
-      <h1 class="text-3xl italic">Welcome to the...</h1>
-      <h1 class="text-7xl">
-        <RandomizedText split="chars" triggerOnView client:visible>
-          Nido Coding Club!
-        </RandomizedText>
-      </h1>
-      <p class="w-[60ch] mt-3 text-secondary-content/50">
-        <RandomizedText split="chars" triggerOnView client:visible>
-          We're a student-led club from the International School Nido de Aguilas
-          learning to code and building projects that matter, together.
-        </RandomizedText>
-      </p>
-    </div>
-
+  <section
+    class="relative flex h-screen items-center justify-between overflow-hidden px-48"
+  >
     <div
-      class="left-[25%] top-[45%] absolute size-64 rounded-full bg-emerald-600/20 blur-2xl opacity-40 mix-blend-screen"
+      aria-hidden="true"
+      class="absolute inset-0 pointer-events-none select-none overflow-hidden px-4 py-8 font-mono text-[0.64rem] uppercase tracking-[0.28em] text-white/4"
+    >
+      <div
+        class="grid h-full gap-2 opacity-95"
+        style="grid-template-rows: repeat(18, minmax(0, 1fr));"
+      >
+        {
+          wallRows.map((row, rowIndex) => (
+            <div class="flex min-w-[150%] translate-x-[-12%] items-center gap-4 whitespace-nowrap">
+              {row.map((keyword, columnIndex) => (
+                <span
+                  class:list={[
+                    "block",
+                    rowIndex % 2 === 0
+                      ? "text-emerald-100/6"
+                      : "text-slate-100/6",
+                    columnIndex % 2 === 0
+                      ? "tracking-[0.34em]"
+                      : "tracking-[0.26em]",
+                    columnIndex % 5 === 0 ? "opacity-50" : "opacity-75",
+                  ]}
+                >
+                  {keyword}
+                </span>
+              ))}
+            </div>
+          ))
+        }
+      </div>
+    </div>
+    <div class="relative z-10 flex w-full items-center justify-around">
+      <div class="flex items-center justify-center space-x-6">
+        <div class="h-64 w-1 bg-white"></div>
+        <div>
+          <h1 class="mt-4 text-3xl italic">
+            <RandomizedText split="chars" triggerOnView client:visible
+              >Welcome to the...</RandomizedText
+            >
+          </h1>
+          <h1 class="text-7xl">
+            <RandomizedText split="chars" triggerOnView client:visible>
+              Nido Coding Club!
+            </RandomizedText>
+          </h1>
+          <p class="mt-3 w-[60ch] text-secondary-content/80">
+            <RandomizedText split="chars" triggerOnView client:visible>
+              We're a student-led club from the International School Nido de
+              Aguilas learning to code and building projects that matter,
+              together.
+            </RandomizedText>
+          </p>
+        </div>
+      </div>
+      <div class="relative">
+        <img
+          src="https://placehold.co/600x400?text=insert+group+photo+here"
+          height="960"
+          width="540"
+        />
+      </div>
+    </div>
+    <div
+      class="absolute left-[25%] top-[45%] size-64 rounded-full bg-emerald-600/20 blur-2xl opacity-40 mix-blend-screen"
     >
     </div>
     <div
-      class="left-[10%] top-[35%] absolute size-96 rounded-full bg-emerald-400/30 blur-3xl opacity-40"
+      class="absolute left-[10%] top-[35%] size-96 rounded-full bg-emerald-400/30 blur-3xl opacity-40"
     >
     </div>
   </section>
