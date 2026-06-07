@@ -12,7 +12,10 @@
       "@components/*": ["./src/components/*"],
       "@assets/*": ["./src/assets/*"],
       "@layouts/*": ["./src/layouts/*"],
-      "@utils/*": ["./src/utils/*"]
+      "@utils/*": ["./src/utils/*"],
+      // shadcn-svelte
+      "$lib": ["./src/lib"],
+      "$lib/*": ["./src/lib/*"]
     }
   }
 }
