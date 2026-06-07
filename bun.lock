@@ -25,7 +25,6 @@
         "prettier-plugin-tailwindcss": "^0.8.0",
         "tailwind-merge": "^3.6.0",
         "tailwindcss": "^4.3.0",
-        "typescript": "6.0.3",
       },
       "peerDependencies": {
         "typescript": "^6.0.3",
