@@ -109,3 +109,10 @@
     @apply font-sans;
   }
 }
+
+@media (prefers-reduced-motion: no-preference) {
+  html,
+  body {
+    scroll-behavior: smooth;
+  }
+}

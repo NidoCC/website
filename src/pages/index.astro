@@ -3,8 +3,8 @@ import Layout from "@layouts/Layout.astro";
 import RandomizedText from "@components/RandomizedText.svelte";
 import { BlurFade } from "$lib/components/magic/blur-fade";
 import { SpecialText } from "$lib/components/spell/special-text";
-import wingLeftImage from "@assets/wing_left.png";
-import wingRightImage from "@assets/wing_right.png";
+import wingLeftImage from "@assets/wingleft.png";
+import wingRightImage from "@assets/wingright.png";
 import { Image } from "astro:assets";
 ---
 
@@ -125,16 +125,24 @@ import { Image } from "astro:assets";
         direction="up"
         class="flex justify-center gap-4 mt-12"
       >
-        <button
+        <a
           class="px-6 py-2 border border-emerald-400 text-emerald-400 hover:bg-emerald-400/10 transition-colors text-sm font-medium"
+          href="#"
         >
-          EXPLORE
-        </button>
-        <button
+          ABOUT
+        </a>
+        <a
           class="px-6 py-2 bg-emerald-500/20 border border-emerald-500 text-emerald-300 hover:bg-emerald-500/30 transition-colors text-sm font-medium"
+          href="#"
         >
           JOIN
-        </button>
+        </a>
+        <a
+          class="px-6 py-2 bg-emerald-500/20 border border-emerald-500 text-emerald-300 hover:bg-emerald-500/30 transition-colors text-sm font-medium"
+          href="#"
+        >
+          SIGN IN
+        </a>
       </BlurFade>
     </div>
 
@@ -149,16 +157,40 @@ import { Image } from "astro:assets";
       <div class="absolute inset-0 border border-emerald-400/50"></div>
     </div>
   </div>
-</Layout>
 
-<!-- Scroll indicator -->
-<div
-  class="fixed bottom-8 left-1/2 transform -translate-x-1/2 z-50 pointer-events-none"
->
+  <!-- Scroll indicator -->
   <div
-    class="flex flex-col items-center gap-2 text-emerald-400/60 text-xs tracking-widest animate-pulse"
+    class="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-50 pointer-events-none"
   >
-    <span>SCROLL</span>
-    <div class="w-0.5 h-6 bg-linear-to-b from-emerald-400 to-transparent"></div>
+    <div
+      class="flex flex-col items-center gap-2 text-emerald-400/60 text-xs tracking-widest animate-pulse"
+    >
+      <span>SCROLL</span>
+      <div class="w-0.5 h-6 bg-linear-to-b from-emerald-400 to-transparent">
+      </div>
+    </div>
   </div>
-</div>
+
+  <section class="m-20">
+    <h1 class="font-mono text-5xl">
+      &gt; About Nido<span class="text-emerald-400">CC</span>
+    </h1>
+    <div class="mt-8 flex justify-between space-x-12">
+      <p class="w-[70ch] text-xl">
+        Description to be edited<br /><br />
+        The Nido Coding Club has been here for countless years; from being Girls who
+        Code, to just a general coding club for everybody to join, the Nido Coding
+        Club has gone through many changes and leaders today.<br /><br /> This 2026-2027
+        school year, however, things will be different once again. Instead of being
+        a club solely catered to those who already know how to code, we will teach
+        coding and programming to those with zero experience, as coding remains one
+        of the most in-demand skills today despite the overwhelming use of AI.
+      </p>
+      <img
+        src="https://placehold.co/600x400?text=some+image+here"
+        width="600"
+        height="400"
+      />
+    </div>
+  </section>
+</Layout>
