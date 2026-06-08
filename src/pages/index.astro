@@ -1,133 +1,170 @@
 ---
 import Layout from "@layouts/Layout.astro";
 import RandomizedText from "@components/RandomizedText.svelte";
-import AnimatedShinyText from "$lib/components/magic/animated-shiny-text/animated-shiny-text.svelte";
-import { Picture } from "astro:assets";
-
-const keywords = [
-  "async",
-  "await",
-  "closure",
-  "trait",
-  "lambda",
-  "const",
-  "interface",
-  "template",
-  "mixin",
-  "generator",
-  "pattern matching",
-  "typeclass",
-  "borrow checker",
-  "promise",
-  "coroutine",
-  "macro",
-  "decorator",
-  "pipeline",
-  "vector",
-  "actor",
-  "module",
-  "package",
-  "iterator",
-  "null safety",
-  "immutability",
-  "reducer",
-  "channel",
-  "metaclass",
-  "serialization",
-  "destructuring",
-  "generics",
-  "reflection",
-  "bytecode",
-  "garbage collector",
-];
-
-const wallRows = Array.from({ length: 18 }, (_, rowIndex) =>
-  Array.from({ length: 36 }, (_, columnIndex) => {
-    const index = (rowIndex * 7 + columnIndex) % keywords.length;
-
-    return keywords[index];
-  }),
-);
 ---
 
 <Layout title="<NidoCC.Home />">
   <section
-    class="relative flex h-screen items-center justify-between overflow-hidden px-48"
+    class="relative flex h-screen items-center justify-between overflow-hidden px-16 md:px-48"
   >
-    <div
-      aria-hidden="true"
-      class="absolute inset-0 pointer-events-none select-none overflow-hidden px-4 py-8 font-mono text-[0.64rem] uppercase tracking-[0.28em] text-white/4"
-    >
+    <!-- Gradient cloud background elements -->
+    <div class="absolute inset-0 pointer-events-none overflow-hidden">
+      <!-- Large emerald cloud - top left -->
       <div
-        class="grid h-full gap-2 opacity-95"
-        style="grid-template-rows: repeat(18, minmax(0, 1fr));"
+        class="absolute top-0 left-0 w-96 h-96 bg-gradient-to-br from-emerald-600/40 via-emerald-500/30 to-transparent blur-3xl rounded-full"
+        style="filter: blur(80px); opacity: 0.6;"
       >
-        {
-          wallRows.map((row, rowIndex) => (
-            <div class="flex min-w-[150%] translate-x-[-12%] items-center gap-4 whitespace-nowrap">
-              {row.map((keyword, columnIndex) => (
-                <span
-                  class:list={[
-                    "block",
-                    rowIndex % 2 === 0
-                      ? "text-emerald-100/6"
-                      : "text-slate-100/6",
-                    columnIndex % 2 === 0
-                      ? "tracking-[0.34em]"
-                      : "tracking-[0.26em]",
-                    columnIndex % 5 === 0 ? "opacity-50" : "opacity-75",
-                  ]}
-                >
-                  {keyword}
-                </span>
-              ))}
-            </div>
-          ))
-        }
+      </div>
+
+      <!-- Teal cloud - top right -->
+      <div
+        class="absolute top-20 -right-40 w-80 h-80 bg-gradient-to-bl from-teal-500/35 via-emerald-600/25 to-transparent blur-3xl rounded-full"
+        style="filter: blur(70px); opacity: 0.5;"
+      >
+      </div>
+
+      <!-- Cyan cloud - middle -->
+      <div
+        class="absolute top-1/3 left-1/3 w-96 h-96 bg-gradient-to-tr from-cyan-600/25 via-emerald-500/20 to-transparent blur-3xl rounded-full"
+        style="filter: blur(90px); opacity: 0.4;"
+      >
+      </div>
+
+      <!-- Dark emerald cloud - bottom left -->
+      <div
+        class="absolute bottom-0 -left-20 w-72 h-72 bg-gradient-to-tr from-emerald-700/30 via-emerald-600/20 to-transparent blur-3xl rounded-full"
+        style="filter: blur(75px); opacity: 0.5;"
+      >
+      </div>
+
+      <!-- Teal-cyan cloud - bottom right -->
+      <div
+        class="absolute -bottom-40 right-0 w-80 h-80 bg-gradient-to-tl from-teal-600/30 via-cyan-500/20 to-transparent blur-3xl rounded-full"
+        style="filter: blur(85px); opacity: 0.45;"
+      >
       </div>
     </div>
-    <div class="relative z-10 flex w-full items-center justify-around">
-      <div class="flex items-center justify-center space-x-6">
-        <div class="h-64 w-1 bg-white"></div>
-        <div>
-          <h1 class="mt-4 text-3xl italic">
-            <RandomizedText split="chars" triggerOnView client:visible
-              >Welcome to the...</RandomizedText
-            >
-          </h1>
-          <h1 class="text-7xl">
+
+    <!-- Geometric decorative elements -->
+    <div
+      class="absolute top-12 right-20 w-32 h-32 border-2 border-emerald-400/60 opacity-70"
+    >
+    </div>
+    <div
+      class="absolute top-32 right-8 w-24 h-24 border border-emerald-500/40 opacity-60 rotate-45"
+    >
+    </div>
+    <div
+      class="absolute bottom-32 left-12 w-40 h-1 bg-linear-to-r from-emerald-400 to-transparent opacity-70"
+    >
+    </div>
+    <div
+      class="absolute bottom-48 right-32 w-1 h-48 bg-lienar-to-b from-emerald-400/0 via-emerald-500/60 to-emerald-400/0 opacity-80"
+    >
+    </div>
+
+    <!-- Accent dots -->
+    <div
+      class="absolute top-1/4 left-1/4 w-2 h-2 bg-emerald-400 rounded-full opacity-80"
+    >
+    </div>
+    <div
+      class="absolute top-2/3 right-1/3 w-3 h-3 bg-emerald-500 rounded-full opacity-60"
+    >
+    </div>
+    <div
+      class="absolute bottom-1/4 left-1/3 w-1.5 h-1.5 bg-emerald-400 rounded-full opacity-50"
+    >
+    </div>
+
+    <!-- Grid accent in background -->
+    <div
+      class="absolute inset-0 opacity-5 pointer-events-none"
+      style="
+      backgroundImage: linear-gradient(0deg, transparent 24%, rgba(16, 185, 129, 0.05) 25%, rgba(16, 185, 129, 0.05) 26%, transparent 27%, transparent 74%, rgba(16, 185, 129, 0.05) 75%, rgba(16, 185, 129, 0.05) 76%, transparent 77%, transparent),
+                        linear-gradient(90deg, transparent 24%, rgba(16, 185, 129, 0.05) 25%, rgba(16, 185, 129, 0.05) 26%, transparent 27%, transparent 74%, rgba(16, 185, 129, 0.05) 75%, rgba(16, 185, 129, 0.05) 76%, transparent 77%, transparent);
+      backgroundSize: 60px 60px;
+    "
+    >
+    </div>
+
+    <div class="relative z-10">
+      <h1
+        class="text-base md:text-lg font-light tracking-widest text-emerald-400/90 mb-6"
+      >
+        <RandomizedText split="chars" triggerOnView client:visible
+          >[ WELCOME TO ]</RandomizedText
+        >
+      </h1>
+
+      <div class="relative">
+        <div
+          class="absolute -left-8 top-0 bottom-0 w-1 bg-linear-to-b from-emerald-500 to-transparent"
+        >
+        </div>
+        <h1
+          class="text-6xl md:text-8xl font-black tracking-tighter text-white leading-none mb-2"
+        >
+          <RandomizedText split="chars" triggerOnView client:visible>
+            NIDO
+          </RandomizedText>
+        </h1>
+        <h1
+          class="text-5xl md:text-7xl font-black tracking-tighter text-emerald-400 leading-none mb-8"
+        >
+          <RandomizedText split="chars" triggerOnView client:visible>
+            CODING CLUB
+          </RandomizedText>
+        </h1>
+      </div>
+
+      <div class="w-full md:w-[65ch] space-y-4">
+        <div class="flex items-start gap-3">
+          <p
+            class="text-sm md:text-base text-gray-300/90 leading-relaxed font-light"
+          >
             <RandomizedText split="chars" triggerOnView client:visible>
-              Nido Coding Club!
-            </RandomizedText>
-          </h1>
-          <p class="mt-3 w-[60ch] text-secondary-content/80">
-            <RandomizedText split="chars" triggerOnView client:visible>
-              We're a student-led club from the International School Nido de
-              Aguilas learning to code and building projects that matter,
-              together.
+              A student-led collective learning to code and building projects
+              that matter, powered by innovation and collaboration.
             </RandomizedText>
           </p>
         </div>
       </div>
-      <div class="relative">
-        <img
-          src="https://placehold.co/600x400?text=insert+group+photo+here"
-          height="960"
-          width="540"
-        />
+
+      <div class="flex gap-4 mt-12">
+        <button
+          class="px-6 py-2 border border-emerald-400 text-emerald-400 hover:bg-emerald-400/10 transition-colors text-sm font-medium"
+        >
+          EXPLORE
+        </button>
+        <button
+          class="px-6 py-2 bg-emerald-500/20 border border-emerald-500 text-emerald-300 hover:bg-emerald-500/30 transition-colors text-sm font-medium"
+        >
+          JOIN
+        </button>
       </div>
     </div>
+
+    <!-- Floating accent element on the right -->
     <div
-      class="absolute left-[25%] top-[45%] size-64 rounded-full bg-emerald-600/20 blur-2xl opacity-40 mix-blend-screen"
+      class="absolute right-0 top-1/2 transform -translate-y-1/2 opacity-10 pointer-events-none"
     >
-    </div>
-    <div
-      class="absolute left-[10%] top-[35%] size-96 rounded-full bg-emerald-400/30 blur-3xl opacity-40"
-    >
+      <div class="w-96 h-96 border-2 border-emerald-400 relative">
+        <div class="absolute inset-0 border border-emerald-400/50"></div>
+      </div>
     </div>
   </section>
+
+  <!-- Scroll indicator -->
   <div
-    class="absolute w-screen h-64 bottom-0 left-0 bg-linear-to-t from-accent/20 to-base-200 blur-lg"
+    class="fixed bottom-8 left-1/2 transform -translate-x-1/2 z-50 pointer-events-none"
   >
+    <div
+      class="flex flex-col items-center gap-2 text-emerald-400/60 text-xs tracking-widest animate-pulse"
+    >
+      <span>SCROLL</span>
+      <div class="w-0.5 h-6 bg-gradient-to-b from-emerald-400 to-transparent">
+      </div>
+    </div>
   </div>
 </Layout>
