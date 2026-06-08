@@ -1,6 +1,8 @@
 ---
 import Layout from "@layouts/Layout.astro";
 import RandomizedText from "@components/RandomizedText.svelte";
+import { BlurFade } from "$lib/components/magic/blur-fade";
+import { SpecialText } from "$lib/components/spell/special-text";
 ---
 
 <Layout title="<NidoCC.Home />">
@@ -74,7 +76,7 @@ import RandomizedText from "@components/RandomizedText.svelte";
 
     <div class="relative z-10">
       <h1
-        class="text-base md:text-lg font-light tracking-widest text-emerald-400/90 mb-6"
+        class="text-base md:text-lg font-light tracking-widest text-emerald-400/90 mb-6 font-mono"
       >
         <RandomizedText split="chars" triggerOnView client:visible
           >[ WELCOME TO ]</RandomizedText
@@ -89,33 +91,33 @@ import RandomizedText from "@components/RandomizedText.svelte";
         <h1
           class="text-6xl md:text-8xl font-black tracking-tighter text-white leading-none mb-2"
         >
-          <RandomizedText split="chars" triggerOnView client:visible>
-            NIDO
-          </RandomizedText>
+          <SpecialText client:visible>NIDO</SpecialText>
         </h1>
         <h1
           class="text-5xl md:text-7xl font-black tracking-tighter text-emerald-400 leading-none mb-8"
         >
-          <RandomizedText split="chars" triggerOnView client:visible>
-            CODING CLUB
-          </RandomizedText>
+          <SpecialText client:visible>CODING CLUB</SpecialText>
         </h1>
       </div>
 
       <div class="w-full md:w-[65ch] space-y-4">
         <div class="flex items-start gap-3">
-          <p
+          <BlurFade
+            client:visible
             class="text-sm md:text-base text-gray-300/90 leading-relaxed font-light"
           >
-            <RandomizedText split="chars" triggerOnView client:visible>
-              A student-led collective learning to code and building projects
-              that matter, powered by innovation and collaboration.
-            </RandomizedText>
-          </p>
+            A student-led collective learning to code and building projects that
+            matter, powered by innovation and collaboration.
+          </BlurFade>
         </div>
       </div>
 
-      <div class="flex gap-4 mt-12">
+      <BlurFade
+        client:visible
+        delay={0.3}
+        direction="right"
+        class="flex gap-4 mt-12"
+      >
         <button
           class="px-6 py-2 border border-emerald-400 text-emerald-400 hover:bg-emerald-400/10 transition-colors text-sm font-medium"
         >
@@ -126,29 +128,29 @@ import RandomizedText from "@components/RandomizedText.svelte";
         >
           JOIN
         </button>
-      </div>
-    </div>
-
-    <!-- Floating accent element on the right -->
-    <div
-      class="absolute right-0 top-1/2 transform -translate-y-1/2 opacity-10 pointer-events-none"
-    >
-      <div class="w-96 h-96 border-2 border-emerald-400 relative">
-        <div class="absolute inset-0 border border-emerald-400/50"></div>
-      </div>
+      </BlurFade>
     </div>
   </section>
 
-  <!-- Scroll indicator -->
+  <!-- Floating accent element on the right -->
   <div
-    class="fixed bottom-8 left-1/2 transform -translate-x-1/2 z-50 pointer-events-none"
+    class="absolute right-0 top-1/2 transform -translate-y-1/2 opacity-10 pointer-events-none"
   >
-    <div
-      class="flex flex-col items-center gap-2 text-emerald-400/60 text-xs tracking-widest animate-pulse"
-    >
-      <span>SCROLL</span>
-      <div class="w-0.5 h-6 bg-gradient-to-b from-emerald-400 to-transparent">
-      </div>
+    <div class="w-96 h-96 border-2 border-emerald-400 relative">
+      <div class="absolute inset-0 border border-emerald-400/50"></div>
     </div>
   </div>
 </Layout>
+
+<!-- Scroll indicator -->
+<div
+  class="fixed bottom-8 left-1/2 transform -translate-x-1/2 z-50 pointer-events-none"
+>
+  <div
+    class="flex flex-col items-center gap-2 text-emerald-400/60 text-xs tracking-widest animate-pulse"
+  >
+    <span>SCROLL</span>
+    <div class="w-0.5 h-6 bg-gradient-to-b from-emerald-400 to-transparent">
+    </div>
+  </div>
+</div>
