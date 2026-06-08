@@ -44,19 +44,22 @@
   --animate-shiny-text: shiny-text 8s infinite;
 }
 @theme inline {
-  --font-sans: var(--font-space-grotesk);
-  --font-mono: var(--font-space-mono);
-	@keyframes gradient {
-		to {
-			background-position: var(--bg-size, 300%) 0;
+  --font-sans: var(--font-geist);
+  --font-mono: var(--font-geist-mono);
+  @keyframes gradient {
+    to {
+      background-position: var(--bg-size, 300%) 0;
     }
   }
-	@keyframes shiny-text {
-		0%, 90%, 100% {
-			background-position: calc(-100% - var(--shiny-width)) 0;
+  @keyframes shiny-text {
+    0%,
+    90%,
+    100% {
+      background-position: calc(-100% - var(--shiny-width)) 0;
     }
-		30%, 60% {
-			background-position: calc(100% + var(--shiny-width)) 0;
+    30%,
+    60% {
+      background-position: calc(100% + var(--shiny-width)) 0;
     }
   }
 }
