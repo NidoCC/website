@@ -3,11 +3,14 @@ import Layout from "@layouts/Layout.astro";
 import RandomizedText from "@components/RandomizedText.svelte";
 import { BlurFade } from "$lib/components/magic/blur-fade";
 import { SpecialText } from "$lib/components/spell/special-text";
+import wingLeftImage from "@assets/wing_left.png";
+import wingRightImage from "@assets/wing_right.png";
+import { Image } from "astro:assets";
 ---
 
 <Layout title="<NidoCC.Home />">
   <section
-    class="relative flex h-screen items-center justify-between overflow-hidden px-16 md:px-48"
+    class="relative flex h-screen items-center justify-center text-center overflow-hidden px-16 md:px-48"
   >
     <!-- Large unified gradient cloud background -->
     <div
@@ -74,6 +77,8 @@ import { SpecialText } from "$lib/components/spell/special-text";
     >
     </div>
 
+    <Image src={wingLeftImage} alt="Left wing" width={400} height={400} />
+
     <div class="relative z-10">
       <h1
         class="text-base md:text-lg font-light tracking-widest text-emerald-400/90 mb-6 font-mono"
@@ -83,21 +88,23 @@ import { SpecialText } from "$lib/components/spell/special-text";
         >
       </h1>
 
-      <div class="relative">
-        <div
-          class="absolute -left-8 top-0 bottom-0 w-1 bg-linear-to-b from-emerald-500 to-transparent"
-        >
+      <div
+        class="mx-auto flex flex-col items-center justify-center gap-3 md:gap-4"
+      >
+        <div class="flex items-center justify-center gap-2 md:gap-5">
+          <div class="relative z-10 text-center">
+            <h1
+              class="text-6xl md:text-8xl font-black tracking-tighter text-white leading-none mb-2"
+            >
+              <SpecialText client:visible>NIDO</SpecialText>
+            </h1>
+            <h1
+              class="text-5xl md:text-7xl font-black tracking-tighter text-emerald-400 leading-none"
+            >
+              <SpecialText client:visible>CODING CLUB</SpecialText>
+            </h1>
+          </div>
         </div>
-        <h1
-          class="text-6xl md:text-8xl font-black tracking-tighter text-white leading-none mb-2"
-        >
-          <SpecialText client:visible>NIDO</SpecialText>
-        </h1>
-        <h1
-          class="text-5xl md:text-7xl font-black tracking-tighter text-emerald-400 leading-none mb-8"
-        >
-          <SpecialText client:visible>CODING CLUB</SpecialText>
-        </h1>
       </div>
 
       <div class="w-full md:w-[65ch] space-y-4">
@@ -115,8 +122,8 @@ import { SpecialText } from "$lib/components/spell/special-text";
       <BlurFade
         client:visible
         delay={0.3}
-        direction="right"
-        class="flex gap-4 mt-12"
+        direction="up"
+        class="flex justify-center gap-4 mt-12"
       >
         <button
           class="px-6 py-2 border border-emerald-400 text-emerald-400 hover:bg-emerald-400/10 transition-colors text-sm font-medium"
@@ -130,6 +137,8 @@ import { SpecialText } from "$lib/components/spell/special-text";
         </button>
       </BlurFade>
     </div>
+
+    <Image src={wingRightImage} alt="Left wing" width={400} height={400} />
   </section>
 
   <!-- Floating accent element on the right -->
@@ -150,7 +159,6 @@ import { SpecialText } from "$lib/components/spell/special-text";
     class="flex flex-col items-center gap-2 text-emerald-400/60 text-xs tracking-widest animate-pulse"
   >
     <span>SCROLL</span>
-    <div class="w-0.5 h-6 bg-gradient-to-b from-emerald-400 to-transparent">
-    </div>
+    <div class="w-0.5 h-6 bg-linear-to-b from-emerald-400 to-transparent"></div>
   </div>
 </div>
