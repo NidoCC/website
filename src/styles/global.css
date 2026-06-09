@@ -25,7 +25,9 @@
   --color-accent-foreground: var(--accent-foreground);
   --color-muted-foreground: var(--muted-foreground);
   --color-muted: var(--muted);
+  --color-secondary: var(--secondary);
   --color-secondary-foreground: var(--secondary-foreground);
+  --color-primary: var(--primary);
   --color-primary-foreground: var(--primary-foreground);
   --color-popover-foreground: var(--popover-foreground);
   --color-popover: var(--popover);
@@ -96,6 +98,7 @@
   --sidebar-accent-foreground: oklch(0.985 0 0);
   --sidebar-border: oklch(1 0 0 / 10%);
   --sidebar-ring: oklch(0.556 0 0);
+  --radius: 1rem;
 }
 
 @layer base {
