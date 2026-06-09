@@ -3,6 +3,8 @@ import "../styles/global.css";
 import { Font } from "astro:assets";
 
 const { title = "<NidoCC />" } = Astro.props;
+
+const year = new Date().getFullYear();
 ---
 
 <!doctype html>
@@ -23,6 +25,10 @@ const { title = "<NidoCC />" } = Astro.props;
     <main>
       <slot />
     </main>
+
+    <footer class="font-sans text-center bg-secondary mt-20">
+      Coding Club {year}
+    </footer>
   </body>
 </html>
 
