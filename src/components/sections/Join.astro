@@ -1,0 +1,24 @@
+---
+import { QRCode } from "$lib/components/spell/qrcode";
+---
+
+<section class="grid place-items-center">
+  <div
+    class="flex justify-center items-center flex-col px-10 py-5 rounded-xl border-emerald-900 border-2 bg-neutral-900"
+  >
+    <h1 class="font-mono text-4xl">Want to join?</h1>
+    <p class="text-muted-foreground mt-10">Scan or click the QR code.</p>
+    <a
+      href="https://docs.google.com/forms/d/e/1FAIpQLSdjRvvvxS-Ed3zshhSqeWVHB8ELzm-PALgskc29ojHyK03M-w/viewform?usp=dialog"
+      target="_blank"
+    >
+      <QRCode
+        value="https://docs.google.com/forms/d/e/1FAIpQLSdjRvvvxS-Ed3zshhSqeWVHB8ELzm-PALgskc29ojHyK03M-w/viewform?usp=dialog"
+        fgColor="#00d492"
+        bgColor="#171717"
+        width={400}
+        height={400}
+      />
+    </a>
+  </div>
+</section>

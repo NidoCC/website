@@ -1,0 +1,157 @@
+---
+import RandomizedText from "@components/RandomizedText.svelte";
+import { BlurFade } from "$lib/components/magic/blur-fade";
+import { SpecialText } from "$lib/components/spell/special-text";
+import wingLeftImage from "@assets/wingleft.png";
+import wingRightImage from "@assets/wingright.png";
+import { Image } from "astro:assets";
+---
+
+<section
+  class="relative flex h-screen items-center justify-center text-center overflow-hidden px-16 md:px-48"
+>
+  <div
+    class="absolute inset-0 pointer-events-none opacity-20"
+    style="
+      background:
+        radial-gradient(ellipse at 35% 40%, rgba(16, 185, 129, 0.6) 0%, transparent 40%),
+        radial-gradient(ellipse at 55% 30%, rgba(20, 184, 166, 0.5) 0%, transparent 35%),
+        radial-gradient(ellipse at 70% 60%, rgba(34, 197, 94, 0.4) 0%, transparent 45%),
+        radial-gradient(ellipse at 25% 70%, rgba(5, 150, 105, 0.35) 0%, transparent 40%),
+        radial-gradient(ellipse at 60% 70%, rgba(16, 185, 129, 0.3) 0%, transparent 50%),
+        linear-gradient(135deg,
+          rgba(5, 150, 105, 0.8) 0%,
+          rgba(16, 185, 129, 0.6) 20%,
+          rgba(20, 184, 166, 0.5) 40%,
+          rgba(34, 197, 94, 0.4) 60%,
+          rgba(5, 150, 105, 0.3) 100%
+        );
+      filter: blur(60px);
+    "
+  >
+  </div>
+
+  <div
+    class="absolute top-12 right-20 w-32 h-32 border-2 border-emerald-400/60 opacity-70"
+  >
+  </div>
+  <div
+    class="absolute top-32 right-8 w-24 h-24 border border-emerald-500/40 opacity-60 rotate-45"
+  >
+  </div>
+  <div
+    class="absolute bottom-32 left-12 w-40 h-1 bg-linear-to-r from-emerald-400 to-transparent opacity-70"
+  >
+  </div>
+  <div
+    class="absolute bottom-48 right-32 w-1 h-48 bg-lienar-to-b from-emerald-400/0 via-emerald-500/60 to-emerald-400/0 opacity-80"
+  >
+  </div>
+
+  <div
+    class="absolute top-1/4 left-1/4 w-2 h-2 bg-emerald-400 rounded-full opacity-80"
+  >
+  </div>
+  <div
+    class="absolute top-2/3 right-1/3 w-3 h-3 bg-emerald-500 rounded-full opacity-60"
+  >
+  </div>
+  <div
+    class="absolute bottom-1/4 left-1/3 w-1.5 h-1.5 bg-emerald-400 rounded-full opacity-50"
+  >
+  </div>
+
+  <div
+    class="absolute inset-0 opacity-5 pointer-events-none"
+    style="
+    backgroundImage: linear-gradient(0deg, transparent 24%, rgba(16, 185, 129, 0.05) 25%, rgba(16, 185, 129, 0.05) 26%, transparent 27%, transparent 74%, rgba(16, 185, 129, 0.05) 75%, rgba(16, 185, 129, 0.05) 76%, transparent 77%, transparent),
+                      linear-gradient(90deg, transparent 24%, rgba(16, 185, 129, 0.05) 25%, rgba(16, 185, 129, 0.05) 26%, transparent 27%, transparent 74%, rgba(16, 185, 129, 0.05) 75%, rgba(16, 185, 129, 0.05) 76%, transparent 77%, transparent);
+    backgroundSize: 60px 60px;
+  "
+  >
+  </div>
+
+  <Image src={wingLeftImage} alt="Left wing" width={400} height={400} />
+
+  <div class="relative z-10">
+    <h1
+      class="text-base md:text-lg font-light tracking-widest text-emerald-400/90 mb-6 font-mono"
+    >
+      <RandomizedText split="chars" triggerOnView client:visible
+        >[ WELCOME TO ]</RandomizedText
+      >
+    </h1>
+
+    <div
+      class="mx-auto flex flex-col items-center justify-center gap-3 md:gap-4"
+    >
+      <div class="flex items-center justify-center gap-2 md:gap-5">
+        <div class="relative z-10 text-center">
+          <h1
+            class="text-6xl md:text-8xl font-black tracking-tighter text-white leading-none mb-2"
+          >
+            <SpecialText client:visible>NIDO</SpecialText>
+          </h1>
+          <h1
+            class="text-5xl md:text-7xl font-black tracking-tighter text-emerald-400 leading-none"
+          >
+            <SpecialText client:visible>CODING CLUB</SpecialText>
+          </h1>
+        </div>
+      </div>
+    </div>
+
+    <div class="w-full md:w-[65ch] space-y-4 mt-10">
+      <div class="flex items-start gap-3">
+        <BlurFade
+          client:visible
+          class="text-sm md:text-base text-gray-300/90 leading-relaxed font-light"
+        >
+          A student-led collective learning to code and building projects that
+          matter, powered by innovation and collaboration.
+        </BlurFade>
+      </div>
+    </div>
+
+    <BlurFade
+      client:visible
+      delay={0.3}
+      direction="up"
+      class="flex justify-center gap-4 mt-12"
+    >
+      <a
+        class="px-6 py-2 border border-emerald-400 text-emerald-400 hover:bg-emerald-400/10 transition-colors text-sm font-medium"
+        href="#about">ABOUT</a
+      >
+      <a
+        class="px-6 py-2 bg-emerald-500/20 border border-emerald-500 text-emerald-300 hover:bg-emerald-500/30 transition-colors text-sm font-medium"
+        href="#">JOIN</a
+      >
+      <a
+        class="px-6 py-2 bg-emerald-500/20 border border-emerald-500 text-emerald-300 hover:bg-emerald-500/30 transition-colors text-sm font-medium"
+        href="#">SIGN IN</a
+      >
+    </BlurFade>
+  </div>
+
+  <Image src={wingRightImage} alt="Left wing" width={400} height={400} />
+</section>
+
+<div
+  class="absolute right-0 top-1/2 transform -translate-y-1/2 opacity-10 pointer-events-none"
+>
+  <div class="w-96 h-96 border-2 border-emerald-400 relative">
+    <div class="absolute inset-0 border border-emerald-400/50"></div>
+  </div>
+</div>
+
+<div
+  class="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-50 pointer-events-none"
+>
+  <div
+    class="flex flex-col items-center gap-2 text-emerald-400/60 text-xs tracking-widest animate-pulse"
+  >
+    <span>SCROLL</span>
+    <div class="w-0.5 h-6 bg-linear-to-b from-emerald-400 to-transparent"></div>
+  </div>
+</div>
