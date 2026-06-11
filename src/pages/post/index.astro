@@ -1,0 +1,41 @@
+---
+import { SpecialText } from "$lib/components/spell/special-text";
+import PostCard from "@components/PostCard.astro";
+import Layout from "@layouts/Layout.astro";
+import { getCollection } from "astro:content";
+
+const posts = await getCollection("post");
+---
+
+<Layout title="<NidoCC.Post />">
+  <section class="m-20 relative grid place-items-center h-[70vh]">
+    <div
+      class="absolute inset-0 pointer-events-none opacity-20"
+      style="
+      background:
+        radial-gradient(ellipse at 35% 40%, rgba(16, 185, 129, 0.6) 0%, transparent 40%),
+        radial-gradient(ellipse at 55% 30%, rgba(20, 184, 166, 0.5) 0%, transparent 35%),
+        radial-gradient(ellipse at 70% 60%, rgba(34, 197, 94, 0.4) 0%, transparent 45%),
+        radial-gradient(ellipse at 25% 70%, rgba(5, 150, 105, 0.35) 0%, transparent 40%),
+        radial-gradient(ellipse at 60% 70%, rgba(16, 185, 129, 0.3) 0%, transparent 50%),
+        linear-gradient(135deg,
+          rgba(5, 150, 105, 0.8) 0%,
+          rgba(16, 185, 129, 0.6) 20%,
+          rgba(20, 184, 166, 0.5) 40%,
+          rgba(34, 197, 94, 0.4) 60%,
+          rgba(5, 150, 105, 0.3) 100%
+        );
+      filter: blur(60px);
+    "
+    >
+    </div>
+
+    <h1 class="text-5xl">
+      <SpecialText client:visible>Resources</SpecialText>
+    </h1>
+  </section>
+
+  <section class="flex justify-center">
+    {posts.map((post) => <PostCard post={post} />)}
+  </section>
+</Layout>

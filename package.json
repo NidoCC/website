@@ -14,11 +14,14 @@
     "fmt": "prettier src/ --write"
   },
   "dependencies": {
+    "@astrojs/markdown-remark": "^7.2.0",
     "@astrojs/mdx": "6.0.3",
     "@astrojs/svelte": "^8.1.2",
     "astro": "6.4.5",
     "motion-sv": "^0.1.12",
     "qrcode": "^1.5.4",
+    "rehype-katex": "^7.0.1",
+    "remark-math": "^6.0.0",
     "runed": "^0.37.1",
     "svelte": "^5.56.1"
   },

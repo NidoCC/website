@@ -1,4 +1,5 @@
 ---
+import Navbar from "@components/Navbar.svelte";
 import "../styles/global.css";
 import { Font } from "astro:assets";
 
@@ -15,6 +16,11 @@ const year = new Date().getFullYear();
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="icon" href="/favicon.ico" />
     <meta name="generator" content={Astro.generator} />
+    <!-- katex -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/katex@0.13.0/dist/katex.min.css"
+    />
     <!-- fonts -->
     <Font cssVariable="--font-geist" preload />
     <Font cssVariable="--font-geist-mono" preload />
@@ -22,6 +28,8 @@ const year = new Date().getFullYear();
   </head>
 
   <body class="min-w-screen">
+    <Navbar client:load />
+
     <main>
       <slot />
     </main>
