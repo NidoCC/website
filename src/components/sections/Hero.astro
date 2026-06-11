@@ -5,6 +5,7 @@ import { SpecialText } from "$lib/components/spell/special-text";
 import wingLeftImage from "@assets/wingleft.png";
 import wingRightImage from "@assets/wingright.png";
 import { Image } from "astro:assets";
+import ButtonLink from "@components/ButtonLink.astro";
 ---
 
 <section
@@ -119,18 +120,8 @@ import { Image } from "astro:assets";
       direction="up"
       class="flex justify-center gap-4 mt-12"
     >
-      <a
-        class="px-6 py-2 border border-emerald-400 text-emerald-400 hover:bg-emerald-400/10 transition-colors text-sm font-medium"
-        href="#about">ABOUT</a
-      >
-      <a
-        class="px-6 py-2 bg-emerald-500/20 border border-emerald-500 text-emerald-300 hover:bg-emerald-500/30 transition-colors text-sm font-medium"
-        href="#">JOIN</a
-      >
-      <a
-        class="px-6 py-2 bg-emerald-500/20 border border-emerald-500 text-emerald-300 hover:bg-emerald-500/30 transition-colors text-sm font-medium"
-        href="#">SIGN IN</a
-      >
+      <ButtonLink href="#about" variant="secondary"> ABOUT </ButtonLink>
+      <ButtonLink href="#join" variant="primary"> JOIN </ButtonLink>
     </BlurFade>
   </div>
 
