@@ -15,9 +15,8 @@ const { post } = Astro.props;
 >
   <div class="min-w-0 flex-1 p-5">
     <h3 class="font-mono text-2xl wrap-break-word">{post.data.title}</h3>
-    <!-- TODO: fix text not wrapping for some reason -->
     <p
-      class="mt-2 overflow-hidden text-muted-foreground"
+      class="mt-2 overflow-hidden text-muted-foreground break-before-all"
       style="display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 4;"
     >
       {post.data.description}
