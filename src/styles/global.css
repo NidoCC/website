@@ -2,6 +2,8 @@
 @import "tw-animate-css";
 @import "shadcn-svelte/tailwind.css";
 
+@plugin "@tailwindcss/typography";
+
 @custom-variant dark (&:is(.dark *));
 
 @theme {
@@ -118,4 +120,10 @@
   body {
     scroll-behavior: smooth;
   }
+}
+
+.katex {
+  text-align: center;
+  width: 100%;
+  display: inline-block;
 }
