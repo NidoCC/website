@@ -7,6 +7,8 @@ import { defineConfig, fontProviders } from "astro/config";
 import rehypeKatex from "rehype-katex";
 import remarkMath from "remark-math";
 
+import expressiveCode from "astro-expressive-code";
+
 // https://astro.build/config
 export default defineConfig({
   fonts: [
@@ -33,5 +35,5 @@ export default defineConfig({
     plugins: [tailwindcss()],
   },
 
-  integrations: [mdx(), svelte()],
+  integrations: [expressiveCode(), mdx(), svelte()],
 });

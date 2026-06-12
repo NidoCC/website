@@ -2,6 +2,8 @@
 import Navbar from "@components/Navbar.svelte";
 import "../styles/global.css";
 import { Font } from "astro:assets";
+import LoadingIndicator from "astro-loading-indicator/component";
+import { ClientRouter } from "astro:transitions";
 
 const { title = "<NidoCC />" } = Astro.props;
 
@@ -25,6 +27,9 @@ const year = new Date().getFullYear();
     <Font cssVariable="--font-geist" preload />
     <Font cssVariable="--font-geist-mono" preload />
     <title>{title}</title>
+    <!-- loading bar -->
+    <ClientRouter />
+    <LoadingIndicator color="#00d492" />
   </head>
 
   <body class="min-w-screen">
