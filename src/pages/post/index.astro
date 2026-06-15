@@ -35,7 +35,65 @@ const posts = await getCollection("post");
     </h1>
   </section>
 
-  <section class="flex justify-center">
-    {posts.map((post) => <PostCard post={post} />)}
+  <section class="mx-auto w-full max-w-6xl px-6 pb-16">
+    <div class="mb-8 flex justify-center">
+      <label class="w-full max-w-3xl">
+        <span class="sr-only">Search posts</span>
+        <input
+          id="post-search"
+          type="search"
+          placeholder="Search by title, description, tag, or content"
+          class="w-full rounded-none border border-border bg-background/80 px-4 py-3 font-mono text-sm outline-none transition focus:border-emerald-400"
+        />
+      </label>
+    </div>
+
+    <p
+      id="post-search-status"
+      class="mb-4 text-center font-mono text-sm text-muted-foreground"
+    >
+      Showing {posts.length} posts
+    </p>
+
+    <div id="post-list" class="flex flex-wrap justify-center gap-6">
+      {posts.map((post) => <PostCard post={post} />)}
+    </div>
+
+    <p
+      id="post-search-empty"
+      class="hidden py-12 text-center text-muted-foreground"
+    >
+      No posts match your search.
+    </p>
   </section>
+
+  <script is:inline>
+    const searchInput = document.getElementById("post-search");
+    const status = document.getElementById("post-search-status");
+    const emptyState = document.getElementById("post-search-empty");
+    const cards = Array.from(
+      document.querySelectorAll("#post-list a[data-search]"),
+    );
+
+    const updateSearch = () => {
+      const query = searchInput.value.trim().toLowerCase();
+      let visibleCount = 0;
+
+      for (const card of cards) {
+        const searchText = card.dataset.search ?? "";
+        const matches = query === "" || searchText.includes(query);
+        card.classList.toggle("hidden", !matches);
+        if (matches) visibleCount += 1;
+      }
+
+      status.textContent =
+        query === ""
+          ? `Showing ${visibleCount} posts`
+          : `Showing ${visibleCount} post${visibleCount === 1 ? "" : "s"} for "${searchInput.value.trim()}"`;
+      emptyState.classList.toggle("hidden", visibleCount !== 0);
+    };
+
+    searchInput.addEventListener("input", updateSearch);
+    updateSearch();
+  </script>
 </Layout>
