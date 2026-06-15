@@ -7,20 +7,53 @@ interface Props {
 }
 
 const { post } = Astro.props;
+
+const rawBody =
+  "body" in post ? String((post as { body?: string }).body ?? "") : "";
+
+const searchText = [
+  post.data.title,
+  post.data.description,
+  post.data.tags.join(" "),
+  rawBody,
+]
+  .join(" ")
+  .toLowerCase();
+
+const wordsPerMinute = 200;
+const words = (post.body ?? "").replace(/<[^>]*>/g, "").split(/\s+/);
+const wordCount = words.length;
+const readingTime = wordCount / wordsPerMinute;
+const minutes = Math.ceil(readingTime);
 ---
 
 <a
   href={`/post/${post.id}`}
   class="bg-secondary hover:brightness-125 flex h-72 w-[70ch] overflow-hidden"
+  data-search={searchText}
 >
-  <div class="min-w-0 flex-1 p-5">
-    <h3 class="font-mono text-2xl wrap-break-word">{post.data.title}</h3>
-    <p
-      class="mt-2 overflow-hidden text-muted-foreground break-before-all"
-      style="display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 4;"
-    >
-      {post.data.description}
-    </p>
+  <div class="flex min-w-0 flex-1 flex-col p-5">
+    <div>
+      <h3 class="font-mono text-2xl wrap-break-word">{post.data.title}</h3>
+      <p class="text-muted-foreground uppercase font-mono text-sm">
+        {`${minutes} minute read`}
+      </p>
+      <p
+        class="mt-2 overflow-hidden text-muted-foreground break-before-all"
+        style="display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 4;"
+      >
+        {post.data.description}
+      </p>
+    </div>
+    <ul class="mt-auto flex flex-wrap gap-2 pt-4">
+      {
+        post.data.tags.map((tag) => (
+          <li class="border border-border bg-background/60 px-2 py-1 font-mono text-xs uppercase tracking-wide text-muted-foreground">
+            {tag}
+          </li>
+        ))
+      }
+    </ul>
   </div>
   <div class="relative h-full w-60 shrink-0">
     <Image
