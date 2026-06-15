@@ -21,14 +21,6 @@
           >Resources</NavigationMenu.Link
         >
       </NavigationMenu.Item>
-      <span class="font-mono cursor-default mx-4">-</span>
-      <NavigationMenu.Item>
-        <NavigationMenu.Link
-          href="/"
-          class="font-mono text-lg rounded-none px-4"
-          >Sign In</NavigationMenu.Link
-        >
-      </NavigationMenu.Item>
     </NavigationMenu.List>
   </NavigationMenu.Root>
 </div>
