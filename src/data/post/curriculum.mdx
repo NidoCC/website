@@ -1,0 +1,553 @@
+---
+title: "Curriculum"
+description: "A week-by-week description of what we'll be doing in this club."
+authors: ["Hongmeng Zhai"]
+uploaded: 1781631681000
+lastUpdated: 1781631681000
+tags: ["Meta", "Club"] 
+thumbnail: '/images/test-post.jpg'
+---
+
+The design of this curriculum was assisted by AI. This curriculum is subject to change.
+
+---
+
+## PHASE 1: FOUNDATIONS (Weeks 1-10)
+### Goal: Solid grasp of JavaScript/TypeScript fundamentals
+
+---
+
+### **Week 1: Welcome & Setup**
+**Topics:** Club overview, environment setup, "Hello World"
+
+**Activities:**
+- Icebreaker: "What do you want to build?"
+- Install Node.js, VS Code, set up a Git account (GitHub)
+- Create first `.ts` file, run `console.log("Hello, World!")`
+- Brief intro to TypeScript (why we're using it)
+
+**Homework:** Install everything, run a simple TS program
+
+**What to emphasize:** This is collaborative, experimental, and low-pressure.
+
+---
+
+### **Week 2: Variables & Types**
+**Topics:** `let`, `const`, `var` (mostly `let`/`const`), primitive types (string, number, boolean), type annotations
+
+**Activities:**
+- Live code: Create variables, demonstrate type errors
+- Group exercise: Declare variables for a person (name, age, isStudent)
+- Challenge: What happens if you assign the wrong type? (TypeScript catches it!)
+- Quick quiz: Name three primitive types
+
+**Homework:** Create a TypeScript file with 5 variables of different types
+
+**What to emphasize:** TypeScript errors are *helpful*, not scary.
+
+---
+
+### **Week 3: Arithmetic & Operators**
+**Topics:** `+`, `-`, `*`, `/`, `%`, `++`, `--`, comparison operators (`===`, `!==`, `>`, `<`), logical operators (`&&`, `||`, `!`)
+
+**Activities:**
+- Live code: Build a simple calculator (add, subtract, multiply, divide)
+- Group exercise: Write code to check if a number is between 1 and 100
+- Challenge: Combine logical operators ("Is this person a student AND over 18?")
+
+**Homework:** Write a program that checks if a number is even or odd
+
+**What to emphasize:** === vs == (always use ===). Logical operators are powerful.
+
+---
+
+### **Week 4: Strings & Template Literals**
+**Topics:** String concatenation, template literals (`` `Hello ${name}` ``), string methods (`.length`, `.toUpperCase()`, `.slice()`)
+
+**Activities:**
+- Live code: Create a greeting using template literals
+- Group exercise: Write a program that formats user info into a readable string
+- Challenge: Reverse a string using string methods
+
+**Homework:** Create a "Profile" program that uses template literals to display a person's info
+
+**What to emphasize:** Template literals are much cleaner than concatenation.
+
+---
+
+### **Week 5: If Statements & Control Flow**
+**Topics:** `if`, `else if`, `else`, ternary operator (`? :`), switch statements
+
+**Activities:**
+- Live code: Check if a grade is A/B/C/D/F based on a number
+- Group exercise: Age-based messaging ("You're a kid" / "You're a teen" / etc.)
+- Challenge: Nested if statements (age AND grade level)
+- Introduce ternary operator as shorthand
+
+**Homework:** Write a program that tells you if a number is positive, negative, or zero
+
+**What to emphasize:** When to use if vs. ternary. Nesting is okay but keep it readable.
+
+---
+
+### **Week 6: Loops (For & While)**
+**Topics:** `for` loops, `while` loops, `break`, `continue`, loop patterns (counting, summing, searching)
+
+**Activities:**
+- Live code: Print numbers 1-10 using a for loop
+- Live code: Sum all numbers 1-100
+- Group exercise: Find the first number divisible by both 3 and 5
+- Challenge: Nested loops (times table)
+
+**Homework:** Use a loop to create a multiplication table (7 times 7)
+
+**What to emphasize:** Loops are patterns. Recognize when you need them. Infinite loops are dangerous.
+
+---
+
+### **Week 7: Functions (Part 1)**
+**Topics:** Function declarations, parameters, return values, scope, `return` statement
+
+**Activities:**
+- Live code: Write `add(a, b)`, `greet(name)`, `isEven(num)`
+- Group exercise: Write a function that calculates area of a rectangle
+- Challenge: Write a function that takes multiple parameters
+- Introduce local vs. global scope
+
+**Homework:** Write 3 functions (your choice—calculator, string manipulation, etc.)
+
+**What to emphasize:** Functions are reusable chunks of code. Parameters are inputs, return is output.
+
+---
+
+### **Week 8: Functions (Part 2) & Arrow Functions**
+**Topics:** Arrow functions (`=>` syntax), anonymous functions, function expressions, callbacks (intro)
+
+**Activities:**
+- Live code: Rewrite Week 7 functions as arrow functions
+- Comparison: Show both syntaxes side-by-side
+- Group exercise: Write arrow functions for common operations
+- Intro to callbacks: Pass a function as an argument
+
+**Homework:** Rewrite previous functions as arrow functions
+
+**What to emphasize:** Arrow functions are modern, concise, but both syntaxes are valid.
+
+---
+
+### **Week 9: Objects & Arrays (Part 1)**
+**Topics:** Object literals, property access (dot notation, bracket notation), arrays, array indexing, `.length`
+
+**Activities:**
+- Live code: Create a person object with properties
+- Group exercise: Access and modify object properties
+- Create an array of numbers, access elements
+- Challenge: Array of objects (list of people)
+
+**Homework:** Create an object representing yourself, an array of your 5 favorite things
+
+**What to emphasize:** Objects are collections of properties. Arrays are ordered lists. Both are crucial.
+
+---
+
+### **Week 10: Capstone 1 - CLI Tool (Individual Project)**
+**Topics:** Applying everything from Weeks 1-9
+
+**Project:** Build *one* of these:
+- **Calculator:** Take two numbers, perform operations
+- **To-Do List:** Add, remove, list tasks (using an array)
+- **Quiz Game:** Ask questions, track score
+- **Text Adventure:** Simple narrative with choices
+
+**Requirements:**
+- Use variables, functions, loops, conditionals
+- Get user input (using `prompt()` or command-line args)
+- Use at least one object or array
+- Include at least 3 functions
+
+**Deliverable:** Working `.ts` file + 2-min explanation of how it works
+
+**What to emphasize:** This proves they understand fundamentals. Celebrate effort, not perfection.
+
+---
+
+## PHASE 2: WEB FOUNDATIONS (Weeks 11-16)
+### Goal: Understand HTML, CSS, and vanilla JavaScript working together. Build one real web project without a framework.
+
+---
+
+### **Week 11: HTML Basics**
+**Topics:** Document structure, semantic HTML, common tags, forms, accessibility basics
+
+**Activities:**
+- Live code: Build a simple page (header, nav, content, footer)
+- Discuss: Why structure matters (accessibility, SEO, readability)
+- Group exercise: Create a form with text inputs, dropdowns, buttons
+- Challenge: Use semantic tags (`<header>`, `<nav>`, `<main>`, `<footer>`)
+
+**Homework:** Create an HTML page about a hobby you like (3+ sections)
+
+**What to emphasize:** HTML is not just formatting; it's *structure*. Semantic HTML matters.
+
+---
+
+### **Week 12: CSS Fundamentals (Part 1)**
+**Topics:** Selectors, box model (margin, padding, border), colors, fonts, basic layout
+
+**Activities:**
+- Live code: Style the Week 11 HTML page
+- Explain box model visually (draw it)
+- Group exercise: Apply margins, padding, borders to elements
+- Challenge: Style different states (hover, focus)
+
+**Homework:** Style your hobby page with colors, fonts, spacing
+
+**What to emphasize:** Box model is fundamental. Margins and padding are different. Selectors are powerful.
+
+---
+
+### **Week 13: CSS Fundamentals (Part 2) - Flexbox & Grid**
+**Topics:** Flexbox, Grid, responsive design (media queries intro), layout patterns
+
+**Activities:**
+- Live code: Create a navbar using flexbox
+- Live code: Create a 3-column layout using grid
+- Group exercise: Make a responsive card layout
+- Challenge: Combine flexbox and grid
+
+**Homework:** Rebuild your hobby page with better layout using flexbox/grid
+
+**What to emphasize:** Flexbox and grid are powerful. Understand `flex-direction`, `justify-content`, `align-items`. These are the modern way to layout.
+
+---
+
+### **Week 14: JavaScript in the Browser**
+**Topics:** DOM selection (`.getElementById()`, `.querySelector()`), event listeners, basic DOM manipulation (`.textContent`, `.innerHTML`, `.classList`)
+
+**Activities:**
+- Live code: Select an element, change its text
+- Live code: Add a click listener to a button, log something
+- Group exercise: Toggle a class on button click
+- Live code: Show/hide an element
+
+**Homework:** Create a button that changes the background color when clicked
+
+**What to emphasize:** The DOM is just JavaScript objects. You're reading and writing properties.
+
+---
+
+### **Week 15: Guided Project - Weather App (Part 1)**
+**Topics:** Fetching data from APIs, working with JSON, combining HTML/CSS/JS
+
+**Project:** Build a weather app that:
+1. Takes a city name as input
+2. Fetches weather data from a free API (OpenWeatherMap or similar)
+3. Displays the result nicely
+
+**Activities:**
+- Live code: Show how to use `fetch()` and handle promises (basic, not deep)
+- Live code: Parse JSON response
+- Group exercise: Build the HTML structure for the display
+- Guide them to style it
+
+**Deliverable:** Working weather app (you provide API key)
+
+**What to emphasize:** APIs are just URLs that return data. `fetch()` is how you get that data. JSON is just structured data.
+
+---
+
+### **Week 16: Guided Project - Weather App (Part 2) & Wrap-up**
+**Topics:** Error handling, user experience improvements, debugging
+
+**Activities:**
+- Refine the weather app (handle errors, improve UI)
+- Guide them through debugging common issues
+- Celebrate the project
+
+**Homework:** Add a feature (temperature unit toggle, multiple cities, etc.)
+
+**What to emphasize:** Real projects have edge cases. Handling them gracefully is part of development.
+
+---
+
+## PHASE 3: REAL STACKS (Weeks 17-26)
+### Goal: Learn modern web development tools. Build confidence with a real framework.
+
+---
+
+### **Week 17: Introduction to SvelteKit (Part 1)**
+**Topics:** Why frameworks exist, component model, reactive variables, SvelteKit setup
+
+**Activities:**
+- Reflect: "What was tedious in the weather app?" (DOM manipulation, state management, etc.)
+- Explain: "SvelteKit solves these problems"
+- Live code: Create a SvelteKit project, show file structure
+- Live code: Create a simple counter component
+- Emphasize: Reactive assignment (`let count = 0; count++` just works!)
+
+**Homework:** Create a simple counter component in SvelteKit
+
+**What to emphasize:** Variables automatically update the DOM. This is Svelte's magic. Compare to vanilla JS.
+
+---
+
+### **Week 18: Introduction to SvelteKit (Part 2)**
+**Topics:** Props, event handlers, two-way binding, component composition
+
+**Activities:**
+- Live code: Create a `Button` component with props
+- Live code: Handle click events
+- Live code: Use `bind:` for two-way binding
+- Group exercise: Build a simple form component
+
+**Homework:** Create a reusable form component (input + button)
+
+**What to emphasize:** Props are how components talk. Events are how they listen. `bind:` is convenient but optional.
+
+---
+
+### **Week 19: SvelteKit Routing & Pages**
+**Topics:** File-based routing, pages, layouts, `+page.svelte`, nested routes
+
+**Activities:**
+- Live code: Create multiple pages (home, about, contact)
+- Show: How file structure maps to URLs
+- Live code: Create a layout that persists across pages
+- Group exercise: Add pages to a simple site
+
+**Homework:** Create a multi-page site (3+ pages with a shared layout)
+
+**What to emphasize:** File-based routing is automatic. You don't write route configs.
+
+---
+
+### **Week 20: Stores & State Management**
+**Topics:** Svelte stores (writable, derived), context, managing global state
+
+**Activities:**
+- Problem: "How do we share data between pages?" 
+- Introduce stores as the solution
+- Live code: Create a store, subscribe to it, update it
+- Group exercise: Create a "user logged in" store
+
+**Homework:** Build a simple app with a store (e.g., light/dark mode toggle)
+
+**What to emphasize:** Stores are how you manage state that multiple components need. Not magic, just objects.
+
+---
+
+### **Week 21: Server-Side Code & +page.server.js**
+**Topics:** Server vs. client code, `+page.server.js`, loading data on the server, form actions
+
+**Activities:**
+- Explain: "Code in +page.server.js runs on the server"
+- Live code: Load data from an API on the server
+- Compare: Server-side vs. client-side data fetching
+- Group exercise: Create a page that loads data server-side
+
+**Homework:** Rebuild the weather app in SvelteKit (server-side data loading)
+
+**What to emphasize:** Server-side rendering is faster, more secure. SvelteKit makes it easy.
+
+---
+
+### **Week 22: SvelteKit Project - Build Something (Part 1)**
+**Topics:** Putting it all together, planning, architecture
+
+**Activities:**
+- As a group, pick a project (or let them choose):
+  - Task manager
+  - Simple blog
+  - Expense tracker
+  - Movie/book recommendation app
+- Break down the project (pages, components, stores)
+- Start building
+
+**What to emphasize:** Breaking down a project is half the battle. Make a plan before coding.
+
+---
+
+### **Week 23: SvelteKit Project (Part 2)**
+**Activities:**
+- Continue building
+- Help debug
+- Show them common patterns
+
+**What to emphasize:** Debugging framework errors is harder; teach them to read error messages.
+
+---
+
+### **Week 24: SvelteKit Project (Part 3) & Polish**
+**Activities:**
+- Finish project
+- Improve styling, UX
+- Deploy (Vercel makes this easy)
+
+**What to emphasize:** Shipping something real feels amazing.
+
+---
+
+### **Week 25: CSS with Tailwind (Optional but Recommended)**
+**Topics:** Tailwind CSS, utility-first approach, configuration
+
+**Activities:**
+- Explain: "Now that you know CSS, Tailwind is just a shorthand"
+- Live code: Refactor a component using Tailwind
+- Show how much faster styling becomes
+- Group exercise: Style a component with Tailwind
+
+**Homework:** Refactor your SvelteKit project with Tailwind
+
+**What to emphasize:** Tailwind is fast *because* you understand CSS. It's not replacing CSS knowledge; it's accelerating it.
+
+---
+
+### **Week 26: Debugging & DevTools Deep Dive**
+**Topics:** Browser DevTools, reading error messages, debugging strategies, common pitfalls
+
+**Activities:**
+- Live demo: Use DevTools to inspect elements, change styles, debug JS
+- Show: How to read error messages
+- Common pitfalls: async/await, event delegation, reactivity (in Svelte)
+- Group exercise: Debug a broken component
+
+**What to emphasize:** Debugging is a skill. Good debugging habits save hours of frustration.
+
+---
+
+## PHASE 4: INDEPENDENT PROJECTS (Weeks 27-32)
+### Goal: Self-directed learning. Solve a real problem.
+
+---
+
+### **Week 27: Project Planning & Team Formation**
+**Topics:** Ideation, scoping, team dynamics, project planning
+
+**Activities:**
+- Brainstorm: Real problems they want to solve
+- Form teams (2-4 people per team)
+- Each team picks a project and defines scope
+- Create a simple plan (pages, features, timeline)
+
+**Project Constraints:**
+- Must solve a real problem (for them, their school, friends, etc.)
+- Must be completable in 5 weeks
+- Must use SvelteKit
+- Must use at least 2+ stores or server-side data loading
+
+**Your role:** Help them scope (too ambitious is killer)
+
+**What to emphasize:** Smaller projects > ambitious projects that don't ship.
+
+---
+
+### **Week 28: Project Setup & Architecture**
+**Activities:**
+- Each team sets up their SvelteKit project
+- Create the basic file structure
+- Set up components and routes
+- Plan the data model
+
+**Your role:** Review architecture decisions, point out potential issues
+
+**What to emphasize:** Good structure now saves refactoring later.
+
+---
+
+### **Week 29-31: Development (Check-in Weeks)**
+**Activities:**
+- Weekly 15-min check-ins per team
+- They code independently
+- You help debug, answer questions, point toward resources
+- Celebrate progress
+
+**Your role:** 
+- Unblock them when stuck
+- Don't just give answers—guide them to solutions
+- Help them research (documentation, Google, etc.)
+
+**What to emphasize:** This is their project. You're an advisor, not the coder.
+
+---
+
+### **Week 32: Demo & Celebration**
+**Activities:**
+- Each team gives a 5-min presentation:
+  - What problem does it solve?
+  - How does it work?
+  - Lessons learned
+  - Live demo
+- Celebrate what they built
+
+**What to emphasize:** They shipped real software. That's impressive.
+
+---
+
+## SUPPORTING STRUCTURE (Throughout the Year)
+
+### **Meeting Format (45-60 min)**
+- **5-10 min:** Welcome, recap last week
+- **20-30 min:** Concept teaching (live coding, Q&A)
+- **15-25 min:** Guided exercises (everyone codes)
+- **5-10 min:** Wrap-up, homework, next week preview
+
+### **Homework Expectations**
+- Weeks 1-10: Small exercises (15-30 min)
+- Weeks 11-16: Guided projects (30-45 min)
+- Weeks 17-26: Project work (45-60 min)
+- Weeks 27-32: Team projects (independent)
+
+### **Resources to Curate**
+- MDN Web Docs (JavaScript, HTML, CSS)
+- SvelteKit documentation (official)
+- TypeScript handbook (basics section)
+- Tailwind CSS docs
+- YouTube channels: Traversy Media, NetNinja, Web Dev Simplified
+- Create a club Discord/Slack for async help
+
+### **Assessment (Low-Pressure)**
+- Week 10: Capstone project (individual)
+- Weeks 15-16: Weather app (guided)
+- Week 24: SvelteKit project (group)
+- Week 32: Final project (group + presentation)
+
+No grades, just progress checks and celebrations.
+
+---
+
+## Teaching Tips Throughout
+
+1. **Live code everything.** Students learn by watching and doing.
+2. **Make mistakes intentionally.** Show bugs and how to debug them.
+3. **Connect concepts:** "Remember when we did X in vanilla JS? Here's how SvelteKit does it."
+4. **Celebrate struggles:** "Good debugging questions!"
+5. **Normalize "I don't know":** Model research and learning.
+6. **Keep it fun:** Encourage experimenting and playing with code.
+7. **Share learnings:** Ask students to present solutions to problems.
+
+---
+
+## Potential Adjustments
+
+**If the club is faster than expected:**
+- Add extra topics (TypeScript depth, testing, database intro)
+- Tackle side projects (game dev with Three.js, design system, etc.)
+- Explore additional frameworks (React, Vue, etc.)
+
+**If the club needs more time:**
+- Extend foundational phases
+- Reduce Tailwind to a brief intro
+- Give more scaffolding on the final project
+
+**For divergers (design, game dev, backend):**
+- Game dev track: Introduce Phaser or Three.js in Week 25-26
+- Design track: Pair with developers, teach Figma
+- Backend track: Introduce Node.js/Express or Deno alongside SvelteKit
+
+---
+
+## One More Thing
+
+This syllabus is a *guide*, not a contract. You'll learn what works for your group and adjust. That's good teaching.
+
+The goal isn't to follow this perfectly; it's to move through JavaScript → web tech → real projects → independence.
