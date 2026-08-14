@@ -3,7 +3,7 @@ title: "Setting up a TypeScript project with Node.js"
 description: "Week 1 (HW): Node.js can only run JavaScript. Let's teach it to run TypeScript instead!"
 authors: ["Hongmeng Zhai"]
 uploaded: 1786644950000
-lastUpdated: 1786644950000
+lastUpdated: 1786729028000
 tags: ["Week 1", "Homework"] 
 thumbnail: '/images/test-post.jpg'
 ---
@@ -36,7 +36,7 @@ npm i -D tsx
 ```
 
 * Let's cover what `npm`, `init`, `i`, `-y`, `-D`, and `tsx` mean
-* `npm` is the name of the *binary* that we're running. The rest of the things we're putting after it are called *arguments*
+* `npm` is the name of the tool/command we're using/running. The rest of the things we're putting after it are called *arguments*
 * `init` stands for *initialize*. It, well, initializes a new Node project
 * `i` is a shorthand for `install`. You could run the following and you'd get the same result:
 ```bash title="Using npm install instead of npm i"
@@ -57,7 +57,7 @@ console.log("Hello, world!")
 
 10. Make sure to save your file after by pressing `⌘ + S`.
 
-11. Back in your terminal (`Ctrl + Shift + =`), type:
+11. Back in your terminal (`Ctrl + Shift + =`), type the following and replace `<the name of your file>` (including the angled brackets):
 
 ```bash
 npx tsx <the name of your file>
@@ -81,3 +81,17 @@ For this article, the main thing I will assume people will wonder about is the w
 If you've been into coding before, you've probably heard of the term "compile". Compiling involves 4 overall steps and ends up with binary code, machine code, or bytecode that you can run on your computer.
 
 Transpiling, on the other hand, does not end up with machine code. You end up with some code but in another language. For example, you *usually* can't run TypeScript natively, but you can run JavaScript natively in most cases (browsers, Node, etc.), so you transpile TypeScript code to JavaScript code to then be executed. This is because Node and browsers can't "understand" TypeScript.
+
+## Troubleshooting
+
+1. `zsh: command not found: npm`
+
+* You forgot to install npm, or it wasn't found in your path. If you install Node and the issue persists, shoot Zhai (fanhongmeng.zhai@students.nido.cl) a Google Chat message!
+
+2. After I run `npx tsx <filename>`, nothing appears!
+
+* Did you make sure to save your file (by pressing `⌘ + S`)?
+
+3. I don't understand!/I got lost!
+
+* Shoot me a G Chat, I'll try my best to answer before the next meeting.
