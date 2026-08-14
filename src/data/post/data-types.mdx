@@ -1,0 +1,115 @@
+---
+title: "Data Types, Arithmetics, and Comparison"
+description: "Week 2 (Content): What are types? How can we do arithmetic? How do we compare variables?"
+authors: ["Hongmeng Zhai"]
+uploaded: 1786644950000
+lastUpdated: 1786729028000
+tags: ["Week 2"] 
+thumbnail: '/images/test-post.jpg'
+---
+
+Before we start, let's learn about comments. They're denoted by a double forward slash (`//`) and everything in the line after the double slash will NOT be executed as part of the code.
+
+```ts
+// this is a comment! it's greyed out.
+```
+
+## Data Types
+
+Variables store data. They can store numbers, text, etc. And so you could conclude that there are different *types* of data.
+
+Some of the primitive data types that we'll be using are:
+
+* Numbers
+
+```ts
+let age: number = 17;
+```
+
+* Strings (text)
+
+```ts
+let surname: string = "Zhai";
+```
+
+* Booleans
+
+```ts
+let isStudent: boolean = true;
+```
+
+The colon (`:`) after the variable name tells you that the next part of the variable definition will tell you about its type.
+
+You can also omit the type annotation (a.k.a. the colon and the data type), and make TypeScript *infer* the data type by checking "what's being assigned to this variable?"
+
+## Arithmetic Operators
+
+They do basic math! Here's a list:
+
+```ts
+let x = 10;
+let y = 3;
+
+console.log(x + y); // addition -> 13
+console.log(x - y); // substraction -> 7
+console.log(x * y); // multiplication -> 30
+console.log(x / y); // division -> 3.333...
+console.log(x % y); // modulus -> 1
+```
+
+You've most likely heard of the first 4, but what is a *modulus*?
+
+The modulus operator divides the first term by the second and gives (returns) the remainder of that division.
+
+For example, we have a pizza with 10 slices (`let x = 10`), 2 people, and each person gets 3 slices (`let y = 3`). There has to be 1 (`x % y === 1`) slice leftover!
+
+Oops, I may have spoiled what's coming up by using that `==`.
+
+## Comparison Operators
+
+There are a bunch of comparison operators.
+
+```ts
+let age = 17;
+
+console.log(age > 13); // -> true; 17 is greater than 13
+console.log(age < 13); // -> false; 17 is not less than 13
+
+console.log(age === 17); // -> true; 17 equals 17
+console.log(age === 13); // -> false; 17 does not equal 13
+
+console.log(age !== 13); // -> true; 17 does not equal 13
+console.log(age !== 17); // -> false; 17 does NOT not equal 17
+
+console.log(age <= 17); // -> true; 17 is less OR equal than 17
+console.log(age >= 18); // -> false; 17 is not greater OR equal than 17
+```
+
+Using a comparison operator **always** results in a boolean data type.
+
+## Homework (Optional)
+
+Place this into your `main.ts`. Think about what each line does and the results of the program **before** running it.
+
+```ts
+// create variables of each type
+let myName = "YOUR_NAME";  // replace with your name
+let myAge = YOUR_AGE;      // replace with your age
+let isStudent = true;      // you might be a student!
+
+// do some arithmetic
+console.log(myAge + 5);    // what's your age in 5 years?
+console.log(myAge * 2);    // double your age
+console.log(10 % 3);       // what's 10 divided by 3 with remainder?
+
+// do some comparisons
+console.log(myAge > 13);   // are you older than 13?
+console.log(myAge === 15); // are you exactly 15?
+console.log("Alice" !== "Bob");  // are these different names?
+
+// (optional):
+// can you figure out what this does?
+let result = (20 + 5) * 2;
+console.log(result);  // what do you think this outputs?
+```
+
