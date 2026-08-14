@@ -3,551 +3,854 @@ title: "Curriculum"
 description: "A week-by-week description of what we'll be doing in this club."
 authors: ["Hongmeng Zhai"]
 uploaded: 1781631681000
-lastUpdated: 1781631681000
+lastUpdated: 1786644950000
 tags: ["Meta", "Club"] 
 thumbnail: '/images/test-post.jpg'
 ---
 
-The design of this curriculum was assisted by AI. This curriculum is subject to change.
+The design and creation of this curriculum was assisted by AI. This is subject to change.
+
+# Coding Club Curriculum: Week-by-Week (Revised)
+## 2026-2027 School Year | Start Date: August 24, 2026
+### 24-26 Active Teaching Weeks | Focus: Level-Setting for Collaborative Projects
+
+**Overall Goal:** Get everyone to the same level (JavaScript fundamentals + basic web skills) so the club can work on real projects together.
+
+**End-of-Year Deliverable:** Team-built web app/website solving a real problem.
 
 ---
 
-## PHASE 1: FOUNDATIONS (Weeks 1-10)
-### Goal: Solid grasp of JavaScript/TypeScript fundamentals
+## PHASE 1: FOUNDATIONS (8 Weeks)
+### August 24 - October 16, 2026
+**Goal:** Solid JavaScript/TypeScript fundamentals—everyone at the same level
 
 ---
 
-### **Week 1: Welcome & Setup**
-**Topics:** Club overview, environment setup, "Hello World"
+## **Week 1: August 24-30, 2026**
+### Welcome & Setup + First Variables
+
+**Topics:**
+- Club overview and expectations
+- Environment setup (Node.js, VS Code, Git/GitHub)
+- Variables (`let`, `const`)
+- Simple assignments
 
 **Activities:**
-- Icebreaker: "What do you want to build?"
-- Install Node.js, VS Code, set up a Git account (GitHub)
-- Create first `.ts` file, run `console.log("Hello, World!")`
-- Brief intro to TypeScript (why we're using it)
+- Icebreaker (5 min): Names, grade, previous coding experience, what they want to build
+- Club expectations (3 min): Show up, good attitude, no phones
+- Install Node.js and VS Code (15 min): Help troubleshoot
+- GitHub setup (3 min): Collect emails, invite to org after
+- Hello World in TypeScript (15 min): Follow your existing process
+- One simple variable (4 min): `let name = "YOUR_NAME"` and `console.log(name)`
 
-**Homework:** Install everything, run a simple TS program
+**Homework:**
+- Make sure everything installs
+- Create 3 variables with meaningful names
 
-**What to emphasize:** This is collaborative, experimental, and low-pressure.
-
----
-
-### **Week 2: Variables & Types**
-**Topics:** `let`, `const`, `var` (mostly `let`/`const`), primitive types (string, number, boolean), type annotations
-
-**Activities:**
-- Live code: Create variables, demonstrate type errors
-- Group exercise: Declare variables for a person (name, age, isStudent)
-- Challenge: What happens if you assign the wrong type? (TypeScript catches it!)
-- Quick quiz: Name three primitive types
-
-**Homework:** Create a TypeScript file with 5 variables of different types
-
-**What to emphasize:** TypeScript errors are *helpful*, not scary.
+**Teaching Notes:**
+- Don't try to cover too much—setup is the main goal
+- They'll feel accomplished just running code
+- One variable is enough for Week 1
 
 ---
 
-### **Week 3: Arithmetic & Operators**
-**Topics:** `+`, `-`, `*`, `/`, `%`, `++`, `--`, comparison operators (`===`, `!==`, `>`, `<`), logical operators (`&&`, `||`, `!`)
+## **Week 2: August 31 - September 6, 2026**
+### Data Types & Operators (Part 1)
+
+**Topics:**
+- Data types (string, number, boolean) — formalize it
+- Arithmetic operators (`+`, `-`, `*`, `/`, `%`)
+- Comparison operators (`===`, `!==`, `>`, `<`, `>=`, `<=`)
 
 **Activities:**
-- Live code: Build a simple calculator (add, subtract, multiply, divide)
-- Group exercise: Write code to check if a number is between 1 and 100
-- Challenge: Combine logical operators ("Is this person a student AND over 18?")
+- Live code: Create variables of each type, show what they look like
+- Explain: "TypeScript cares about what type things are"
+- Live code: Arithmetic on numbers
+- Group exercise: Do some calculations together
+- Live code: Comparison operators make booleans
+- Challenge: Predict what `5 > 3` returns
 
-**Homework:** Write a program that checks if a number is even or odd
+**Homework:**
+- Create variables of each type
+- Do some arithmetic and comparisons
+- Write comments explaining what each line does
 
-**What to emphasize:** === vs == (always use ===). Logical operators are powerful.
+**Teaching Notes:**
+- Data types are fundamental
+- Comparisons create booleans—show this explicitly
+- Modulus is confusing; use the pizza/clock analogy
+- Don't go deep on TypeScript yet; just show it catches mistakes
 
 ---
 
-### **Week 4: Strings & Template Literals**
-**Topics:** String concatenation, template literals (`` `Hello ${name}` ``), string methods (`.length`, `.toUpperCase()`, `.slice()`)
+## **Week 3: September 7-13, 2026**
+### Strings, Template Literals & Logical Operators
+
+**Topics:**
+- String methods (`.length`, `.toUpperCase()`, `.toLowerCase()`, `.slice()`)
+- Template literals (`` `Hello ${name}` ``)
+- Logical operators (`&&`, `||`, `!`)
 
 **Activities:**
-- Live code: Create a greeting using template literals
-- Group exercise: Write a program that formats user info into a readable string
-- Challenge: Reverse a string using string methods
+- Live code: Use string methods on variables
+- Show: Template literals vs. concatenation (side-by-side)
+- Group exercise: Create a greeting using template literals
+- Explain: Logical operators combine booleans
+- Live code: `true && false`, `true || false`, `!true`
+- Challenge: Combine comparison operators with logical operators
 
-**Homework:** Create a "Profile" program that uses template literals to display a person's info
+**Homework:**
+- Use string methods on different strings
+- Create a formatted message using template literals
+- Predict the output of logical operator combinations
 
-**What to emphasize:** Template literals are much cleaner than concatenation.
+**Teaching Notes:**
+- Template literals are powerful—show why they're better than `+`
+- Logical operators take practice; do several live examples
+- String methods are just function calls on data
+- Don't worry about all string methods; show the most common ones
 
 ---
 
-### **Week 5: If Statements & Control Flow**
-**Topics:** `if`, `else if`, `else`, ternary operator (`? :`), switch statements
+## **Week 4: September 14-20, 2026**
+### Control Flow: If/Else & Ternary
+
+**Topics:**
+- `if`, `else if`, `else` statements
+- Ternary operator (`condition ? trueValue : falseValue`)
+- Nested conditionals (brief)
 
 **Activities:**
-- Live code: Check if a grade is A/B/C/D/F based on a number
-- Group exercise: Age-based messaging ("You're a kid" / "You're a teen" / etc.)
-- Challenge: Nested if statements (age AND grade level)
-- Introduce ternary operator as shorthand
+- Live code: Grade checker (score → A/B/C/D/F)
+- Live code: Age-based messaging
+- Group exercise: Write if/else for a simple problem
+- Introduce ternary as shorthand
+- Live code: Rewrite an if/else as ternary
+- Challenge: Nested conditions (age AND grade level)
 
-**Homework:** Write a program that tells you if a number is positive, negative, or zero
+**Homework:**
+- Write an if/else program for something meaningful
+- Rewrite part of it using ternary operators
 
-**What to emphasize:** When to use if vs. ternary. Nesting is okay but keep it readable.
+**Teaching Notes:**
+- If/else is fundamental—take time here
+- Ternary is syntax sugar; if is clearer for complex logic
+- Nesting is okay but readability matters
+- Show how indentation makes code readable
 
 ---
 
-### **Week 6: Loops (For & While)**
-**Topics:** `for` loops, `while` loops, `break`, `continue`, loop patterns (counting, summing, searching)
+## **Week 5: September 21-27, 2026**
+### Loops: For & While
+
+**Topics:**
+- `for` loops (syntax and patterns)
+- `while` loops
+- `break` and `continue`
+- Common loop patterns (counting, summing, finding)
 
 **Activities:**
-- Live code: Print numbers 1-10 using a for loop
+- Live code: Print numbers 1-10 with a for loop
 - Live code: Sum all numbers 1-100
-- Group exercise: Find the first number divisible by both 3 and 5
-- Challenge: Nested loops (times table)
+- Live code: Find first number divisible by 3 and 5
+- Group exercise: Write a loop to do something simple
+- Live code: When to use while vs. for
+- Challenge: Nested loops or break/continue
 
-**Homework:** Use a loop to create a multiplication table (7 times 7)
+**Homework:**
+- Write a for loop that does something meaningful
+- Write a while loop for something else
+- Experiment with break and continue
 
-**What to emphasize:** Loops are patterns. Recognize when you need them. Infinite loops are dangerous.
+**Teaching Notes:**
+- Loops are a pattern—help them recognize when they need them
+- Infinite loops are dangerous but instructive; let them experience one briefly
+- Off-by-one errors are common; help them debug
+- Nested loops are confusing; don't overuse
 
 ---
 
-### **Week 7: Functions (Part 1)**
-**Topics:** Function declarations, parameters, return values, scope, `return` statement
+## **Week 6: October 5-11, 2026**
+### Functions (Part 1): Declarations & Scope
+
+**Topics:**
+- Function declarations (`function greet(name) { }`)
+- Parameters and return values
+- Scope (local vs. global)
+- Why functions matter (reusability, organization)
 
 **Activities:**
-- Live code: Write `add(a, b)`, `greet(name)`, `isEven(num)`
-- Group exercise: Write a function that calculates area of a rectangle
-- Challenge: Write a function that takes multiple parameters
-- Introduce local vs. global scope
+- Live code: Write simple functions (`add`, `greet`, `isEven`)
+- Explain: Functions are reusable chunks of code
+- Group exercise: Write a function with multiple parameters
+- Live code: Show what happens without a return
+- Explain scope: Which variables can be accessed where?
+- Challenge: Function that calls another function
 
-**Homework:** Write 3 functions (your choice—calculator, string manipulation, etc.)
+**Homework:**
+- Write 3-4 functions of your choice
+- Comment what each function does
 
-**What to emphasize:** Functions are reusable chunks of code. Parameters are inputs, return is output.
+**Teaching Notes:**
+- Functions are fundamental to programming
+- Parameters are inputs, return is output—use this language
+- Scope is confusing; use visual examples or diagrams
+- They don't need to master functions yet; they'll use them constantly
 
 ---
 
-### **Week 8: Functions (Part 2) & Arrow Functions**
-**Topics:** Arrow functions (`=>` syntax), anonymous functions, function expressions, callbacks (intro)
+## **Week 7: October 12-18, 2026**
+### Functions (Part 2): Arrow Functions & Array Methods
+
+**Topics:**
+- Arrow functions (`const add = (a, b) => a + b`)
+- Anonymous functions
+- Callbacks (introduction)
+- Array methods (`.map()`, `.filter()`, `.forEach()`)
 
 **Activities:**
-- Live code: Rewrite Week 7 functions as arrow functions
-- Comparison: Show both syntaxes side-by-side
-- Group exercise: Write arrow functions for common operations
-- Intro to callbacks: Pass a function as an argument
+- Live code: Rewrite Week 6 functions as arrow functions
+- Show: Both syntaxes side-by-side
+- Introduce callbacks: "A function as an argument"
+- Live code: `.forEach()` to loop through array
+- Live code: `.map()` to transform array
+- Live code: `.filter()` to get subset of array
+- Challenge: Chain methods together
 
-**Homework:** Rewrite previous functions as arrow functions
+**Homework:**
+- Rewrite functions as arrow functions
+- Use array methods on a list
 
-**What to emphasize:** Arrow functions are modern, concise, but both syntaxes are valid.
+**Teaching Notes:**
+- Arrow functions are modern; both syntaxes are valid
+- Callbacks are powerful but take practice
+- Array methods are used constantly in real projects
+- Don't require `.reduce()`; it's advanced
+- This sets them up for SvelteKit later
 
 ---
 
-### **Week 9: Objects & Arrays (Part 1)**
-**Topics:** Object literals, property access (dot notation, bracket notation), arrays, array indexing, `.length`
+## **Week 8: October 19-25, 2026**
+### Objects & Arrays: The Full Picture
+
+**Topics:**
+- Object literals (properties and methods)
+- Arrays of objects
+- Accessing nested data
+- Combining loops with objects/arrays
 
 **Activities:**
 - Live code: Create a person object with properties
-- Group exercise: Access and modify object properties
-- Create an array of numbers, access elements
-- Challenge: Array of objects (list of people)
+- Live code: Create an array of people (array of objects)
+- Group exercise: Access nested data (`people[0].name`)
+- Live code: Add a method to an object
+- Challenge: Use loops/array methods with objects
 
-**Homework:** Create an object representing yourself, an array of your 5 favorite things
+**Homework:**
+- Create an array of objects representing something meaningful
+- Use array methods to find/transform/display them
 
-**What to emphasize:** Objects are collections of properties. Arrays are ordered lists. Both are crucial.
+**Teaching Notes:**
+- Objects and arrays are the foundation of data structure
+- Arrays of objects are how real data is organized
+- Accessing nested data is crucial for real projects
+- This is hard; go slow and use lots of examples
 
 ---
 
-### **Week 10: Capstone 1 - CLI Tool (Individual Project)**
-**Topics:** Applying everything from Weeks 1-9
+## **Week 9: October 26 - November 1, 2026**
+### Capstone 1: Individual CLI Project
 
-**Project:** Build *one* of these:
+**Topics:** Applying Weeks 1-8 fundamentals
+
+**Project:** Build ONE of these:
 - **Calculator:** Take two numbers, perform operations
-- **To-Do List:** Add, remove, list tasks (using an array)
+- **To-Do List:** Add, remove, list tasks (array of objects)
 - **Quiz Game:** Ask questions, track score
-- **Text Adventure:** Simple narrative with choices
+- **Text Adventure:** Narrative with choices
 
 **Requirements:**
-- Use variables, functions, loops, conditionals
-- Get user input (using `prompt()` or command-line args)
+- Use variables, functions, loops, conditionals, operators
 - Use at least one object or array
-- Include at least 3 functions
-
-**Deliverable:** Working `.ts` file + 2-min explanation of how it works
-
-**What to emphasize:** This proves they understand fundamentals. Celebrate effort, not perfection.
-
----
-
-## PHASE 2: WEB FOUNDATIONS (Weeks 11-16)
-### Goal: Understand HTML, CSS, and vanilla JavaScript working together. Build one real web project without a framework.
-
----
-
-### **Week 11: HTML Basics**
-**Topics:** Document structure, semantic HTML, common tags, forms, accessibility basics
+- Get user input
+- Handle edge cases
 
 **Activities:**
-- Live code: Build a simple page (header, nav, content, footer)
-- Discuss: Why structure matters (accessibility, SEO, readability)
-- Group exercise: Create a form with text inputs, dropdowns, buttons
-- Challenge: Use semantic tags (`<header>`, `<nav>`, `<main>`, `<footer>`)
+- Help them choose a project
+- Break it into steps (planning is key)
+- Individual work with you as guide
+- Debug together
 
-**Homework:** Create an HTML page about a hobby you like (3+ sections)
+**Deliverable:**
+- Working `.ts` file
+- 2-minute explanation
 
-**What to emphasize:** HTML is not just formatting; it's *structure*. Semantic HTML matters.
+**Your Role:**
+- Ask guiding questions, don't give answers
+- Help them plan before coding
+- Celebrate effort and problem-solving
+
+**Teaching Notes:**
+- This proves they understand Phase 1
+- Some will finish early; give stretch challenges
+- Some will struggle; that's normal
+- This is their first real achievement—celebrate it!
 
 ---
 
-### **Week 12: CSS Fundamentals (Part 1)**
-**Topics:** Selectors, box model (margin, padding, border), colors, fonts, basic layout
+## PHASE 2: WEB FUNDAMENTALS (4 Weeks)
+### November 2 - November 29, 2026
+**Goal:** Learn HTML, CSS, and vanilla JavaScript working together
+
+**Note:** Thanksgiving week (Nov 26-27) will have reduced attendance. Plan accordingly.
+
+---
+
+## **Week 10: November 2-8, 2026**
+### HTML & CSS Basics
+
+**Topics:**
+- HTML structure (semantic tags, common elements)
+- CSS selectors and properties
+- Box model (margin, padding, border)
+- Basic layout (flexbox intro)
 
 **Activities:**
-- Live code: Style the Week 11 HTML page
-- Explain box model visually (draw it)
-- Group exercise: Apply margins, padding, borders to elements
-- Challenge: Style different states (hover, focus)
+- Live code: Build a simple page (header, nav, main, footer)
+- Show: Why semantic HTML matters
+- Live code: Style it with CSS
+- Explain box model visually
+- Group exercise: Apply margins, padding, borders
+- Challenge: Use flexbox for layout
 
-**Homework:** Style your hobby page with colors, fonts, spacing
+**Homework:**
+- Create an HTML page with semantic tags
+- Style it with CSS (colors, fonts, spacing)
 
-**What to emphasize:** Box model is fundamental. Margins and padding are different. Selectors are powerful.
-
----
-
-### **Week 13: CSS Fundamentals (Part 2) - Flexbox & Grid**
-**Topics:** Flexbox, Grid, responsive design (media queries intro), layout patterns
-
-**Activities:**
-- Live code: Create a navbar using flexbox
-- Live code: Create a 3-column layout using grid
-- Group exercise: Make a responsive card layout
-- Challenge: Combine flexbox and grid
-
-**Homework:** Rebuild your hobby page with better layout using flexbox/grid
-
-**What to emphasize:** Flexbox and grid are powerful. Understand `flex-direction`, `justify-content`, `align-items`. These are the modern way to layout.
+**Teaching Notes:**
+- Don't spend too long on HTML details
+- CSS is more important for projects
+- Flexbox is enough for basic layouts
+- They don't need to be CSS experts; just functional
 
 ---
 
-### **Week 14: JavaScript in the Browser**
-**Topics:** DOM selection (`.getElementById()`, `.querySelector()`), event listeners, basic DOM manipulation (`.textContent`, `.innerHTML`, `.classList`)
+## **Week 11: November 9-15, 2026**
+### JavaScript in the Browser & DOM
+
+**Topics:**
+- Selecting elements (`.querySelector()`, `.getElementById()`)
+- Manipulating content (`.textContent`, `.innerHTML`)
+- Event listeners (`.addEventListener()`)
+- Manipulating classes (`.classList.add()`, `.classList.remove()`)
 
 **Activities:**
 - Live code: Select an element, change its text
-- Live code: Add a click listener to a button, log something
+- Live code: Add a click listener to a button
 - Group exercise: Toggle a class on button click
-- Live code: Show/hide an element
+- Live code: Show/hide elements
+- Challenge: Multiple interactions
 
-**Homework:** Create a button that changes the background color when clicked
+**Homework:**
+- Create a button that does something when clicked
+- Create a toggle that shows/hides content
 
-**What to emphasize:** The DOM is just JavaScript objects. You're reading and writing properties.
+**Teaching Notes:**
+- The DOM is just JavaScript objects
+- Selectors are the same as CSS
+- Events are how user interactions trigger code
+- Keep it simple; they don't need advanced DOM manipulation
 
 ---
 
-### **Week 15: Guided Project - Weather App (Part 1)**
-**Topics:** Fetching data from APIs, working with JSON, combining HTML/CSS/JS
+## **Week 12: November 16-22, 2026**
+### Guided Mini-Project: Weather App (Part 1)
+
+**Topics:**
+- Fetching data from APIs (`fetch()`)
+- Parsing JSON
+- Combining HTML, CSS, JavaScript
 
 **Project:** Build a weather app that:
-1. Takes a city name as input
-2. Fetches weather data from a free API (OpenWeatherMap or similar)
-3. Displays the result nicely
+1. Takes city name as input
+2. Fetches weather from OpenWeatherMap (free)
+3. Displays results nicely
 
 **Activities:**
-- Live code: Show how to use `fetch()` and handle promises (basic, not deep)
+- Live code: Show `fetch()` and how to use it
 - Live code: Parse JSON response
-- Group exercise: Build the HTML structure for the display
+- Build HTML structure together
 - Guide them to style it
+- Test together
 
-**Deliverable:** Working weather app (you provide API key)
+**Deliverable:**
+- Working weather app
 
-**What to emphasize:** APIs are just URLs that return data. `fetch()` is how you get that data. JSON is just structured data.
+**Your Role:**
+- Provide scaffolding code
+- Help debug
+- Guide, don't code it for them
+
+**Teaching Notes:**
+- APIs are just URLs returning data
+- Don't go deep on promises; just use them
+- Error handling can wait
+- This shows what's possible!
 
 ---
 
-### **Week 16: Guided Project - Weather App (Part 2) & Wrap-up**
-**Topics:** Error handling, user experience improvements, debugging
+## **Week 13: November 23-29, 2026**
+### Guided Mini-Project: Weather App (Part 2) & Wrap-up
+
+**Note:** Thanksgiving week—reduced attendance likely. Keep it short and celebratory.
 
 **Activities:**
-- Refine the weather app (handle errors, improve UI)
-- Guide them through debugging common issues
+- Refine weather app together
+- Add error handling basics
+- Improve UI/UX
 - Celebrate the project
 
-**Homework:** Add a feature (temperature unit toggle, multiple cities, etc.)
+**Deliverable:**
+- Polished weather app
 
-**What to emphasize:** Real projects have edge cases. Handling them gracefully is part of development.
+**Teaching Notes:**
+- This completes Phase 2
+- Everyone now understands vanilla web development
+- They're ready for SvelteKit (which solves the pain points they just felt)
+- Celebrate! They've built something real.
 
 ---
 
-## PHASE 3: REAL STACKS (Weeks 17-26)
-### Goal: Learn modern web development tools. Build confidence with a real framework.
+## PHASE 3: SVELTEKIT FUNDAMENTALS (6 Weeks)
+### November 30, 2026 - January 9, 2027
+**Goal:** Learn SvelteKit. Get everyone comfortable building apps.
+
+**Note:** Winter break (Dec 22 - Jan 1) cuts this phase short. Real teaching time: ~4.5 weeks.
 
 ---
 
-### **Week 17: Introduction to SvelteKit (Part 1)**
-**Topics:** Why frameworks exist, component model, reactive variables, SvelteKit setup
+## **Week 14: November 30 - December 6, 2026**
+### Introduction to SvelteKit
+
+**Topics:**
+- Why frameworks exist (recap vanilla JS pain points)
+- Component-based architecture
+- Reactive variables in Svelte
+- SvelteKit project setup
 
 **Activities:**
-- Reflect: "What was tedious in the weather app?" (DOM manipulation, state management, etc.)
+- Reflect: "What was annoying about the weather app?"
 - Explain: "SvelteKit solves these problems"
-- Live code: Create a SvelteKit project, show file structure
-- Live code: Create a simple counter component
-- Emphasize: Reactive assignment (`let count = 0; count++` just works!)
+- Live code: Create a SvelteKit project
+- Show project structure
+- Live code: Simple counter component
+- Key insight: `let count = 0; count++` just works!
 
-**Homework:** Create a simple counter component in SvelteKit
+**Homework:**
+- Set up a SvelteKit project
+- Create a simple counter
 
-**What to emphasize:** Variables automatically update the DOM. This is Svelte's magic. Compare to vanilla JS.
+**Teaching Notes:**
+- Frameworks solve real problems they already felt
+- Reactivity is Svelte's magic; emphasize this
+- Don't go deep on configuration; just show it works
 
 ---
 
-### **Week 18: Introduction to SvelteKit (Part 2)**
-**Topics:** Props, event handlers, two-way binding, component composition
+## **Week 15: December 7-13, 2026**
+### Components & Props
+
+**Topics:**
+- Component files (`.svelte`)
+- Props (passing data between components)
+- Event handlers
+- Two-way binding (`bind:`)
 
 **Activities:**
 - Live code: Create a `Button` component with props
 - Live code: Handle click events
-- Live code: Use `bind:` for two-way binding
-- Group exercise: Build a simple form component
+- Live code: Use `bind:value` on input
+- Group exercise: Build a reusable form component
+- Challenge: Compose multiple components
 
-**Homework:** Create a reusable form component (input + button)
+**Homework:**
+- Create a reusable component
+- Use it in different ways
 
-**What to emphasize:** Props are how components talk. Events are how they listen. `bind:` is convenient but optional.
+**Teaching Notes:**
+- Props are how components communicate
+- Binding is convenient but optional
+- Component composition is powerful
+- Keep it simple; they just need the basics
 
 ---
 
-### **Week 19: SvelteKit Routing & Pages**
-**Topics:** File-based routing, pages, layouts, `+page.svelte`, nested routes
+## **Week 16: December 14-20, 2026**
+### Routing & Pages
+
+**Topics:**
+- File-based routing
+- Pages (`+page.svelte`)
+- Layouts (`+layout.svelte`)
+- Navigation between pages
 
 **Activities:**
-- Live code: Create multiple pages (home, about, contact)
-- Show: How file structure maps to URLs
-- Live code: Create a layout that persists across pages
-- Group exercise: Add pages to a simple site
+- Live code: Create multiple pages
+- Show: File structure = URL structure
+- Live code: Create a shared layout
+- Group exercise: Build a multi-page site
+- Challenge: Nested routes
 
-**Homework:** Create a multi-page site (3+ pages with a shared layout)
+**Homework:**
+- Create a 3+ page site with shared layout
 
-**What to emphasize:** File-based routing is automatic. You don't write route configs.
+**Teaching Notes:**
+- File-based routing is automatic
+- Layouts avoid code duplication
+- This is starting to feel like real web development
 
 ---
 
-### **Week 20: Stores & State Management**
-**Topics:** Svelte stores (writable, derived), context, managing global state
+## **Week 17: December 21 - January 3, 2027**
+### WINTER BREAK
+**No meetings**
+
+**Optional for interested students:**
+- Explore SvelteKit docs
+- Build a small project
+- Practice component creation
+
+---
+
+## **Week 18: January 4-10, 2027**
+### Stores & Data Sharing
+
+**Topics:**
+- Svelte stores (writable stores)
+- Sharing data across pages
+- Updating stores from components
 
 **Activities:**
-- Problem: "How do we share data between pages?" 
-- Introduce stores as the solution
-- Live code: Create a store, subscribe to it, update it
-- Group exercise: Create a "user logged in" store
+- Problem: "How do we share data between pages?"
+- Solution: Stores
+- Live code: Create a store, use it
+- Live code: Update a store
+- Group exercise: Build a simple app with shared state (todo list, preferences, etc.)
 
-**Homework:** Build a simple app with a store (e.g., light/dark mode toggle)
+**Homework:**
+- Create an app using a store
 
-**What to emphasize:** Stores are how you manage state that multiple components need. Not magic, just objects.
+**Teaching Notes:**
+- Stores solve real problems (prop drilling)
+- Not magic, just a pattern
+- This is crucial for group projects later
 
 ---
 
-### **Week 21: Server-Side Code & +page.server.js**
-**Topics:** Server vs. client code, `+page.server.js`, loading data on the server, form actions
+## **Week 19: January 11-17, 2027**
+### Server-Side Code Basics
+
+**Topics:**
+- Server vs. client code
+- `+page.server.js` for data loading
+- Why this matters (security, performance)
 
 **Activities:**
-- Explain: "Code in +page.server.js runs on the server"
-- Live code: Load data from an API on the server
-- Compare: Server-side vs. client-side data fetching
-- Group exercise: Create a page that loads data server-side
+- Explain: "Some code runs on the server"
+- Live code: Load data server-side
+- Compare: Server-side vs. client-side fetching
+- Group exercise: Create a page that loads data on the server
+- Show: Environment variables for API keys
 
-**Homework:** Rebuild the weather app in SvelteKit (server-side data loading)
+**Homework:**
+- Rebuild weather app in SvelteKit (server-side loading)
 
-**What to emphasize:** Server-side rendering is faster, more secure. SvelteKit makes it easy.
+**Teaching Notes:**
+- Server-side rendering is an advantage
+- SvelteKit makes it easy
+- This is production-ready architecture
 
 ---
 
-### **Week 22: SvelteKit Project - Build Something (Part 1)**
-**Topics:** Putting it all together, planning, architecture
+## **Week 20: January 18-24, 2027**
+### Capstone 2: Guided SvelteKit Project (Together)
+
+**Topics:** Putting it all together
+
+**Project:** Build a SIMPLE app as a club (pick one):
+- **Task Manager:** Add/remove/list tasks (store + pages)
+- **Simple Blog:** Display posts, view details (server-side data)
+- **Movie Tracker:** Search and save favorite movies (API + store)
 
 **Activities:**
-- As a group, pick a project (or let them choose):
-  - Task manager
-  - Simple blog
-  - Expense tracker
-  - Movie/book recommendation app
-- Break down the project (pages, components, stores)
-- Start building
+- As a group, plan the app
+- Build it together (you guide, they code)
+- Everyone contributes
+- Deploy together
 
-**What to emphasize:** Breaking down a project is half the battle. Make a plan before coding.
+**Deliverable:**
+- Working SvelteKit app
+- Everyone understands how it works
 
----
+**Your Role:**
+- Architect the structure
+- Guide implementation
+- Everyone codes along
 
-### **Week 23: SvelteKit Project (Part 2)**
-**Activities:**
-- Continue building
-- Help debug
-- Show them common patterns
-
-**What to emphasize:** Debugging framework errors is harder; teach them to read error messages.
-
----
-
-### **Week 24: SvelteKit Project (Part 3) & Polish**
-**Activities:**
-- Finish project
-- Improve styling, UX
-- Deploy (Vercel makes this easy)
-
-**What to emphasize:** Shipping something real feels amazing.
+**Teaching Notes:**
+- This is the "synchronization point"—everyone at the same level
+- Working together builds confidence
+- Deployment shows it's real
+- Now you're ready for independent projects
 
 ---
 
-### **Week 25: CSS with Tailwind (Optional but Recommended)**
-**Topics:** Tailwind CSS, utility-first approach, configuration
+## PHASE 4: INDEPENDENT PROJECTS (4-5 Weeks)
+### January 25 - June 18, 2027
+**Goal:** Teams build something real, applying everything learned
+
+**Note:** Built-in flexibility for holidays, testing periods, etc.
+
+---
+
+## **Week 21: January 25-31, 2027**
+### Project Planning & Team Formation
 
 **Activities:**
-- Explain: "Now that you know CSS, Tailwind is just a shorthand"
-- Live code: Refactor a component using Tailwind
-- Show how much faster styling becomes
-- Group exercise: Style a component with Tailwind
+- Brainstorm: Real problems to solve
+- Form teams (2-4 people, mixed ability)
+- Define project scope
+- Create a plan
+- Assign tasks
 
-**Homework:** Refactor your SvelteKit project with Tailwind
-
-**What to emphasize:** Tailwind is fast *because* you understand CSS. It's not replacing CSS knowledge; it's accelerating it.
-
----
-
-### **Week 26: Debugging & DevTools Deep Dive**
-**Topics:** Browser DevTools, reading error messages, debugging strategies, common pitfalls
-
-**Activities:**
-- Live demo: Use DevTools to inspect elements, change styles, debug JS
-- Show: How to read error messages
-- Common pitfalls: async/await, event delegation, reactivity (in Svelte)
-- Group exercise: Debug a broken component
-
-**What to emphasize:** Debugging is a skill. Good debugging habits save hours of frustration.
-
----
-
-## PHASE 4: INDEPENDENT PROJECTS (Weeks 27-32)
-### Goal: Self-directed learning. Solve a real problem.
-
----
-
-### **Week 27: Project Planning & Team Formation**
-**Topics:** Ideation, scoping, team dynamics, project planning
-
-**Activities:**
-- Brainstorm: Real problems they want to solve
-- Form teams (2-4 people per team)
-- Each team picks a project and defines scope
-- Create a simple plan (pages, features, timeline)
-
-**Project Constraints:**
-- Must solve a real problem (for them, their school, friends, etc.)
-- Must be completable in 5 weeks
+**Constraints:**
+- Must solve a real problem
+- Must be completable in 4-5 weeks
 - Must use SvelteKit
-- Must use at least 2+ stores or server-side data loading
+- Must use 1+ stores OR server-side data loading
 
-**Your role:** Help them scope (too ambitious is killer)
+**Your Role:**
+- Help scope (too big is common killer)
+- Ensure they have a plan
 
-**What to emphasize:** Smaller projects > ambitious projects that don't ship.
-
----
-
-### **Week 28: Project Setup & Architecture**
-**Activities:**
-- Each team sets up their SvelteKit project
-- Create the basic file structure
-- Set up components and routes
-- Plan the data model
-
-**Your role:** Review architecture decisions, point out potential issues
-
-**What to emphasize:** Good structure now saves refactoring later.
+**Teaching Notes:**
+- Small projects > ambitious projects
+- Planning prevents disasters
+- Mixed teams learn from each other
 
 ---
 
-### **Week 29-31: Development (Check-in Weeks)**
+## **Week 22: February 1-7, 2027**
+### Project Setup & Architecture
+
 **Activities:**
+- Teams set up SvelteKit project
+- Create file structure
+- Plan components and stores
+- Assign who builds what
+
+**Your Role:**
+- Review architecture
+- Point out issues (don't solve)
+- Help them think through problems
+
+**Deliverable:**
+- Project skeleton
+- Clear plan for next 3 weeks
+
+---
+
+## **Week 23-25: February 8 - March 7, 2027**
+### Project Development (3 weeks)
+
+**Note:** Feb 10-12 are faculty training days. Week might be shorter.
+
+**Activities:**
+- Teams code independently
 - Weekly 15-min check-ins per team
-- They code independently
-- You help debug, answer questions, point toward resources
+- You help unblock, don't code
+- Encourage testing
+
+**Your Role:**
+- Advisor, not coder
+- Guide them to solutions
 - Celebrate progress
 
-**Your role:** 
-- Unblock them when stuck
-- Don't just give answers—guide them to solutions
-- Help them research (documentation, Google, etc.)
-
-**What to emphasize:** This is their project. You're an advisor, not the coder.
+**Teaching Notes:**
+- This is where they learn by doing
+- Debugging skills matter more than speed
+- Small wins add up
 
 ---
 
-### **Week 32: Demo & Celebration**
+## **Week 26: March 8-14, 2027**
+### Polish & Testing
+
 **Activities:**
-- Each team gives a 5-min presentation:
+- Fix remaining bugs
+- Improve UI/UX
+- Test thoroughly
+- Prepare for deployment
+
+**Your Role:**
+- Help prioritize
+- Guide on polish
+
+**Teaching Notes:**
+- Push for "done" over "perfect"
+- Shipping is a huge achievement
+
+---
+
+## **Week 27: March 15-21, 2027**
+### Deployment & Wrap-up
+
+**Activities:**
+- Deploy to Vercel (or similar)
+- Write README
+- Document what they learned
+
+**Deliverable:**
+- Live, deployed project
+- README explaining it
+
+**Teaching Notes:**
+- Deployment is exciting
+- Let them share the live link
+
+---
+
+## **Week 28: March 22-28, 2027**
+### Presentation Prep
+
+**Activities:**
+- Prepare 5-minute presentations
   - What problem does it solve?
   - How does it work?
-  - Lessons learned
-  - Live demo
-- Celebrate what they built
+  - What did you learn?
+  - Demo
+- Practice presenting
+- Prepare for Q&A
 
-**What to emphasize:** They shipped real software. That's impressive.
+**Your Role:**
+- Coach on presentations
+- Encourage them
+
+**Teaching Notes:**
+- Public speaking is scary; be supportive
+- Celebrate the learning, not just the product
 
 ---
 
-## SUPPORTING STRUCTURE (Throughout the Year)
+## **Week 29: March 29 - April 4, 2027**
+### Final Presentations & Celebration
 
-### **Meeting Format (45-60 min)**
-- **5-10 min:** Welcome, recap last week
-- **20-30 min:** Concept teaching (live coding, Q&A)
-- **15-25 min:** Guided exercises (everyone codes)
-- **5-10 min:** Wrap-up, homework, next week preview
+**Activities:**
+- Each team presents (5-10 min)
+- Q&A
+- Celebrate together
 
-### **Homework Expectations**
-- Weeks 1-10: Small exercises (15-30 min)
-- Weeks 11-16: Guided projects (30-45 min)
-- Weeks 17-26: Project work (45-60 min)
-- Weeks 27-32: Team projects (independent)
+**Ideas:**
+- Invite parents/teachers
+- Have snacks
+- Take photos
+- Display projects on screen
 
-### **Resources to Curate**
+**Your Role:**
+- Emcee
+- Ask good questions
+- Celebrate effort
+
+**Teaching Notes:**
+- This is the culmination of their work
+- Make it feel important
+- Celebrate what they learned more than the final product
+
+---
+
+## **Week 30+: Optional Continuation (April-June)**
+
+**Options:**
+- Start exploring new topics (React, backend, game dev)
+- Dive deeper into SvelteKit
+- Build another project
+- Guest speakers
+- Code jam sessions
+- Contribute to open source
+
+**Your Role:**
+- Let them guide what's interesting
+- Explore together
+
+**Teaching Notes:**
+- Phase 1-3 created the foundation
+- Now they can explore freely
+- This is where passion projects happen
+
+---
+
+## FLEXIBILITY & BUFFERS
+
+**Can adjust if ahead:**
+- Add more practice in Phase 1
+- Extend weather app
+- Build a second mini-project in Phase 3
+
+**Can adjust if behind:**
+- Skip advanced array methods
+- Simplify Phase 2 (just build static site + one interaction)
+- Keep Phase 4 to group project only
+
+**Built-in flexibility:**
+- Winter break gives natural pause
+- Project phase has extra weeks for buffer
+- Weeks 29-30 can compress if needed
+
+---
+
+## TEACHING PHILOSOPHY
+
+1. **Everyone reaches the same level** by Week 20 (end of Phase 3)
+2. **Level-setting matters more than speed** — don't rush fundamentals
+3. **Group projects are the goal** — Phase 1-3 prepare for this
+4. **Celebrate learning** — the projects are proof of learning
+5. **Your role shifts** from teacher (Phase 1) to guide (Phase 4)
+
+---
+
+## KEY MILESTONES
+
+- **Week 9:** Everyone finishes Phase 1 (fundamentals locked in)
+- **Week 13:** Everyone finishes Phase 2 (can build vanilla web apps)
+- **Week 20:** Everyone finishes Phase 3 (can build SvelteKit apps)
+- **Week 21-22:** Teams form with shared understanding
+- **Week 28:** Teams deploy real projects
+- **Week 29:** Teams present and celebrate
+
+---
+
+## RESOURCES TO CURATE
+
 - MDN Web Docs (JavaScript, HTML, CSS)
-- SvelteKit documentation (official)
-- TypeScript handbook (basics section)
-- Tailwind CSS docs
-- YouTube channels: Traversy Media, NetNinja, Web Dev Simplified
-- Create a club Discord/Slack for async help
-
-### **Assessment (Low-Pressure)**
-- Week 10: Capstone project (individual)
-- Weeks 15-16: Weather app (guided)
-- Week 24: SvelteKit project (group)
-- Week 32: Final project (group + presentation)
-
-No grades, just progress checks and celebrations.
+- SvelteKit official docs
+- TypeScript Handbook (basics)
+- Free APIs (OpenWeatherMap, etc.)
+- Vercel for deployment
+- VS Code extensions
 
 ---
 
-## Teaching Tips Throughout
+## FINAL NOTES
 
-1. **Live code everything.** Students learn by watching and doing.
-2. **Make mistakes intentionally.** Show bugs and how to debug them.
-3. **Connect concepts:** "Remember when we did X in vanilla JS? Here's how SvelteKit does it."
-4. **Celebrate struggles:** "Good debugging questions!"
-5. **Normalize "I don't know":** Model research and learning.
-6. **Keep it fun:** Encourage experimenting and playing with code.
-7. **Share learnings:** Ask students to present solutions to problems.
+This curriculum prioritizes **level-setting** over breadth. You're not teaching "everything about web development"—you're teaching enough for everyone to:
 
----
+1. ✅ Understand JavaScript fundamentals
+2. ✅ Build basic web apps with HTML/CSS/JS
+3. ✅ Use a real framework (SvelteKit)
+4. ✅ Work together on projects
 
-## Potential Adjustments
+That's the goal. And it's a great one.
 
-**If the club is faster than expected:**
-- Add extra topics (TypeScript depth, testing, database intro)
-- Tackle side projects (game dev with Three.js, design system, etc.)
-- Explore additional frameworks (React, Vue, etc.)
+By June, you'll have teams shipping real apps solving real problems. That's success.
 
-**If the club needs more time:**
-- Extend foundational phases
-- Reduce Tailwind to a brief intro
-- Give more scaffolding on the final project
-
-**For divergers (design, game dev, backend):**
-- Game dev track: Introduce Phaser or Three.js in Week 25-26
-- Design track: Pair with developers, teach Figma
-- Backend track: Introduce Node.js/Express or Deno alongside SvelteKit
-
----
-
-## One More Thing
-
-This syllabus is a *guide*, not a contract. You'll learn what works for your group and adjust. That's good teaching.
-
-The goal isn't to follow this perfectly; it's to move through JavaScript → web tech → real projects → independence.
+Good luck. You've got this. 🚀

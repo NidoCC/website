@@ -1,0 +1,83 @@
+---
+title: "Setting up a TypeScript project with Node.js"
+description: "Week 1 (HW): Node.js can only run JavaScript. Let's teach it to run TypeScript instead!"
+authors: ["Hongmeng Zhai"]
+uploaded: 1786644950000
+lastUpdated: 1786644950000
+tags: ["Week 1", "Homework"] 
+thumbnail: '/images/test-post.jpg'
+---
+
+## Prerequisites
+
+- Make sure you have Node.js (https://nodejs.org/) installed
+
+## Creating a new Node (short for Node.js) project
+
+1. Open up your Finder app
+2. Create a folder where all the project contents will reside in
+  * Make sure it's in somewhere organized and somewhere you'll remember
+  * For instance, I personally have a folder called "Coding" under my "Documents" folder
+3. Open Visual Studio Code, and open the folder you just created (you can use the shortcut `⌘ + O`)
+4. Open up the "Integrated Terminal"
+  * You can do this by opening up your Explorer (`Shift + ⌘ + E`) and right clicking the Explorer panel's background to open up the context menu, and then clicking on "Open in Integrated Terminal"
+  * Or you can directly open up the Integrated Terminal via the keybind `Ctrl + Shift + =`. Yes, that is an equal sign.
+5. Type in the terminal (the panel on the bottom of your screen) the following:
+
+```bash title="Creating a new Node project"
+npm init -y
+```
+
+6. After you've done so, you should see on your Explorer a `package.json` file. That marks the beginning of a new Node project!
+7. It's not over though; run the following command in your terminal:
+
+```bash title="Installing tsx to your project"
+npm i -D tsx
+```
+
+* Let's cover what `npm`, `init`, `i`, `-y`, `-D`, and `tsx` mean
+* `npm` is the name of the *binary* that we're running. The rest of the things we're putting after it are called *arguments*
+* `init` stands for *initialize*. It, well, initializes a new Node project
+* `i` is a shorthand for `install`. You could run the following and you'd get the same result:
+```bash title="Using npm install instead of npm i"
+npm install -D tsx
+```
+* `-y` skips the questions `npm` asks you when initializing a new project, like *name of your app*, *the version*, etc.
+* `-D` denotes that the package you're installing will only be used for development, not production. `-D` is also a shorthand, this time for `--save-dev`.
+* `tsx` is the name of the package. Imagine a package like a library containing books. Those books contain the instructions for the computer to do stuff. In this case, we'll need `tsx` to *transpile* TypeScript back to JavaScript.
+
+
+8. Now that you have your package installed, create a file within your folder; I like to name it `main.ts`. You can create a file by hovering your cursor over your Explorer in VSCode, then clicking the file icon with the plue symbol.
+
+9. Click on your new file, and type in the Editor section of VSCode the following:
+
+```ts
+console.log("Hello, world!")
+```
+
+10. Make sure to save your file after by pressing `⌘ + S`.
+
+11. Back in your terminal (`Ctrl + Shift + =`), type:
+
+```bash
+npx tsx <the name of your file>
+```
+
+* For me, since I named it `main.ts`, it would be:
+
+```bash
+npx tsx main.ts
+```
+
+* If `npm` is the package manager, `npx` would be the package runner/eXecuter. It checks if you have an executable package installed - whether it's on your machine globally or inside a project locally - and runs it.
+* In this case, `tsx` is the executable package, so we use `npx tsx <filename>` to run `tsx` with the argument being our file to be transpiled and then executed.
+
+12. Watch the magic unfolds as you have written your first "Hello, world!" program!
+
+## Terminology 
+
+For this article, the main thing I will assume people will wonder about is the word `transpile`. It's [not in the dictionary](https://www.merriam-webster.com/dictionary/transpile), so what does it mean?
+
+If you've been into coding before, you've probably heard of the term "compile". Compiling involves 4 overall steps and ends up with binary code, machine code, or bytecode that you can run on your computer.
+
+Transpiling, on the other hand, does not end up with machine code. You end up with some code but in another language. For example, you *usually* can't run TypeScript natively, but you can run JavaScript natively in most cases (browsers, Node, etc.), so you transpile TypeScript code to JavaScript code to then be executed. This is because Node and browsers can't "understand" TypeScript.
