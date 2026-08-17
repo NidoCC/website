@@ -61,9 +61,9 @@ You've most likely heard of the first 4, but what is a *modulus*?
 
 The modulus operator divides the first term by the second and gives (returns) the remainder of that division.
 
-For example, we have a pizza with 10 slices (`let x = 10`), 2 people, and each person gets 3 slices (`let y = 3`). There has to be 1 (`x % y === 1`) slice leftover!
+For example, we have a pizza with 10 slices (`let x = 10`), divided beteen 2 people, and each person gets 3 slices (`let y = 3`). There has to be 1 (`x % y === 1`) slice leftover!
 
-Oops, I may have spoiled what's coming up by using that `==`.
+*What's that `===` you used?` - We're about to find out.
 
 ## Comparison Operators
 
@@ -86,6 +86,27 @@ console.log(age >= 18); // -> false; 17 is not greater OR equal than 17
 ```
 
 Using a comparison operator **always** results in a boolean data type.
+
+## Why `===` and not `==`?
+
+You may have seen in other programming languages such as Java and C++ where comparison between numbers or even strings (in C++, not Java) use `==`.
+
+Truth is, `==` exists in JavaScript, however, JavaScript does some funky stuff with types if the two types being compared aren't the same type, which can lead to some bugs and unexpected behavior.
+
+One example of this is:
+
+```ts
+console.log("" == 0); // -> true
+```
+
+An empty string CLEARLY does not equal zero, they just both loosely equal false:
+
+```ts
+console.log(Boolean("")); // -> false
+console.log(Boolean(0)); // -> false
+```
+
+Now, you may be wondering: what is `Boolean()`? And to that I say: we will soon be learning about functions!
 
 ## Homework (Optional)
 
