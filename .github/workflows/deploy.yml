@@ -16,11 +16,10 @@ jobs:
       - name: Checkout Code
         uses: actions/checkout@v4
 
-      # ---> ADD THIS STEP TO INSTALL BUN <---
       - name: Setup Bun
         uses: oven-sh/setup-bun@v2
         with:
-          bun-version: latest # Or specify a version like 1.1.0 to match yours
+          bun-version: latest 
 
       - name: Install Vercel CLI
         run: npm install --global vercel
@@ -28,7 +27,6 @@ jobs:
       - name: Pull Vercel Environment Information
         run: vercel pull --yes --environment=production --token=${{ secrets.VERCEL_TOKEN }}
 
-      # This will now succeed because `bun` is available globally
       - name: Build Project Artifacts
         run: vercel build --prod --token=${{ secrets.VERCEL_TOKEN }}
 
