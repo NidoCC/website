@@ -1,0 +1,43 @@
+---
+title: "Assigning Variables"
+description: "Week 1: Let's learn about defining and initializing variables!"
+authors: ["Hongmeng Zhai"]
+uploaded: 1786113681000
+lastUpdated: 1786113681000
+tags: ["Week 1"] 
+thumbnail: '/images/test-post.jpg'
+---
+
+There are three keywords used to define and initialize a variable: `var`, `let`, and `const`.
+
+`var` acts weirdly (it hoists itself up to the top of the current scope), so we will not be using that.
+
+`let` simply allows you to create a variable and assign a value to it. This variable is mutable, which means that you can change it later on.
+
+`const` also allows you to simply create a variable and assign a value to it. Unlike `let`, `const` is inmmutable, meaning you cannot change (a.k.a. mutate a.k.a. reassign) it later.
+
+JavaScript/TypeScript reads code from top to bottom, so unless you're using `var`, always put `let` and `const` variables above where you actually use it.
+
+```ts title="❌ Accessing before initializing"
+console.log(greeting); // -> ReferenceError: Cannot access 'hi' before initialization
+
+let greeting = "Hello, world!"; 
+```
+
+The example above failed. Try it with `var` instead of `let`. Do you get an error? Why or why not?
+
+```ts title="✅ Accessing after initializing"
+let greeting = "Hello, world!"; 
+
+console.log(greeting); // -> "Hello, world!"
+```
+
+`const` cannot be changed. Useful for things you don't want to be accidentally mutated:
+
+```ts title="Uses of const"
+const pi = 3.14159;
+const e = 2.71828;
+const g = 9.81;
+
+pi = 3; // -> TypeError: Assignment to constant variable.
+```
