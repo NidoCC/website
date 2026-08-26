@@ -1,0 +1,225 @@
+---
+title: "Strings, Template Literals, && Logical Operators"
+description: "Week 3: What can we do with text? What can we do with booleans?"
+authors: ["Hongmeng Zhai"]
+uploaded: 1787671265000
+lastUpdated: 1787671265000 
+tags: ["Week 3", "TypeScript"] 
+thumbnail: '/images/test-post.jpg'
+---
+
+## Strings!
+
+They're text. That's it. They're stored in sequences of UTF-16 code units, which basically means each code unit is exactly 16 bits long, being able to represent a maximum of 65536 characters in a single code point.
+
+You can read more about it [here](https://en.wikipedia.org/wiki/UTF-16).
+
+You can initialize a string like so:
+
+```ts
+// without type annotation
+let myString = "Hello, world!";
+
+// with type annotation
+let myStringTwo: string = "Hello, world - again!"
+```
+
+---
+
+## What can we do with strings?,
+
+Let `myString` have the following definition:
+
+```ts
+let myString = "Hello, world!";
+```
+
+---
+
+We can get `myString`'s length via a *property* it has which is called length:
+
+```ts
+console.log(myString.length); // -> 13
+```
+
+Count the characters!
+
+```
+H - e - l - l - o - , -   - w - o - r - l - d - !
+1   2   3   4   5   6   7   8   9   10  11  12  13
+```
+
+---
+
+We can also get the same string but all uppercase using the `toUpperCase` method!
+
+```ts
+console.log(myString.toUpperCase()); // -> "HELLO, WORLD!"
+```
+
+Remember that you need the parentheses after `toUpperCase` in order to *invoke* the method!
+
+---
+
+Same for lowercase!
+
+```ts
+console.log(myString.toLowerCase()); // -> "hello, world!"
+//       notice how the h is lowercase now ^ 
+```
+
+---
+
+What if you only want a portion of a string?
+
+```ts
+console.log(myString.slice(0, 5)); // -> "Hello"
+```
+
+`slice` is a method, so you have to invoke it with `()` with *arguments*, which are extra information you provide to the method so it can do its job!
+
+In this case, the first argument is `0`, and the second argument is `5`. This tells `slice` to get the *substring* (string inside a string) starting from the 0th character all the way to the 4th character.
+
+```
+H - e - l - l - o 
+0   1   2   3   4
+```
+
+You might be wondering: "why the heck is it starting to count at 0?"
+
+To that I say: most programming languages follow zero-based indexing, which means *they* start counting at 0. This also applies to arrays which we will learn soon(tm).
+
+You might also be wondering: "why the heck is it till the 4th character if I specified `5` in the arguments?"
+
+And to that I say: because it's not inclusive. It's *up to* 5, not *up to and including 5*; make sure to keep that in mind.
+
+---
+
+## Template Literals
+
+You can concatenate (appending or adding) strings together.
+
+Here's an example:
+
+```ts
+let name = "Fanhongmeng";
+let lastName = "Zhai";
+
+console.log(name + " " + lastName); // -> "Fanhongmeng Zhai"
+```
+
+The empty string with a space inside it is for the spacing between the name and the last name."
+
+This, however, can get real messy real quick:
+
+```ts
+let nickname = "Zhai";
+let age = 17;
+
+console.log("Hello, " + nickname + "! You are " + age + " years old.");
+// -> "Hello, Zhai! You are 17 years old."
+```
+
+There is fortunately an easier way to approach this! Take a look at the beautiful template literal in action:
+
+```ts
+let nickname = "Zhai";
+let age = 17;
+
+console.log(`Hello, ${nickname}! You are ${age} years old.`);
+// -> "Hello, Zhai! You are 17 years old."
+```
+
+Much more readable, right?
+
+You start a string but this time without double or single quotes - you use a backtick (\`) instead of the double (") or single (') quote. It should be located to the right side of your left shift key on your MacBook. If you have a Spanish physical keyboard, it's the `><` button, or if you're on Windows, try the key below your ESC (escape) key.
+
+You can then write whatever you want inside this special string. If you want to introduce a variable or an expression inside the string, start by using a dollar sign (`$`) followed by a pair of curly brackets (`{}`); inside those curly brackets you can then introduce said variable or expression.
+
+```ts
+let five = 5;
+let three = 3;
+
+console.log(`5 + 3 = ${five + three}`) // -> "5 + 3 = 8"
+```
+
+---
+
+## Logical Operators
+
+There are 3 (actually 4 but we won't talk about it YET) logical operators:
+
+The logical AND:
+
+```ts
+console.log(true && true); // -> true
+```
+
+It compares two (or more, but preferably 2) boolean expressions and returns true if all of the expressions being compared are true, or false if at least one expression is false.
+
+Once `&&` finds a falsey value, it will stop evaluating the rest and returns the value that evaluated to false.
+
+```ts
+console.log(true && false); // -> false
+```
+
+Let's combine comparison operators with these thingies!
+
+```ts
+console.log(1 + 1 == 2 && 3 * 2 == 6) // -> true
+```
+
+For the sake of good coding practice, you should *always* extract expressions out of logical operators, like so:
+
+```ts
+let onePlusOneEqualTwo = 1 + 1 == 2;
+let threeTimesTwoEqualSix = 3 * 2 == 6;
+
+console.log(onePlusOneEqualTwo && threeTimesTwoEqualSix); // -> true
+```
+
+---
+
+The logical OR:
+
+```ts
+console.log(true || false); // -> true
+```
+
+It evaluates to `true` if at least one expression inside is `true`.
+
+It will stop evaluating if it finds any truthy value, and returns that value.
+
+---
+
+The logical NOT:
+
+```ts
+console.log(!true); // -> false
+```
+
+You just append it to the start of a boolean expression, and it inverts the value!
+
+Make sure to wrap the expression in parentheses if the expression isn't a variable:
+
+```ts
+console.log(!(2 + 2 == 3)); // -> true
+```
+
+Otherwise you're *actually* taking the inverse of a number, not the result of its operation!
+
+---
+
+Here's a truth table where `T` represents `true` or a truthy expression/value and where `F` represents `false` or a falsey expression/value.
+
+```ts
+AND (&&)          OR (||)           NOT (!)
+T && T = T        T || T = T        !T = F
+T && F = F        T || F = T        !F = T
+F && T = F        F || T = T       !!T = T
+F && F = F        F || F = F       !!F = F
+```
+
+---
+
+I'll be honest, I kind of rushed through this one because of time constraints, so let me know if you have any questions. I love answering questions: the more questions the merrier. Go go go!
