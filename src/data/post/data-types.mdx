@@ -4,7 +4,7 @@ description: "Week 2 (Content): What are types? How can we do arithmetic? How do
 authors: ["Hongmeng Zhai"]
 uploaded: 1786644950000
 lastUpdated: 1786729028000
-tags: ["Week 2"] 
+tags: ["Week 2", "TypeScript"] 
 thumbnail: '/images/test-post.jpg'
 ---
 
@@ -14,11 +14,15 @@ Before we start, let's learn about comments. They're denoted by a double forward
 // this is a comment! it's greyed out.
 ```
 
+---
+
 ## Data Types
 
 Variables store data. They can store numbers, text, etc. And so you could conclude that there are different *types* of data.
 
 Some of the primitive data types that we'll be using are:
+
+---
 
 * Numbers
 
@@ -26,11 +30,15 @@ Some of the primitive data types that we'll be using are:
 let age: number = 17;
 ```
 
+---
+
 * Strings (text)
 
 ```ts
 let surname: string = "Zhai";
 ```
+
+---
 
 * Booleans
 
@@ -41,6 +49,8 @@ let isStudent: boolean = true;
 The colon (`:`) after the variable name tells you that the next part of the variable definition will tell you about its type.
 
 You can also omit the type annotation (a.k.a. the colon and the data type), and make TypeScript *infer* the data type by checking "what's being assigned to this variable?"
+
+---
 
 ## Arithmetic Operators
 
@@ -87,6 +97,8 @@ console.log(age >= 18); // -> false; 17 is not greater OR equal than 17
 
 Using a comparison operator **always** results in a boolean data type.
 
+---
+
 ## Why `===` and not `==`?
 
 You may have seen in other programming languages such as Java and C++ where comparison between numbers or even strings (in C++, not Java) use `==`.
@@ -107,6 +119,8 @@ console.log(Boolean(0)); // -> false
 ```
 
 Now, you may be wondering: what is `Boolean()`? And to that I say: we will soon be learning about functions!
+
+---
 
 ## Homework (Optional)
 
