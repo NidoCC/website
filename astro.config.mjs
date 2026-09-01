@@ -35,5 +35,11 @@ export default defineConfig({
     plugins: [tailwindcss()],
   },
 
-  integrations: [expressiveCode(), mdx(), svelte()],
+  integrations: [
+    expressiveCode({
+      themes: ["dark-plus"],
+    }),
+    mdx(),
+    svelte(),
+  ],
 });
