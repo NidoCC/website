@@ -1,0 +1,228 @@
+---
+title: "Control Flow: If/Else && Ternary Operators"
+description: "Week 4: Oooh, code make decision. Code happy."
+authors: ["Hongmeng Zhai"]
+uploaded: 1787968940000
+lastUpdated: 1787968940000
+tags: ["Week 4", "TypeScript"] 
+thumbnail: '/images/test-post.jpg'
+---
+
+How can we represent the following in code?
+
+```
+                    Is it raining?
+                         |
+                    YES / \ NO
+                      /     \
+            Stay inside      Go outside
+```
+
+Using control flow statements, of course!
+
+## If && Else
+
+Here is how a basic if statement looks like:
+
+```ts
+let isRaining = true;
+
+if (isRaining === true) {
+  console.log("Stay inside!");
+}
+```
+
+It consists of the `if` keyword at the front, followed by a pair of parentheses which inside it resides a boolean expression. This boolean expression will dictate whether the code inside the curly brackets that follow it will run or not.
+
+In this case, the output will be "Stay inside!"
+
+---
+
+But what about when it's *not* raining? How can we model that?
+
+With the `else` keyword, of course!
+
+```ts
+let isRaining = true;
+
+/*
+* actually, we don't even need the comparison
+* operator here because `isRaining` is already a boolean
+*/
+if (isRaining) {
+  console.log("Stay inside!");
+} else {
+  console.log("Go out, enjoy the sun!")
+}
+```
+
+You can read that if statement block as "if it's raining, then stay inside, otherwise (else) go out".
+
+Oh, and this
+
+```ts
+/*
+* is just another way to denote a comment
+*/
+```
+
+But if you haven't noticed yet, there is a logical error in our previous if statement. That it isn't raining doesn't mean that it's necessarily sunny.
+
+Here is where `else if` statements come in:
+
+```ts
+let isRaining = true;
+let isSunny = false;
+
+if (isRaining) {
+  console.log("It's raining!")
+} else if (isSunny) {
+  console.log("It's sunny!")
+} else {
+  console.log("It's not raining nor is it sunny.");
+}
+```
+
+If `isRaining` was to be true in the previous example, the rest of the if blocks wouldn't execute. In other words, you'd only see "It's raining!" and not "It's sunny!" or "It's not raining nor is it sunny.": it executes the first block that evaluates to true and that block only.
+
+## Nesting
+
+Nesting is when you put a block of code (a scope) inside another block of code. In this context, nesting would mean putting an if statement *inside* another if statement.
+
+```ts
+let age = 15;
+let isStudent = true;
+let hasPermission = false;
+
+if (isStudent) {
+  console.log("You can come to school events");
+  
+  if (age >= 15) {
+    console.log("You can also go on overnight trips!");
+  } else {
+    console.log("Overnight trips are for older students.");
+  }
+} else {
+  console.log("You can't come to school events.");
+}
+```
+
+Be careful with deeply nested if statements though - they can get real messy.
+
+```ts
+if (condition1) {
+  if (condition2) {
+    if (condition3) {
+      console.log("This is hard to follow!");
+    }
+  }
+}
+```
+
+Something better you could do is:
+
+```ts
+if (condition1 && condition2 && condition3) {
+  console.log("Much easier to read!");
+}
+```
+
+## Ternary Operators
+
+Imagine you have yourself a simple if statement that can produce two values: one if true, the other if false.
+
+```ts
+let age = 20;
+let status;
+
+if (age >= 18) {
+  status = "adult";
+} else {
+  status = "minor";
+}
+
+console.log(status); // -> "adult"
+```
+
+A buncha code for buncha nothing. 
+
+Let's check out the ternary operator:
+
+```ts
+condition ? valueIfTrue : valueIfFalse
+```
+
+So in this case, we can replace the original if statement with the following:
+
+```ts
+let age = 20;
+let status = age >= 18 ? "adult" : "minor";
+
+console.log(status); // -> "adult"
+```
+
+Same result, less code.
+
+---
+
+Ternaries are so cool you might be tempted to use them over if statements all the time, but take a look at the following code:
+
+```ts
+let score = 85;
+let message = score >= 90 ? "A" : score >= 80 ? "B" : score >= 70 ? "C" : "F";
+
+console.log(message); // -> ???
+```
+
+That is a perfectly valid ternary, yet we wouldn't use it this way; it's hard to read, and it's generally a bad practice to nest ternaries.
+
+Instead, when you're tempted to use nested ternaries, simply use an if statement - it's way more readable.
+
+```ts
+let score = 85;
+let message;
+
+if (score >= 90) {
+  message = "A";
+} else if (score >= 80) {
+  message = "B";
+} else if (score >= 70) {
+  message = "C";
+} else {
+  message = "F";
+}
+
+console.log(message); // -> "B"
+```
+
+## Homework
+
+```ts
+// PART 1: write an if/else program
+// pick a scenario that interests you:
+// - a movie rating system (G, PG, PG-13, R based on age)
+// - a temperature alert (cold, cool, warm, hot)
+// - a shopping discount system (more items = bigger discount)
+// - a pizza size picker (small, medium, large, extra-large based on number of people)
+// - something else you think is cool
+
+// example (don't use this one, create your own):
+let age = 16;
+
+if (age >= 18) {
+  console.log("You can watch R-rated movies");
+} else if (age >= 13) {
+  console.log("You can watch PG-13 movies");
+} else {
+  console.log("You can watch G and PG movies");
+}
+
+// PART 2: rewrite part of your if/else using ternary
+// find a simple if/else (two outcomes) and rewrite it as ternary
+// example (rewriting the above):
+
+// let movieRating = age >= 13 ? "PG-13" : "G";
+
+// PART 3: test your code with different inputs
+// try at least 3 different values and make sure the right outcome happens
+```
