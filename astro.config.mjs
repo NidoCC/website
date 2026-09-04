@@ -14,13 +14,13 @@ export default defineConfig({
   fonts: [
     {
       provider: fontProviders.fontsource(),
-      name: "Geist",
-      cssVariable: "--font-geist",
+      name: "Space Grotesk",
+      cssVariable: "--font-sans",
     },
     {
       provider: fontProviders.fontsource(),
-      name: "Geist Mono",
-      cssVariable: "--font-geist-mono",
+      name: "Space Mono",
+      cssVariable: "--font-mono",
     },
   ],
 
@@ -35,11 +35,5 @@ export default defineConfig({
     plugins: [tailwindcss()],
   },
 
-  integrations: [
-    expressiveCode({
-      themes: ["dark-plus"],
-    }),
-    mdx(),
-    svelte(),
-  ],
+  integrations: [expressiveCode(), mdx(), svelte()],
 });
