@@ -11,7 +11,13 @@ thumbnail: '/images/test-post.jpg'
 Before we start, let's learn about comments. They're denoted by a double forward slash (`//`) and everything in the line after the double slash will NOT be executed as part of the code.
 
 ```ts
-// this is a comment! it's greyed out.
+// this is a comment!
+// it's greyed (in this case, greened) out
+
+/*
+  this is called a multi-line comment. notice how you don't
+  how to place a double slash each line
+*/
 ```
 
 ---
@@ -19,6 +25,8 @@ Before we start, let's learn about comments. They're denoted by a double forward
 ## Data Types
 
 Variables store data. They can store numbers, text, etc. And so you could conclude that there are different *types* of data.
+
+There are primitive data types (like the ones we'll see below) and non-primitive/composite data types (that we'll see later).
 
 Some of the primitive data types that we'll be using are:
 
@@ -75,7 +83,7 @@ For example, we have a pizza with 10 slices (`let x = 10`), divided beteen 2 peo
 
 *What's that `===` you used?` - We're about to find out.
 
-## Comparison Operators
+## Comparison Operators (also called Equality Operators)
 
 There are a bunch of comparison operators.
 
@@ -118,7 +126,9 @@ console.log(Boolean("")); // -> false
 console.log(Boolean(0)); // -> false
 ```
 
-Now, you may be wondering: what is `Boolean()`? And to that I say: we will soon be learning about functions!
+Now, you may be wondering: what is `Boolean()`? And to that I say: we will soon be learning about functions (and methods)!
+
+For now, it just turns everything inside the parentheses into a boolean.
 
 ---
 
