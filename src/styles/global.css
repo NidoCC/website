@@ -48,8 +48,8 @@
   --animate-shiny-text: shiny-text 8s infinite;
 }
 @theme inline {
-  --font-sans: var(--font-geist);
-  --font-mono: var(--font-geist-mono);
+  /* --font-sans: var(--font-geist);
+  --font-mono: var(--font-geist-mono); */
   @keyframes gradient {
     to {
       background-position: var(--bg-size, 300%) 0;
