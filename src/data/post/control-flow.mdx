@@ -1,12 +1,91 @@
 ---
-title: "Control Flow: If/Else && Ternary Operators"
+title: "Control Flow: If/Else && Ternary Operators && also Logical Operators"
 description: "Week 4: Oooh, code make decision. Code happy."
 authors: ["Hongmeng Zhai"]
 uploaded: 1787968940000
-lastUpdated: 1787968940000
+lastUpdated: 1790179822000
 tags: ["Week 4", "TypeScript"] 
 thumbnail: '/images/test-post.jpg'
 ---
+
+## Logical Operators
+
+There are 3 (actually 4 but we won't talk about it YET) logical operators:
+
+The logical AND:
+
+```ts
+console.log(true && true); // -> true
+```
+
+It compares two (or more, but preferably 2) boolean expressions and returns true if all of the expressions being compared are true, or false if at least one expression is false.
+
+Once `&&` finds a falsey value, it will stop evaluating the rest and returns the value that evaluated to false.
+
+```ts
+console.log(true && false); // -> false
+```
+
+Let's combine comparison operators with these thingies!
+
+```ts
+console.log(1 + 1 == 2 && 3 * 2 == 6) // -> true
+```
+
+For the sake of good coding practice, you should *always* extract expressions out of logical operators, like so:
+
+```ts
+let onePlusOneEqualTwo = 1 + 1 == 2;
+let threeTimesTwoEqualSix = 3 * 2 == 6;
+
+console.log(onePlusOneEqualTwo && threeTimesTwoEqualSix); // -> true
+```
+
+---
+
+The logical OR:
+
+```ts
+console.log(true || false); // -> true
+```
+
+It evaluates to `true` if at least one expression inside is `true`.
+
+It will stop evaluating if it finds any truthy value, and returns that value.
+
+---
+
+The logical NOT:
+
+```ts
+console.log(!true); // -> false
+```
+
+You just append it to the start of a boolean expression, and it inverts the value!
+
+Make sure to wrap the expression in parentheses if the expression isn't a variable:
+
+```ts
+console.log(!(2 + 2 == 3)); // -> true
+```
+
+Otherwise you're *actually* taking the inverse of a number, not the result of its operation!
+
+---
+
+Here's a truth table where `T` represents `true` or a truthy expression/value and where `F` represents `false` or a falsey expression/value.
+
+```ts
+AND (&&)          OR (||)           NOT (!)
+T && T = T        T || T = T        !T = F
+T && F = F        T || F = T        !F = T
+F && T = F        F || T = T       !!T = T
+F && F = F        F || F = F       !!F = F
+```
+
+---
+
+## Control Flow
 
 How can we represent the following in code?
 
