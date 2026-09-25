@@ -95,6 +95,63 @@ And to that I say: because it's not inclusive. It's *up to* 5, not *up to and in
 
 ---
 
+What if we wanted to access a character a string?
+
+```ts
+console.log(myString.charAt(0)); // -> "H"
+console.log(myString.charAt(1)); // -> "e"
+console.log(myString.charAt(4)); // -> "o"
+```
+
+The `charAt` method allows us to do exactly that! If you're already familiar with general computer science concepts, you may recognize that a string is just an *array* of characters, and thus JavaScript allows you to access a character in a string using the index operator:
+
+```ts
+console.log(myString[0]); // -> "H"
+console.log(myString[1]); // -> "e"
+console.log(myString[4]); // -> "o"
+```
+
+You do NOT need to know what I just wrote above, as using `charAt` is just fine.
+
+If you're curious about the difference of these two, it's about when you're trying to access a character that doesn't exist on the string.
+
+```ts
+console.log(myString.length); // -> 13
+// we can't go past 5 because there's nothing there...
+// but what if we try anyway?
+console.log(myString.charAt(100)); // -> ""
+console.log(myString[100]); // -> undefined
+// we'll learn about undefined later on
+```
+---
+
+Say you want to check whether a certain substring (a string inside a string) exists within a string.
+
+```ts
+console.log(myString.includes("world")); // -> true
+console.log(myString.includes("pizza")); // -> false 
+```
+
+Keep in mind that `include`'s argument is **case-sensitive** (meaning that UPPERCASE and lowercase characters matter).
+
+---
+
+You can also check *where* that substring is at, or what *position*/*index* it's located at.
+
+```ts
+console.log(myString.indexOf("world")); // -> 7
+```
+
+If the program couldn't find the substring, it'll return `-1`.
+
+```ts
+console.log(myString.indexOf("pizza")); // -> -1
+```
+
+Which means you can technically use `indexOf` instead of `includes`, but `includes` is much more readable (if you're curious, GChat me asking why).
+
+---
+
 ## Template Literals
 
 You can concatenate (appending or adding) strings together.
