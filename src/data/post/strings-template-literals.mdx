@@ -202,4 +202,89 @@ console.log(`5 + 3 = ${five + three}`) // -> "5 + 3 = 8"
 
 ---
 
-I'll be honest, I kind of rushed through this one because of time constraints, so let me know if you have any questions. I love answering questions: the more questions the merrier. Go go go!
+## Practice
+
+Predict what each of these `console.log()`s will output, then run the code to verify.
+
+```ts
+let myName = "YOUR_NAME";      // replace with your name
+let mySchool = "YOUR_SCHOOL";  // replace with your school
+
+console.log(myName.length);
+console.log(myName.toUpperCase());
+console.log(myName.toLowerCase());
+console.log(myName.charAt(0));            // first letter
+console.log(myName.slice(0, 3));          // first 3 letters
+console.log(mySchool.includes("school")); // does it contain "school"?
+console.log(mySchool.indexOf("o"));       // where is the first "o"?
+```
+
+Template literals practice: fill out the 5 variables with your information, create your own sentence, predict the output, and run the code!
+
+```ts
+let firstName = "YOUR_FIRST_NAME";
+let lastName = "YOUR_LAST_NAME";
+let favoriteFood = "YOUR_FOOD";
+let favoriteColor = "YOUR_COLOR";
+let age = YOUR_AGE;
+
+// create sentences using template literals
+// predict the output, then run
+
+console.log(`My name is ${firstName} ${lastName}`);
+console.log(`I am ${age} years old`);
+console.log(`My favorite food is ${favoriteFood}`);
+console.log(`My favorite color is ${favoriteColor}`);
+
+console.log(`In 10 years, I will be ${age + 10} years old`);
+console.log(`My name in uppercase is ${firstName.toUpperCase()}`);
+console.log(`The first letter of my name is ${firstName.charAt(0)}`);
+
+// create your own sentence
+// make one that combines multiple variables, a calculation, and a string method
+```
+
+(a string method just means `.toUpperCase()`, `.slice()`, etc!)
+
+Here's even moe practice!
+
+```ts
+// PART 1: string Methods
+let text = "JavaScript is awesome";
+
+console.log(text.length);                    // how many characters?
+console.log(text.toUpperCase());             // all caps
+console.log(text.indexOf("awesome"));        // where is "awesome"?
+console.log(text.includes("Python"));        // does it contain Python?
+console.log(text.slice(0, 10));              // first 10 characters
+
+// -------
+
+// PART 2: template literals
+let subject = "Programming";
+let difficultyLevel = "challenging";
+let myGoal = "master it";
+
+console.log(`I am learning ${subject}`);
+console.log(`${subject} is ${difficultyLevel}`);
+console.log(`My goal is to ${myGoal}`);
+
+// -------
+
+// PART 3: combine methods + template literals
+let fileName = "MyProject.txt";
+
+console.log(`File name: ${fileName}`);
+console.log(`File name (uppercase): ${fileName.toUpperCase()}`);
+console.log(`File name length: ${fileName.length}`);
+console.log(`First letter: ${fileName.charAt(0)}`);
+
+// -------
+
+// PART 4: challenge (optional)
+// create a template literal that:
+// - uses at least 2 variables
+// - uses at least 1 string method inside ${}
+// - uses at least 1 calculation inside ${}
+// example: `${myVar.toUpperCase()} costs $${price * quantity}`
+```
