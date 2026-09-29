@@ -1,0 +1,314 @@
+---
+title: "Loops: For && While"
+description: "Week 5: Loop-ty loops!"
+authors: ["Hongmeng Zhai"]
+uploaded: 1790179822000
+lastUpdated: 1790179822000
+tags: ["Week 5", "TypeScript"] 
+thumbnail: '/images/test-post.jpg'
+---
+
+Before we learn about loops, we must (kinda) learn about shorthand arithmetic operations.
+
+```ts
+// define our variable
+let a = 1;
+
+a = a + 1;
+// is the same as
+a += 1;
+// or
+a++;
+
+a = a + 10;
+// is ONLY the same as
+a += 10;
+
+a = a - 1;
+// is the same as 
+a -= 1;
+// or
+a--;
+
+a = a - 10;
+// is ONLY the same as
+a -= 10;
+
+````
+
+There's more, like `*=` and `/=` and `%=` and `**=` but we don't need to worry about those (for now).
+
+With that out of the way, let's learn about loops!
+
+---
+
+If we wanted to print `"Hello, world"` 10 times, how would you do it?
+
+With what we've learned so far, maybe like so:
+
+```ts
+console.log("Hello, world");
+console.log("Hello, world");
+console.log("Hello, world");
+console.log("Hello, world");
+console.log("Hello, world");
+console.log("Hello, world");
+console.log("Hello, world");
+console.log("Hello, world");
+console.log("Hello, world");
+console.log("Hello, world");
+```
+
+Think about "do this 10 times" or "do this until *something* happens".
+
+---
+
+## For Loops
+
+The previous code example can be rewritten like this:
+
+```ts
+for (let i = 0; i < 10; i++) {
+  console.log("Hello, world")
+}
+```
+
+Its structure is like this:
+
+```ts
+for (initial variable; condition to keep running; action after each iteration) {
+  // code to run each iteration
+}
+```
+
+The initial variable is our index (hence the variable name `i`). It tracks how many iterations has passed; though, you can use it for other purposes in advanced techniques. It has to define a variable.
+
+The condition to keep running must return a boolean - if that boolean is true, the loop will run. If that boolean is false at the time of checking (which is when each iteration starts), the iteration won't run.
+
+The action after each iteration modifies the index (initial variable) so that, at some point, the condition to keep running equals false, closing the loop.
+
+A good way to visualize this is the following snippet:
+
+```ts
+for (let i = 0; i < 10; i++) {
+  console.log(i);
+}
+
+/*
+* output:
+* 0
+* 1
+* 2
+* 3
+* 4
+* 5
+* 6
+* 7
+* 8
+* 9
+*/
+```
+
+In the comment above, ignore the asterisks (`*`), they're just for the comment - the real outputs are the numbers.
+
+You can also use other comparison operators for the condition to keep running, like so:
+
+```ts
+for (let i = 1; i <= 10; i++) {
+  console.log(i);
+}
+
+/*
+* output:
+* 1
+* 2
+* 3
+* 4
+* 5
+* 6
+* 7
+* 8
+* 9
+* 10
+*/
+```
+
+Notice how off-by-one errors can be really common here. Ask yourself: does it start at 0 or 1? Does it go up to and including 10, or stop before 10?
+
+Or you can even do a countdown:
+
+```ts
+for (let i = 5; i > 0; i--) {
+  console.log(i);
+}
+
+/*
+* output:
+* 5
+* 4
+* 3
+* 2
+* 1
+*/
+```
+
+---
+
+Let's calculate the sum of every integer between 0 and 100, including both ends.
+
+```ts
+let sum = 0; // start variable sum at 0
+
+for (let i = 0; i <= 100; i++) {
+  sum += i;
+}
+
+// output: 5050
+```
+
+Fun fact! If you were coding in a compiled language, a language that gets turned into a binary, you may see that it optimizes things. One thing it optimizes are loops! If you were to run the loop above through a theoretical JavaScript compiler, you'd see the loop being optimized into something like this:
+
+```ts
+let sum = (101 / 2) * (0 + 100)
+
+// output: 5050 
+```
+
+You may recognize that calculation from your IB Math formula booklet on arithmetic series:
+
+$$ S_n = \frac{n}{2}(a_1 + a_n) $$
+
+This is what is known as `O(1)` vs `O(n)`: an algorithm that takes n iterations for n items vs an algorithm that takes 1 iteration of any amount of items. A bunch of math x compsci stuff we won't learn in this club, but it's good to know what it means if you've heard about it before.
+
+---
+
+## While Loops
+
+When you're using for loops, you already know how much it should repeat. While loops just repeat until something happens. This is super common in places/fields like robotics!
+
+If you've ever taken Foundations of Robotics or Robotics at Nido, you may have tinkered with Arduino code. When you create a new Arduino project, you may see this;
+
+```cpp
+void setup() {
+   // put your setup code here, to run once: 
+   
+}
+
+void loop() {
+  // put your main code here, to run repeatedly: 
+  
+}
+```
+
+`void loop` is a while loop. It runs repeatedly until something happens. In the Arduino's case, that "something that happens" never actually happens. This is called an infinite loop, and are usually dangerous unless you know what you're doing.
+
+While loops look simpler than for loops:
+
+```ts
+while (condition) {
+  // code to run
+}
+```
+
+As long as that condition is true, the code inside the while loop keeps running.
+
+Here's an example:
+
+```ts
+let i = 0;
+while (i < 10) {
+  console.log(i);
+  i++;
+}
+
+/*
+* output:
+* 0
+* 1
+* 2
+* 3
+* 4
+* 5
+* 6
+* 7
+* 8
+* 9
+*/
+```
+
+This does the same as our for loop! This is because it has an index, a condition, and a modifier!
+
+**If you ever forget to add the modifier inside the loop which makes the loop end, you would've created an infinite loop!** In order to stop a program launched in the terminal/console that is stuck in an infinite loop, just press `Ctrl + C` on your keyboard! This works in both MacOS and Windows (and Linux).
+
+---
+
+## Break && Continue
+
+If you were to want to print every number from 1 to 10 *except* for odd numbers, you'd have to skip certain iterations of the loop. You can do it like so:
+
+```ts
+for (let i = 1; i <= 10; i++) {
+  if (i % 2 === 0) {
+    // if odd, continue with the loop and ignore this iteration
+    continue;
+  }
+
+  console.log(i);
+}
+
+/*
+* output:
+* 2
+* 4
+* 6
+* 8
+* 10
+*/
+```
+
+This also works in while loops!
+
+```ts
+let i = 1;
+
+while(i <= 10) {
+  if (i % 2 !== 0) {
+    i++;
+    continue;
+  }
+  
+  console.log(i)
+  i++;
+}
+
+/*
+* output:
+* 2
+* 4
+* 6
+* 8
+* 10
+*/
+```
+
+---
+
+What if you want to end the loop completely instead of just skipping the iteration? Let me introduce to you: the `break` keyword!
+
+This is most commonly used with infinite loops to exit out of it. Some examples you may see in robotics might look like this:
+
+```ts
+while(true) {
+  goForward();
+
+  if (robot.isTouchingWall()) {
+    break;
+  }
+}
+```
+
+When `robot.isTouchingWall()` becomes true, the entire loop stops.
+
+---
+
+That's it for loops! At some point (I think?) we will learn about two-dimensional arrays with nested loops, but for now, rest assured: you have mastered the basics of loops.
