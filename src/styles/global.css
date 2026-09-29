@@ -127,3 +127,7 @@
   width: 100%;
   display: inline-block;
 }
+
+.frac-line {
+   border-color: white;
+}
