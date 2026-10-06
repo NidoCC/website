@@ -6,6 +6,7 @@ export default defineEcConfig({
   themes: ["dark-plus"],
   styleOverrides: {
     codeFontFamily: "var(--font-mono)",
+    codeFontSize: "1rem",
     uiFontFamily: "var(--font-sans)",
   },
 });
