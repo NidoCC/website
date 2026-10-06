@@ -14,12 +14,12 @@ export default defineConfig({
   fonts: [
     {
       provider: fontProviders.fontsource(),
-      name: "Space Grotesk",
+      name: "Fira Sans",
       cssVariable: "--font-sans",
     },
     {
       provider: fontProviders.fontsource(),
-      name: "Space Mono",
+      name: "IBM Plex Mono",
       cssVariable: "--font-mono",
     },
   ],
