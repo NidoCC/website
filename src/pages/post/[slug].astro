@@ -6,6 +6,7 @@ import type { CollectionEntry } from "astro:content";
 import { render } from "astro:content";
 import { getCollection } from "astro:content";
 import { MoveLeft } from "@lucide/astro";
+import ScrollProgressAstroComponent from "$lib/components/magic/scroll-progress/scroll-progress.svelte";
 
 export async function getStaticPaths() {
   const posts = await getCollection("post");
@@ -24,10 +25,11 @@ const { Content } = await render(post);
 ---
 
 <Layout title={`<NidoCC.Post name="${post.data.title}" />`}>
+  <ScrollProgressAstroComponent client:load class="mt-10.75" />
   <TopButton />
 
   <div class="flex justify-center">
-    <article class="w-[70ch] bg-secondary mt-32 pb-5">
+    <article class="w-[75ch] bg-secondary mt-32 pb-5">
       <div class="relative">
         <Image
           src={post.data.thumbnail}
@@ -76,7 +78,7 @@ const { Content } = await render(post);
           </span>
         </div>
         <hr class="my-8" />
-        <div class="prose prose-invert">
+        <div class="prose prose-invert prose-lg mx-auto">
           <Content />
         </div>
       </div>
