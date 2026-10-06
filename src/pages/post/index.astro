@@ -10,7 +10,7 @@ const posts = (await getCollection("post")).sort(
 ---
 
 <Layout title="<NidoCC.Post />">
-  <section class="m-20 relative grid place-items-center h-[70vh]">
+  <section class="m-20 relative grid place-items-center h-75">
     <div
       class="absolute inset-0 pointer-events-none opacity-20"
       style="
@@ -57,7 +57,7 @@ const posts = (await getCollection("post")).sort(
       Showing {posts.length} posts
     </p>
 
-    <div id="post-list" class="flex flex-wrap justify-center gap-6">
+    <div id="post-list" class="grid grid-cols-2 justify-center gap-6">
       {posts.map((post) => <PostCard post={post} />)}
     </div>
 
