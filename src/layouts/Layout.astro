@@ -39,8 +39,20 @@ const year = new Date().getFullYear();
       <slot />
     </main>
 
-    <footer class="font-sans text-center bg-secondary mt-20">
-      Coding Club {year}
+    <footer class="font-sans text-center bg-secondary mt-20 py-4">
+      <p>The International School Nido de Aguilas' Coding Club {year}</p>
+      <p>
+        Contact: <a href="mailto:fanhongmeng.zhai@students.nido.cl"
+          >fanhongmeng.zhai@students.nido.cl</a
+        >
+      </p>
+      <p>
+        The source code to this website can be found <a
+          href="https://github.com/nidocc/website"
+          target="_blank"
+          class="underline">here.</a
+        >
+      </p>
     </footer>
   </body>
 </html>
