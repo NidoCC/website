@@ -1,0 +1,129 @@
+---
+title: "Functions: don't repeat yourself!!!!"
+description: "Week 6: How to not repeat yourself 101."
+authors: ["Hongmeng Zhai"]
+uploaded: 1794406790000
+lastUpdated: 1794406790000
+tags: ["Week 6", "TypeScript"] 
+thumbnail: '/images/test-post.jpg'
+---
+
+Functions in programming are pretty much identical to the ones you know in math.
+
+In math you have, for example, a linear equation in the form: 
+
+$$y=mx+b$$
+
+Let's give values to it and let's replace `y` with `f(x)` (if you paid attention in math class you should know that this is something we can do):
+
+$$f(x)=3x+7$$
+
+You should also know that the letter `f` in `f(x)` doesn't necessarily mean *function* but is instead just a letter that represents the function.
+
+So we can have:
+
+$$g(x) \qquad h(x) \qquad k(x)$$
+
+and so on...
+
+Same in programming (JavaScript/TypeScript)!
+
+Here's how the previous linear function looks like in JavaScript:
+
+```ts
+function f(x: number) {
+  console.log(3*x+7);
+}
+```
+
+And if we *invoke* the function like this, with x = 0 to get the y-intercept:
+
+```ts
+f(0); // prints 7
+```
+
+Well, this is just math! And to that I say: it is.
+
+Let's say that we want to use the value instead of printing it. We then have to make the function *hand back* the value. We can do that with the `return` keyword.
+
+Like so:
+
+```ts
+function f(x: number): number {
+  return 3*x+7;
+}
+```
+
+Now, okay - we've learned what a function does (it's the same as in math), but we don't know what any of the weird symbols mean.
+
+Here:
+
+- the keyword `function` before the `f` is what tells TypeScript "hey, we're creating a function here". There are other ways to create a function, but this is the most common one and the one you should use (for now).
+- the `f` after the `function` keyword is the name of the function. You can name it whatever - like so:
+
+```ts
+function thisIsMyFunction() {
+  console.log("hello, world!")
+}
+```
+
+- the `x: number` means that it will accept a parameter which needs to have the type `number` (wouldn't make sense to input, say, a string into a linear function, would it?). You can have as many arguments as you want (though if it exceeds like, what, 5, you should probably transfer the data via an object (we'll learn what that is at some point)). You can also have no parameters.
+- the `: number` in the `return` example is the type of the value you are returning. In TypeScript, you cannot return multiple return values without an array (we'll also learn what that is at some point).
+
+Consider the following function:
+
+```ts
+function greet(name: string) {
+  console.log(`Hello, ${name}!`);
+}
+
+greet("Zhai"); // output -> Hello, Zhai!
+```
+
+The `name` is the *parameter* and `"Zhai"` is the argument being passed into the function. They're basically the same concept, and their names are often interchangeable (because people are unaware), so don't stress too much about these.
+
+Oh, and here's how you make a function with multiple parameters that accept multiple arguments:
+
+```ts
+function fancyGreet(greeting: string, name: string) {
+  console.log(`${greeting}, ${name}!`);
+}
+
+fancyGreet("Howdy", "Zhai"); // output -> Howdy, Zhai!
+```
+
+## Variables inside functions
+
+One important thing to keep in mind is that a variable inside a function CANNOT be used anywhere outside the function, no matter if it's a `const`, `let`, or `var` (you shouldn't be using `var` anyway).
+
+Example:
+
+```ts
+function f(x: number): number {
+  const result = 3*x+7;
+  return result;
+}
+
+console.log(result); // uh oh!
+```
+
+If you want to share the variable, either put the variable outside of the function or return the variable inside an array. I recommend the former and not the latter.
+
+## Homework (Optional)
+
+```ts
+// PART 1: Write a function called double that takes a number and returns it times 2.
+// Print (console.log) double(5) and double(12).
+
+// PART 2: Write a function called fullName that takes a first name and a last name
+// and returns them joined with a space. Example: fullName("Alan", "Turing") -> "Alan Turing"
+
+// PART 3: Write a function called isAdult that takes an age and returns true if age >= 18.
+// Use it inside an if/else that logs a message.
+
+// PART 4: Write a function called sumTo that takes a number n and returns
+// the sum of 1 + 2 + ... + n. (Hint: use a loop from last week, or check your IB Math AA SL formula booklet)
+
+// CHALLENGE (optional): Write a function called describe that takes a name and an age
+// and returns a sentence. Use isAdult inside it.
+```
