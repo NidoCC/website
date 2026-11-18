@@ -3,7 +3,7 @@ title: "Curriculum"
 description: "A week-by-week description of what we'll be doing in this club."
 authors: ["Hongmeng Zhai"]
 uploaded: 1781631681000
-lastUpdated: 1791993430000
+lastUpdated: 1795015894000
 tags: ["Meta", "Club"] 
 thumbnail: '/images/test-post.jpg'
 ---
@@ -12,85 +12,14 @@ The design and creation of this curriculum was assisted by AI. This curriculum i
 
 Content in this curriculum may not reflect the actual content taught during meetings. Do not use this as a reference.
 
-# Coding Club Curriculum: Week-by-Week (Revised)
-## 2026-2027 School Year | Start Date: August 24, 2026
-### 24-26 Active Teaching Weeks | Focus: Level-Setting for Collaborative Projects
-
-**Overall Goal:** Get everyone to the same level (JavaScript fundamentals + basic web skills) so the club can work on real projects together.
-
-**End-of-Year Deliverable:** Team-built web app/website solving a real problem.
-
----
-
-## PHASE 1: FOUNDATIONS (8 Weeks)
-### August 24 - October 16, 2026
-**Goal:** Solid JavaScript/TypeScript fundamentals—everyone at the same level
-
----
-
-## **Week 1: August 24-30, 2026**
-### Welcome & Setup + First Variables
-
-**Topics:**
-- Club overview and expectations
-- Environment setup (Node.js, VS Code, Git/GitHub)
-- Variables (`let`, `const`)
-- Simple assignments
-
-**Activities:**
-- Icebreaker (5 min): Names, grade, previous coding experience, what they want to build
-- Club expectations (3 min): Show up, good attitude, no phones
-- Install Node.js and VS Code (15 min): Help troubleshoot
-- GitHub setup (3 min): Collect emails, invite to org after
-- Hello World in TypeScript (15 min): Follow your existing process
-- One simple variable (4 min): `let name = "YOUR_NAME"` and `console.log(name)`
-
-**Homework:**
-- Make sure everything installs
-- Create 3 variables with meaningful names
-
-**Teaching Notes:**
-- Don't try to cover too much—setup is the main goal
-- They'll feel accomplished just running code
-- One variable is enough for Week 1
-
----
-
-## **Week 2: August 31 - September 6, 2026**
-### Data Types & Operators (Part 1)
-
-**Topics:**
-- Data types (string, number, boolean) — formalize it
-- Arithmetic operators (`+`, `-`, `*`, `/`, `%`)
-- Comparison operators (`===`, `!==`, `>`, `<`, `>=`, `<=`)
-
-**Activities:**
-- Live code: Create variables of each type, show what they look like
-- Explain: "TypeScript cares about what type things are"
-- Live code: Arithmetic on numbers
-- Group exercise: Do some calculations together
-- Live code: Comparison operators make booleans
-- Challenge: Predict what `5 > 3` returns
-
-**Homework:**
-- Create variables of each type
-- Do some arithmetic and comparisons
-- Write comments explaining what each line does
-
-**Teaching Notes:**
-- Data types are fundamental
-- Comparisons create booleans—show this explicitly
-- Modulus is confusing; use the pizza/clock analogy
-- Don't go deep on TypeScript yet; just show it catches mistakes
-
----
-
-# Coding Club Curriculum (Updated Oct 14, 2026)
+# Coding Club Curriculum (Updated Nov 17, 2026)
 ## Friday After-School Meetings | 3:15-4:00 PM
 
 **Goal:** Get everyone to the same level (JS/TS fundamentals + basic web skills + SvelteKit basics) so the club can build a project together.
 
 **Final deliverable:** Team-built web app solving a real problem, shown at the last meeting.
+
+**Why this was rebuilt:** The club fell behind because of Parent-Teacher Conferences (Oct 8-9) and Día del Profesor. Dates below are real Fridays checked against the school calendar. Summer vacation (Dec 21 - Feb 14) splits the year into two halves.
 
 ---
 
@@ -118,11 +47,13 @@ Content in this curriculum may not reflect the actual content taught during meet
 | 2 | Oct 30 | Logical operators + if/else (Week 4 notes) |
 | 3 | Nov 6 | Loops: for, while, break/continue (Week 5 notes) |
 | 4 | Nov 13 | Functions 1: declarations, parameters, return, scope |
-| 5 | Nov 20 | Functions 2: arrow functions, callbacks |
+| 5 | Nov 20 | **Practice day:** functions + loops + if/else (no new syntax) |
 | 6 | Dec 4 | Arrays and objects basics |
-| 7 | Dec 11 | Array methods (map/filter/forEach), arrays of objects |
+| 7 | Dec 11 | **Practice day:** arrays of objects (contact list, to-do list), a warm-up for Capstone 1 |
 
-**Milestone:** After Dec 11, everyone has seen all core JS/TS fundamentals. Capstone 1 happens in February, where it doubles as the post-break refresher.
+**Milestone:** After Dec 11, everyone has seen and practiced the core JS/TS fundamentals. Capstone 1 happens in February, where it doubles as the post-break refresher.
+
+**Why practice days:** Student feedback (Nov 17) said the pace was too fast and that it's hard to catch up once you fall behind. Rather than compress further, arrow functions, callbacks, and array methods are deferred (see "Just-in-time topics" below) and two meetings become practice days.
 
 **Before break (Dec 11):** Offer an optional "break challenge" (a small CLI program of their choice, no pressure).
 
@@ -146,8 +77,8 @@ Content in this curriculum may not reflect the actual content taught during meet
 |---|---|---|
 | 10 | Mar 5 | HTML: structure, semantic tags, forms |
 | 11 | Mar 12 | CSS: selectors, box model, flexbox essentials |
-| 12 | Mar 19 | DOM + events: querySelector, textContent, addEventListener, classList |
-| 13 | Apr 2 | fetch + APIs: weather app, part 1 (two-week gap before this, open with a recap) |
+| 12 | Mar 19 | DOM + events: querySelector, textContent, addEventListener, classList. **Callbacks and arrow functions are introduced here**, since `addEventListener` needs one |
+| 13 | Apr 2 | fetch + APIs: weather app, part 1 (two-week gap before this, open with a recap). `map`/`filter`/`forEach` appear only if the app needs them |
 | 14 | Apr 9 | Weather app, part 2: error handling, polish. Reflect on what felt painful (this motivates Svelte) |
 
 ### Block C: SvelteKit (3 meetings)
@@ -179,6 +110,24 @@ Content in this curriculum may not reflect the actual content taught during meet
 - **Mini vanilla project** between DOM and fetch
 - **Tailwind** (already out earlier)
 - **Separate review week** after break (merged into the Capstone 1 kickoff)
+- **Dedicated arrow functions/callbacks meeting** (now taught when first needed)
+- **Dedicated array methods meeting** (now taught when first needed)
+- **Expression vs. Statement** as a standalone topic (cover only if a student asks)
+
+---
+
+## JUST-IN-TIME TOPICS
+
+These are taught the first time a real task needs them, not as standalone lessons:
+
+| Topic | Where it shows up |
+|---|---|
+| Callbacks, arrow functions | Mar 19 (`addEventListener`) |
+| `map`, `filter`, `forEach` | Weather app (Apr 2-9) or Svelte `{#each}` blocks, only if needed. Plain `for` loops over arrays work until then |
+| Stores | Only if a team needs shared state (10-minute mini-lesson in project planning) |
+| Functions vs. Methods | 30-second aside in the Nov 13 wrap-up; revisit when `.map()` shows up |
+
+**Optional further cut (your call):** SvelteKit routing, or SvelteKit entirely in favor of plain Svelte, if the team project needs more build time.
 
 ---
 
@@ -196,10 +145,13 @@ Content in this curriculum may not reflect the actual content taught during meet
 
 ## MEETING FORMAT (45 minutes, ~35-40 of real teaching)
 
-- **2-3 min:** Recap / quick check-in
+- **3-5 min:** Recap with a recall opener (2-3 predict-the-output questions on last week)
 - **25-30 min:** Live coding + short activities (everyone codes along, predict-then-run)
 - **3-5 min:** Wrap-up, homework
-- Keep 2-3 fast-finisher challenges ready every week
+- **Pause points:** finger check (1 = lost, 2 = mostly, 3 = got it) after each step. If two or more students show 1, redo the step with a different example
+- **Mixed levels:** pair a comfortable student with a newcomer. Keep 2-3 fast-finisher challenges ready every week
+- **Catch-up code:** push each meeting's finished code to the GitHub org so anyone who missed or fell behind can copy it
+- **Say "when to use it":** attach a one-line "use this when..." to every new concept, and share a short cheat sheet in the group chat
 - Don't put critical content in the last 5 minutes (people leave for sports)
 
 ---
@@ -211,15 +163,17 @@ Content in this curriculum may not reflect the actual content taught during meet
 | `week_3_teaching_notes_revised.md` | Oct 16 (strings + template literals) |
 | `week_4_teaching_notes_revised.md` | Oct 30 (logical operators + if/else) |
 | `week_5_teaching_notes.md` | Nov 6 (loops) |
+| `week_6_teaching_notes.md` | Nov 13 (functions 1) |
+| `week_7_teaching_notes.md` | Nov 20 (practice day) |
 
-Not yet written: functions (Nov 13, Nov 20), arrays/objects (Dec 4, Dec 11), and everything in spring.
+Not yet written: arrays/objects (Dec 4), the Dec 11 practice day, and everything in spring.
 
 ---
 
 ## KEY MILESTONES
 
-- **Dec 11:** All JS/TS fundamentals covered
+- **Dec 11:** Core JS/TS fundamentals covered and practiced (variables through arrays and objects)
 - **Feb 26:** Capstone 1 done (individual CLI project)
 - **Apr 9:** Vanilla web + API project done (weather app)
 - **May 7:** Everyone can build a basic SvelteKit app
-- **Jun 11:** Team project showcase
+- **Jun 11:** Team project showcase **Jun 11:** Team project showcase
