@@ -1,0 +1,548 @@
+---
+title: "Practice Day 1"
+description: "Week 7: Find all the resources for your practice day here!"
+authors: ["Hongmeng Zhai"]
+uploaded: 1795090208000
+lastUpdated: 1795090208000
+tags: ["Week 7", "Practice", TypeScript"] 
+thumbnail: '/images/test-post.jpg'
+---
+
+## Practice/Review Day!
+
+This post will follow a slightly different format than the others in the sense that the order of the meeting's content is respected here.
+
+Before going over the content: if you missed week 7's meeting, we're implementing a new system. 
+
+### The Finger Check
+
+After each crucial piece of information that I go over, I'll ask us to do a finger check:
+- 1 finger up -> "I'm lost."
+- 2 fingers up -> "I mostly get it."
+- 3 fingers up -> "I could explain it."
+
+If most people hold up 2s and 3s, the 3s now have the mission to help explain to the 2s and 1s.
+
+If two or more students show a 1 though, I'll redo the step with a different example before moving on, making sure everybody understands.
+
+If you want, you can also put a torn-off notebook page on top of your laptop to signal that you're stuck without interrupting. I'll go over to you ASAP.
+
+## Small "Cheatsheet"
+
+**Function:** use one when you would otherwise copy and paste the same code, or when a chunk of code has a clear job you can name (`getGrade`, `isPrime`).
+
+**Return vs console.log:** use `return` when you need the result later (stored, used in math, passed around). Use `console.log` only to look at something while you're working.
+
+**for loop:** use it when you know how many times to repeat (1 to 30, every item).
+
+**while loop:** use it when you repeat until something happens and don't know how many times (find the secret number).
+
+**if / else if / else:** use it when the code has to choose between options. Check the most specific condition first.
+
+**Template literal:** use it whenever you mix text with variables. It's easier to read than using a `+`.
+
+**Can't remember the syntax?** [Look it up](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference). Nobody memorizes it all, and the thing worth remembering is *which tool fits the job*.
+
+## Meeting Outline
+
+### Opening
+
+To answer the question from the feedback form regarding projects, here's a timeline of the projects we'll be doing:
+
+1. February 2027: your first solo project (Capstone 1)
+2. March-April 2027: web basics and weather app project
+3. May-June 2027: team project, which will be showcased on June 11, 2027.
+
+#### Recall Opener
+
+Predict the outputs:
+
+1. What prints?
+```ts
+function add(a: number, b: number) {
+  console.log(a + b);
+}
+
+let result = add(2, 3);
+console.log(result);
+```
+
+:::spoiler[Reveal answer (CLICK)]
+**Answer**: prints `5`, then `undefined`.
+
+**Rationale**: Since the `add` function doesn't have a return, invoking it prints `5` (look inside `function add()`) and returns *nothing*, which in TypeScript is `undefined`.
+:::
+
+2. How many times does the loop run, and what's the last number?
+```ts 
+for (let i = 1; i < 5; i++) {
+  console.log(i);
+}
+```
+
+:::spoiler[Reveal answer (CLICK)]
+**Answer**: the loop runs 4 times, and the last number is 4.
+
+**Rationale**: `i` starts at 1, then prints 1. Goes to 2, prints 2. Goes to 3, prints 3. Goes to 4, prints 4. Goes to 5, the program notices that when `i` is 5 it stops meeting the condition `i < 5` for the loop to continue, so the loop prints `4` last and hence `4` is our last number. Since the loop went from printing 1 to 4 and everything in between without skipping a number, we can also infer that the loop ran 4 times.
+:::
+
+3. What prints for score = 85?
+```ts
+let score = 85;
+if (score >= 70) {
+  console.log("C");
+} else if (score >= 80) {
+  console.log("B");
+}
+```
+
+:::spoiler[Reveal answer (CLICK)]
+**Answer**: "C".
+
+**Rationale**: Even though the second branch `else if score >= 80` returns `true` for `score = 85`, the first branch also matches (`if score >= 70` and `score = 85`) and it matches first, so the answer is whatever prints from the body of the first `if`, which is "C".
+:::
+
+### Guided Build: Temperature Table 
+
+1. Step 1: a function that *returns*.
+
+```ts
+function toFahrenheit(c: number): number {
+  return c * 9 / 5 + 32;
+}
+
+console.log(toFahrenheit(0));   // 32
+console.log(toFahrenheit(100)); // 212
+```
+
+Try to answer this yourself before clicking for the answer:
+
+:::spoiler[Why `return` and not `console.log` inside the function?]
+**Answer**: Because we want to use the result later - not print it right away.
+:::
+
+2. Step 2: a loop that invokes it.
+
+```ts
+for (let c = -10; c <= 40; c+= 10) {
+  console.log(`${c}*C = ${toFahrenheit(c)}*F`);
+}
+```
+
+Try to answer these questions yourself before clicking each for the answer:
+
+:::spoiler[What is `c += 10` shorthand for?]
+**Answer**: `c += 10` is the same as `c = c + 10`.
+:::
+
+:::spoiler[How many times does the code inside the loop run?]
+**Answer**: 6.
+
+**Rationale**: 
+
+```
+| c | # |
+---------
+-10 | 1 
+  0 | 2
+ 10 | 3
+ 20 | 4
+ 30 | 5
+ 40 | 6
+```
+
+:::
+
+:::spoiler[What is the first value of `c`?]
+**Answer**: The first value of `c` in the loop is `-10`.
+
+**Rationale**: You can see this in the `let c = -10` part of the loop.
+:::
+
+:::spoiler[What is the last value of `c`?]
+**Answer**: The last value of `c` in the loop is `40`.
+
+**Rationale**: See the answer for the second question.
+:::
+
+3. Step 3: add a decision
+
+```ts
+function describeTemp(c: number): string {
+  if (c <= 0) {
+    return "freezing";
+  } else if (c < 20) {
+    return "cool";
+  } else {
+    return "warm";
+  }
+}
+
+for (let c = -10; c <= 40; c += 10) {
+  console.log(`${c}°C = ${toFahrenheit(c)}°F (${describeTemp(c)})`);
+}
+```
+
+Aaaaand we're done! Check out the output for yourself.
+
+## Pair Practice!
+
+### Level 1
+
+**Your mission**: write a function with name "getGrade" that takes in a parameter called "score" which is of type `string` and returns a `string`. The function should return either "A", "B", "C", "D", or "F" depending on the score. Then write a loop that goes from 50 to 100 in steps of 10 that prints both the score and the grade corresponding to that score.
+
+The grade boundaries are as follows:
+- You get an "A" if your score is above or equal to `90`.
+- You get a "B" if your score is below `90` but above or equal to `80`.
+- You get a "C" if your score is below `80` but above or equal to `70`.
+- You get a "D" if your score is below `70` but above or equal to `60`.
+- You get an "F" if your score is below `60`.
+
+:::spoiler[Hint 1 (function)]
+The function "signature" is `function getGrade(score: number): number`
+:::
+
+:::spoiler[Hint 2 (function)]
+You need an if statement for each grade boundary, inside each branch of the if statement return the corresponding grade letter.
+:::
+
+:::spoiler[Hint 1 (loop)]
+The phrase "in steps of 10" refers to that the third section of a for loop should be `s += 10` given that the first section is `let s = 50`.
+:::
+
+:::spoiler[Hint 2 (loop)]
+To print both the score and the grade corresponding to that score, we can use a `console.log` with a template literal that inside it has the for loop's variable and `getGrade()` with the argument being the loops variable. Remember that the loop's variable represents the score.
+:::
+
+:::spoiler[Answer]
+:::spoiler[Are you sure you've tried your best already?]
+```ts
+// the function
+function getGrade(score: number): string {
+  if (score >= 90) {
+    return "A";
+  } else if (score >= 80) {
+    return "B";
+  } else if (score >= 70) {
+    return "C";
+  } else if (score >= 60) {
+    return "D";
+  } else {
+    return "F";
+  }
+}
+
+// the loop
+for (let score = 50; score <= 100; score += 10) {
+  console.log(`${score}: ${getGrade(score)}`)
+}
+```
+
+:::
+
+### Level 2
+
+**Your first mission**: write a function with name "fizzBuzz" that accepts a parameter called "n" which is of type `number` and returns a `string`. The function should:
+- return "Fizz" if the parameter "n" is divisible by 3
+- return "Buzz" if the parameter "n" is divislbe by 5
+- return "FizzBuzz" if the parameter "n" is divisible by 3 and 5
+- return parameter "n" but with a `string` type otherwise 
+
+Then, create a loop that goes from 1 to 30 (inclusive), printing the result of the function you just wrote when you pass it in the loop's variable.
+
+:::spoiler[Hint 1]
+Checking whether a number is divisible by another number is the same as checking whether the division between those two numbers yields a remainder of 0. To check the remainder between two numbers in TypeScript/JavaScript, we can use the [modulo operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Remainder), like so:
+
+```ts
+// getting the remainder of a division
+console.log(12 % 5); // -> output: 2
+console.log(140971972 % 2); // -> output 0
+
+// checking if a number is divisible by another
+console.log(12 % 5 === 0); // -> output: false
+console.log(140971972 % 2 === 0); // -> output: true
+
+let n = 32;
+console.log(n % 2 === 0); // -> output: true
+```
+:::
+
+:::spoiler[Hint 2]
+Inside of your function, you should put an if statement where the first branch checks if "n" is divisible by 3 AND 5 and where the last branch is an `else` statement that returns `n` wrapped in a [template literal](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals).
+:::
+
+**Math-related challenge (optional)**: can you find a way to check whether `n` is divisible by 3 and 5 simultaneously or not WITHOUT using the AND logical operator (`&&`) in a single expression?
+
+:::spoiler[Challenge Answer]
+`n % 3 == 0 && n % 5 == 0` can be rewritten as `n % 15 === 0`.
+
+If it can be divided by 3 and be divided by 5, then it can be divided by the least common multiple of 3 and 5 (which is 15).
+:::
+
+Aaaaand here's the answer:
+
+:::spoiler[Answer]
+```ts
+function fizzBuzz(n: number): string {
+  if (n % 15 === 0) {
+    return "FizzBuzz";
+  } else if (n % 3 === 0) {
+    return "Fizz";
+  } else if (n % 5 === 0) {
+    return "Buzz";
+  } else {
+    return `${n}`;
+  }
+}
+
+for (let i = 1; i <= 30; i++) {
+  console.log(fizzBuzz(i));
+}
+```
+:::
+
+---
+
+**Your second mission**: write a function with name "countVowels" that accepts a parameter called "word" which is of type `string` and returns a number. The function should, given a word, count the amount of times any vowels appear in it. Then, place `console.log(countVowels("Programming"));` below your function.
+
+*This mission is on the harder side, take your time to think outside the box and don't feel ashamed in opening up hints (you should never feel ashamed for opening up hints).*
+
+:::spoiler[Hint 1]
+You'll need to keep count of the amount of vowels there are in the word. Create a variable inside your function called `count` and initialize its value with `0`. Increment this variable by doing `count++` each time you encounter a vowel in the word.
+:::
+
+:::spoiler[Hint 2]
+You'll also need a for loop inside of your function. It should start at 0, and go until it hits the word's length (non-inclusive). Can you remember how to access a `string`'s length?
+:::
+
+:::spoiler[Hint 3]
+You'll need the following `string` methods in order to complete this mission:
+- `.length` - returns the length of the string
+- `.includes(str)` - returns a boolean based on whether the string contains another string `str`
+- `.charAt(index)` - returns a character (a string of length 1) at the `index` position of the string - e.g.: in the string `Hello`, `index` at 0 will give you `H` and index at 4 will give you `o`
+- `.toLowerCase()` - returns the same string, but with all its (applicable) characters turned lowercase
+:::
+
+:::spoiler[Hint 4]
+To check if a character is a vowel, you may use the following code:
+
+```ts
+if ("aeiou".includes(word.charAt(index).toLowerCase())) {
+  // do something here
+}
+```
+:::
+
+Aaaaand here's the answer:
+
+:::spoiler[Answer]
+```ts
+function countVowels(word: string): number {
+  let count = 0;
+  for (let i = 0; i < word.length; i++) {
+    if ("aeiou".includes(word.charAt(i).toLowerCase())) {
+      count++;
+    }
+  }
+  return count;
+}
+
+console.log(countVowels("Programming")); // 3
+```
+:::
+
+### Level 3
+
+By the way, these levels have nothing to do with our "Finger Check". You can have 3 fingers lifted for every concept and still struggle a bit with a Level 3 task.
+
+Oh, and also: these are kind of hard. If you can't get them, that's alright - don't stress to much about it. Give these a try, but if you feel like you're banging your head against a wall: just stop, and do something else for now.
+
+With that said, here's your first mission for level 3.
+
+**Your first mission**: write a function with name "isPrime" that accepts a parameter named "n" of type `number` and returns a `boolean`. The function should, given a number "n", return `true` if it is a prime number, or `false` if it is not. Then, create a for loop that prints every **prime** number from 1 (inclusive) to 50 (inclusive).
+
+:::spoiler[Reminder]
+If you've forgotten, a prime number is considered to be any number than can ONLY be divided by 1 and itself.
+
+This means that if there's any number between 2 (inclusive) and that number (non-inclusive) that can divide that number, then it is not prime. *How would you implement this in code?*
+:::
+
+:::spoiler[Hint 1]
+If the number passed into "isPrime" is less than 2, we can automatically discard the number as not prime.
+:::
+
+:::spoiler[Hint 2]
+If we want to check every number from 2 (inclusive) up to the number itself and whether those numbers in between can divide our number, we can use a for loop that starts at 2, and goes up to our number. Inside this loop, we can use the [modulo operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Remainder) to check whether the number we're currently checking can divide our number without leaving a remainder.
+:::
+
+:::spoiler[Hint 3]
+Inside the loop that checks if the current number we're checking can divide our number "n", return `false` if there is a number that can divide our number: this would mean that a number can divide it that's not itself or 1, hence making it not prime, which is why we return `false`. Do not add an else with a `return true` to the if statement, however; that would make the loop stop the function returning `true` if the first number it checks cannot divide "n".
+
+After the loop, place the `return true`. This means the loop has finalized without returning the function, meaning that no numbers between 1 and itself can divide it, making it prime.
+:::
+
+Aaaaand here's the answer:
+
+:::spoiler[Answer]
+```ts
+function isPrime(n: number): boolean {
+  if (n < 2) {
+    return false;
+  }
+  for (let i = 2; i < n; i++) {
+    if (n % i === 0) {
+      return false;
+    }
+  }
+  return true;
+}
+
+for (let n = 1; n <= 50; n++) {
+  if (isPrime(n)) {
+    console.log(n);
+  }
+}
+```
+:::
+
+---
+
+**Your second mission**: create a **program** that generates a random number from 1 to 100, then create a function with name "checkGuess" that has two parameters: "guess", a `number`, and "target", also a `number`. This function will return a string, checking if the guess is too high, too low, or correct. Then, create two variables named "guess" and "attempts", both numbers set to `1`. After that, *while* the variable "guess" is not correct, increase it by one and also increase the variable "attempts" by one. Finally, print out the "secret" variable and how many attempts it took to find it.
+
+Before you start, this is the value of secret:
+```ts
+// random number between 1 and 100
+// copy this into your code
+const secret = Math.floor(Math.random() * 100) + 1;
+```
+
+Here's are the return values that "checkGuess" should have depending on its parameters "guess" and "target":
+- if "guess" and "target" are the same, return "correct"
+- if "guess" is smaller than "target", return "too low"
+- otherwise (if "guess" is bigger than "target"), return "too high"
+
+Admittedly, this exercise/mission was a bit harder to explain, so I may have done a poorer job at it. Let me know via GChat if you're stuck!
+
+:::spoiler[Hint 1]
+At the end, use a `while` loop that takes a look at the value returned by `checkGuess(guess, secret)`, sees if it is "correct", and if not, do `guess++` and `attempts++`. After the loop finishes (which is when it has "cracked the code"), print "secret" and "attempts".
+:::
+
+I apologize for the lack of hints on this one - I couldn't think of more hints that wouldn't straight up give you part of the code.
+
+Aaaaand here's the answer:
+
+:::spoiler[Answer]
+```ts
+function checkGuess(guess: number, target: number): string {
+  if (guess === target) {
+    return "correct";
+  } else if (guess < target) {
+    return "too low";
+  } else {
+    return "too high";
+  }
+}
+
+const secret = Math.floor(Math.random() * 100) + 1;
+let guess = 1; 
+let attempts = 1;
+while (checkGuess(guess, secret) !== "correct") {
+  guess++;
+  attempts++;
+}
+
+console.log(`Found ${secret} in ${attempts} guesses`);
+```
+:::
+
+:::spoiler[Challenge (optional)]
+Can you make the program find the secret in fewer attempts?
+
+Here's a hint you'll *probably need*: start in the middle.
+
+No more hints :)
+
+:::spoiler[Challenge answer]
+```ts
+function checkGuess(guess: number, target: number): string {
+  if (guess === target) {
+    return "correct";
+  } else if (guess < target) {
+    return "too low";
+  } else {
+    return "too high";
+  }
+}
+
+const secret = Math.floor(Math.random() * 100) + 1; // copy this line, no need to understand it yet
+let guess = 50;
+let attempts = 1;
+while (checkGuess(guess, secret) !== "correct") {
+  if (checkGuess(guess, secret) === "too high") {
+    guess--;
+  } else {
+    guess++;
+  }
+
+  attempts++;
+}
+
+console.log(`Found ${secret} in ${attempts} guesses`);
+```
+:::
+
+---
+
+**Your third (and last) mission**: write two functions. One function should be named "reverse" and accept a string named "text" as argument - the function itself should return a string. The other function should be named "isPalindrome" and accept a string named "word" as argument - the function itself should return a boolean. The "reverse" function should return a reversed version of the string that's passed into it, for example: `reverse("Hello")` should return `"olleH"`. The "isPalindrome" function should check whether the word passed into it is a palindrome or not, and return a `boolean` accordingly.
+
+:::spoiler[Reminder]
+A [palindrome](https://en.wikipedia.org/wiki/Palindrome) is a word, phrase, or any other sequence of symbols that reads the same forwards and backwards. Examples of a palindrome:
+- "racecar"
+- "madam"
+- "A man, a plan, a canal – Panama", although this one requires ignoring the punctuating and spacing. We will assume all inputs coming to our "isPalindrome" function is free of whitespace and punctuations.
+:::
+
+:::spoiler[Hint 1]
+In order to implement the "reverse" function, you need to have an empty string prepared to put the new reversed characters in, one by one.
+
+*How can one add to the empty string letters from the original string but from right to left?*
+
+You'll need the following string methods/properties:
+- `.length` - gets the length of a string
+- `.charAt(index)` - gets the character from the string at the given index
+:::
+
+:::spoiler[Hint 2]
+To reverse through a string and add its last character first and first character last to a new string called "result", we can do the following:
+
+```ts
+let result = "";
+for (let i = text.length - 1; i >= 0; i--) {
+  result += text.charAt(i);
+}
+
+Before straight up pasting this code in, try to understand it first: *why do we need to subtract 1 from `text.length`? Why do we need `i--` instead of `i++`? What is this code doing?*
+```
+:::
+
+Aaaaand here's the answer:
+
+:::spoiler[Answer]
+```ts
+function reverse(text: string): string {
+  let result = "";
+  for (let i = text.length - 1; i >= 0; i--) {
+    result += text.charAt(i);
+  }
+  return result;
+}
+
+function isPalindrome(word: string): boolean {
+  return word.toLowerCase() === reverse(word.toLowerCase());
+}
+```
+:::
+
+---
+
+That's it for now. This is one of the higher quality posts on this website. I hope you enjoyed it!
