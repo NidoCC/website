@@ -6,6 +6,8 @@ import tailwindcss from "@tailwindcss/vite";
 import { defineConfig, fontProviders } from "astro/config";
 import rehypeKatex from "rehype-katex";
 import remarkMath from "remark-math";
+import remarkDirective from "remark-directive";
+import { remarkSpoiler } from "./src/plugins/remark-spoiler";
 
 import expressiveCode from "astro-expressive-code";
 
@@ -26,7 +28,7 @@ export default defineConfig({
 
   markdown: {
     processor: unified({
-      remarkPlugins: [remarkMath],
+      remarkPlugins: [remarkDirective, remarkSpoiler, remarkMath],
       rehypePlugins: [rehypeKatex],
     }),
   },

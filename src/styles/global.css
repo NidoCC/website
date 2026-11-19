@@ -122,6 +122,9 @@
   }
 }
 
+a {
+}
+
 .katex {
   text-align: center;
   width: 100%;
@@ -129,5 +132,18 @@
 }
 
 .frac-line {
-   border-color: white;
+  border-color: white;
+}
+
+/* Block spoiler */
+.spoiler-block {
+  border: 1px solid #3f3f46;
+  border-radius: 6px;
+  padding: 0.75rem 1rem;
+  margin: 1rem 0;
+}
+
+.spoiler-block summary {
+  cursor: pointer;
+  font-weight: 600;
 }
