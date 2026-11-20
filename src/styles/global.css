@@ -122,7 +122,9 @@
   }
 }
 
-a {
+a:not([data-navigation-menu-link], [data-button]) {
+  color: var(--color-emerald-400);
+  text-decoration: underline;
 }
 
 .katex {

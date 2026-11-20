@@ -37,6 +37,7 @@ const { Content } = await render(post);
           width={500}
           height={300}
           class="w-full max-h-96"
+          loading="eager"
         />
         <div
           class="pointer-events-none absolute inset-x-0 left-0 bottom-0 w-full h-20 bg-linear-to-t from-secondary via-secondary/70 to-transparent"
@@ -46,7 +47,7 @@ const { Content } = await render(post);
       <a
         href="/post"
         class="font-mono uppercase pl-4 mt-4 hover:text-muted-foreground"
-        ><MoveLeft class="inline" /> Go back</a
+        data-button><MoveLeft class="inline" /> Go back</a
       >
       <div class="p-4">
         <p class="text-muted-foreground font-mono uppercase">Title</p>
@@ -78,14 +79,14 @@ const { Content } = await render(post);
           </span>
         </div>
         <hr class="my-8" />
-        <div class="prose prose-invert prose-lg mx-auto prose-a:text-emerald-400">
+        <div class="prose prose-invert prose-lg mx-auto">
           <Content />
         </div>
       </div>
       <a
         href="/post"
         class="font-mono uppercase pl-4 mt-4 hover:text-muted-foreground"
-        ><MoveLeft class="inline" /> Go back</a
+        data-button><MoveLeft class="inline" /> Go back</a
       >
     </article>
   </div>
