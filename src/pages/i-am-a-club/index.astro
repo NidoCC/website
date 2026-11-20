@@ -1,0 +1,205 @@
+---
+import Layout from "@layouts/Layout.astro";
+import { SpecialText } from "$lib/components/spell/special-text";
+import { Signature } from "$lib/components/spell/signature";
+import { MoveLeft } from "@lucide/astro";
+---
+
+<Layout>
+  <section class="m-20 relative grid place-items-center h-75">
+    <div
+      class="absolute inset-0 pointer-events-none opacity-20"
+      style="
+      background:
+        radial-gradient(ellipse at 35% 40%, rgba(16, 185, 129, 0.6) 0%, transparent 40%),
+        radial-gradient(ellipse at 55% 30%, rgba(20, 184, 166, 0.5) 0%, transparent 35%),
+        radial-gradient(ellipse at 70% 60%, rgba(34, 197, 94, 0.4) 0%, transparent 45%),
+        radial-gradient(ellipse at 25% 70%, rgba(5, 150, 105, 0.35) 0%, transparent 40%),
+        radial-gradient(ellipse at 60% 70%, rgba(16, 185, 129, 0.3) 0%, transparent 50%),
+        linear-gradient(135deg,
+          rgba(5, 150, 105, 0.8) 0%,
+          rgba(16, 185, 129, 0.6) 20%,
+          rgba(20, 184, 166, 0.5) 40%,
+          rgba(34, 197, 94, 0.4) 60%,
+          rgba(5, 150, 105, 0.3) 100%
+        );
+      filter: blur(60px);
+    "
+    >
+    </div>
+
+    <h1 class="text-5xl">
+      <SpecialText client:visible>Are you a club?</SpecialText>
+    </h1>
+  </section>
+
+  <section class="mx-20">
+    <a
+      href="/"
+      class="font-mono uppercase pl-4 mt-4 hover:text-muted-foreground"
+      data-button><MoveLeft class="inline" /> Go back</a
+    >
+    <p class="text-xl">
+      If your answer is a big strong <strong>yes</strong> (assuming you're a club
+      from Nido de Águilas), then the Coding Club has got news for you! <br
+      /><br /> If your club needs a website done, or any digital tool made, don't
+      hesitate to contact the Coding Club! We are constantly learning new things about
+      programming in general and web development, and being a team with so many different
+      people, interests, and talents, it's (almost) guaranteed that you'll be able
+      to receive a product in the style you desire!
+    </p>
+
+    <div class="text-center">
+      <p class="text-xl">Just contact</p>
+      <p class="text-3xl">
+        Zhai <span id="mail" class="cursor-pointer text-lg hover:brightness-75"
+          >(fanhongmeng.zhai@students.nido.cl)</span
+        >!
+      </p>
+      <p class="text-md text-muted-foreground" id="message">click to copy!</p>
+    </div>
+
+    <p class="mt-10 text-xl">
+      But before you make a request, please make sure to include the following
+      items in your email!
+    </p>
+
+    <ul class="list-disc text-xl">
+      <li>Your name</li>
+      <li>Your club's name</li>
+      <li>
+        What your club does (be as detailed as you want, the more detailed the
+        better)
+      </li>
+      <li>
+        What function should the website have (is it to show off your club? does
+        it need to have any tools built into it?)
+      </li>
+      <li>
+        And if you already have a design in mind, tell us! If not, we can figure
+        something out together.
+      </li>
+      <li>
+        Aaaand if you already have a <a
+          class="text-emerald-400 underline"
+          href="https://www.figma.com/"
+          target="_blank">Figma</a
+        > file or any equivalent design mockup ready (wow), we'd really appreciate
+        that (it makes our job wayyyy easier)!
+      </li>
+    </ul>
+    <p class="text-xl mt-10">
+      We (will) use Svelte and SvelteKit to build your projects, and we'll
+      probably use a UI library in order to maintain consistency. You get to
+      choose which one we use based on how much you like how they look. Most UI
+      libraries' components are also customizable, so don't worry if they're
+      just slightly off your taste. Here's some that I know about - check them
+      out, and include in the email if you want to use any of these (or if you
+      do not want any use of UI libraries in the product):
+    </p>
+    <table class="tg mt-10">
+      <thead class="border-b border-emerald-400">
+        <tr>
+          <th>Name</th>
+          <th>Link</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Flowbite</td>
+          <td
+            ><a href="https://flowbite-svelte.com/" target="_blank"
+              >https://flowbite-svelte.com</a
+            ></td
+          >
+        </tr>
+        <tr>
+          <td>Skeleton</td>
+          <td
+            ><a href="https://www.skeleton.dev/" target="_blank"
+              >https://www.skeleton.dev/</a
+            ></td
+          >
+        </tr>
+        <tr>
+          <td>shadcn/ui</td>
+          <td
+            ><a href="https://shadcn-svelte.com/" target="_blank">
+              https://shadcn-svelte.com/
+            </a></td
+          >
+        </tr>
+        <tr>
+          <td>DaisyUI</td>
+          <td
+            ><a href="https://daisyui.com/" target="_blank">
+              https://daisyui.com/
+            </a></td
+          >
+        </tr>
+        <tr>
+          <td>stdf</td>
+          <td
+            ><a href="https://stdf.dev/" target="_blank">
+              https://stdf.dev/
+            </a></td
+          >
+        </tr>
+      </tbody>
+    </table>
+    <p class="text-xl mt-10">
+      And that's it! I'll respond to you within a day or two (including
+      weekends, probably) and we can talk then. Do keep in mind that the website
+      will NOT be the same quality as a if a professional software development
+      firm had made it. Of course, if you need changes made to polish and make
+      the website more to your liking, we'd be happy to do that, but please
+      don't expect high school students some with less than a year of
+      programming experience to produce a masterpiece.
+    </p>
+    <div class="flex items-center justify-center flex-col mt-10">
+      <Signature
+        client:load
+        once
+        text="Fanhongmeng Zhai"
+        fontSize={16}
+        color="#F0F0F0"
+      />
+      <hr class="w-64 h-0.5 -mt-8 bg-white" />
+      <p>Fanhongmeng Zhai - Club Leader</p>
+      <p class="mt-10">
+        here's a fake signature to make everything look more official :)
+      </p>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .tg td {
+    padding: 2.5px 7.5px;
+  }
+</style>
+
+<script>
+  const mail = document.querySelector("#mail");
+  const message = document.querySelector("#message");
+  mail?.addEventListener("click", async (_e) => {
+    if (!message) {
+      console.error("Could not find message element!");
+      return;
+    }
+
+    try {
+      await navigator.clipboard.writeText("fanhongmeng.zhai@students.nido.cl");
+
+      message.innerHTML = "copied!";
+
+      setTimeout(() => {
+        message.innerHTML = "click to copy!";
+      }, 2000);
+
+      console.log("Succesfully copied email to clipboard!");
+    } catch (err) {
+      console.error("Failed to copy email to clipboard!");
+    }
+  });
+</script>
