@@ -137,8 +137,7 @@ const minutes = Math.ceil(readingTime);
     for (let row = 0; row < state.rows; row += 1) {
       for (let column = 0; column < state.columns; column += 1) {
         const index = row * state.columns + column;
-        // const glyph = glyphs[(index * 7 + row * 3) % glyphs.length];
-        const glyph = glyphs[Math.floor(Math.random() + 1)];
+        const glyph = glyphs[(index * 7 + row * 3) % glyphs.length];
         context.fillText(
           glyph,
           column * cellSize + cellSize / 2,
