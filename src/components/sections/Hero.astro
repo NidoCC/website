@@ -1,4 +1,5 @@
 ---
+import { Backlight } from "$lib/components/magic/backlight";
 import RandomizedText from "@components/RandomizedText.svelte";
 import { BlurFade } from "$lib/components/magic/blur-fade";
 import { SpecialText } from "$lib/components/spell/special-text";
@@ -72,19 +73,31 @@ import ButtonLink from "@components/ButtonLink.astro";
   >
   </div>
 
-  <Image src={wingLeftImage} alt="Left wing" width={400} height={400} />
+  <BlurFade delay={0} direction="up" client:visible>
+    <Backlight>
+      <Image
+        src={wingLeftImage}
+        loading="eager"
+        alt="Left wing"
+        width={400}
+        height={400}
+      />
+    </Backlight>
+  </BlurFade>
 
   <div class="relative z-10">
     <h1
       class="text-base md:text-lg font-light tracking-widest text-emerald-400/90 mb-6 font-mono"
     >
-      <RandomizedText split="chars" triggerOnView client:visible
-        >[ WELCOME TO THE ]</RandomizedText
-      >
+      <Backlight>
+        <RandomizedText split="chars" triggerOnView client:visible
+          >[ WELCOME TO THE ]</RandomizedText
+        >
+      </Backlight>
     </h1>
 
     <div
-      class="mx-auto flex flex-col items-center justify-center gap-3 md:gap-4"
+      class="mx-auto flex flex-col items-center justify-center gap-3 md:gap-4 w-[30vw]"
     >
       <div class="flex items-center justify-center gap-2 md:gap-5">
         <div class="relative z-10 text-center">
@@ -96,7 +109,9 @@ import ButtonLink from "@components/ButtonLink.astro";
           <h1
             class="text-5xl md:text-7xl font-black tracking-tighter text-emerald-400 leading-none"
           >
-            <SpecialText client:visible>CODING CLUB</SpecialText>
+            <Backlight>
+              <SpecialText client:visible>CODING CLUB</SpecialText>
+            </Backlight>
           </h1>
         </div>
       </div>
@@ -121,10 +136,21 @@ import ButtonLink from "@components/ButtonLink.astro";
     >
       <ButtonLink href="#about" variant="secondary">ABOUT</ButtonLink>
       <ButtonLink href="#join" variant="primary">JOIN</ButtonLink>
+      <ButtonLink href="/i-am-a-club" variant="primary">I'M A CLUB</ButtonLink>
     </BlurFade>
   </div>
 
-  <Image src={wingRightImage} alt="Right wing" width={400} height={400} />
+  <BlurFade delay={0} direction="up" client:visible>
+    <Backlight>
+      <Image
+        src={wingRightImage}
+        loading="eager"
+        alt="Right wing"
+        width={400}
+        height={400}
+      />
+    </Backlight>
+  </BlurFade>
 </section>
 
 <div

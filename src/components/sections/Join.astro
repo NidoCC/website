@@ -1,5 +1,6 @@
 ---
 import { QRCode } from "$lib/components/spell/qrcode";
+import { Backlight } from "$lib/components/magic/backlight";
 
 const layers = Array.from({ length: 10 }, (_, i) => i);
 const linkUrl =
@@ -9,7 +10,7 @@ const linkUrl =
 <section class="grid place-items-center" id="join">
   <div class="relative">
     <h1 class="font-mono text-4xl text-center mb-6">
-      Want to <span class="text-emerald-400">join?</span>
+      Want to <Backlight class="text-emerald-400 inline-block">join?</Backlight>
     </h1>
     <p class="text-muted-foreground text-center">
       Scan or click the QR code. <br />
