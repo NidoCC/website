@@ -31,8 +31,18 @@ const minutes = Math.ceil(readingTime);
   href={`/post/${post.id}`}
   class="bg-secondary hover:brightness-125 flex h-72 w-full overflow-hidden relative"
   data-search={searchText}
+  data-button
+  data-matrix-card
 >
-  <div class="flex min-w-0 flex-1 flex-col p-5">
+  <div
+    class="pointer-events-none absolute inset-0 overflow-hidden"
+    aria-hidden="true"
+    data-matrix
+  >
+    <canvas class="absolute inset-0 h-full w-full" data-matrix-base></canvas>
+    <canvas class="absolute" data-matrix-glow></canvas>
+  </div>
+  <div class="relative z-10 flex min-w-0 flex-1 flex-col p-5">
     <div>
       <h3 class="font-mono text-2xl wrap-break-word">{post.data.title}</h3>
       <p class="text-muted-foreground uppercase font-mono text-sm">
@@ -62,3 +72,249 @@ const minutes = Math.ceil(readingTime);
     </div>
   </div> -->
 </a>
+
+<script>
+  const cellSize = 8;
+  const glowRadius = 60;
+  const glyphs = "01";
+  const fontSize = 8;
+
+  interface MatrixState {
+    card: HTMLElement;
+    baseCanvas: HTMLCanvasElement;
+    glowCanvas: HTMLCanvasElement;
+    baseContext: CanvasRenderingContext2D;
+    glowContext: CanvasRenderingContext2D;
+    width: number;
+    height: number;
+    pixelRatio: number;
+    columns: number;
+    rows: number;
+    pointerX: number;
+    pointerY: number;
+    frame: number | null;
+    pointerInside: boolean;
+    onPointerMove: (event: PointerEvent) => void;
+    onPointerLeave: () => void;
+  }
+
+  const states = new Map<HTMLElement, MatrixState>();
+  let resizeObserver: ResizeObserver | undefined;
+  let pendingNavigation = false;
+
+  const drawBase = (state: MatrixState) => {
+    const width = state.card.clientWidth;
+    const height = state.card.clientHeight;
+    const pixelRatio = Math.min(window.devicePixelRatio || 1, 2);
+    if (width === 0 || height === 0) return;
+
+    const sizeChanged =
+      width !== state.width ||
+      height !== state.height ||
+      pixelRatio !== state.pixelRatio;
+    if (!sizeChanged) return;
+
+    state.columns = Math.ceil(width / cellSize);
+    state.rows = Math.ceil(height / cellSize);
+
+    state.width = width;
+    state.height = height;
+    state.pixelRatio = pixelRatio;
+    state.baseCanvas.width = Math.ceil(width * pixelRatio);
+    state.baseCanvas.height = Math.ceil(height * pixelRatio);
+    state.glowCanvas.width = Math.ceil(glowRadius * 2 * pixelRatio);
+    state.glowCanvas.height = Math.ceil(glowRadius * 2 * pixelRatio);
+    state.baseContext.setTransform(pixelRatio, 0, 0, pixelRatio, 0, 0);
+    state.glowContext.setTransform(pixelRatio, 0, 0, pixelRatio, 0, 0);
+
+    const context = state.baseContext;
+    context.clearRect(0, 0, width, height);
+    context.fillStyle = "rgba(113, 113, 122, 0.18)";
+    context.font = `${fontSize}px monospace`;
+    context.textAlign = "center";
+    context.textBaseline = "middle";
+
+    for (let row = 0; row < state.rows; row += 1) {
+      for (let column = 0; column < state.columns; column += 1) {
+        const index = row * state.columns + column;
+        // const glyph = glyphs[(index * 7 + row * 3) % glyphs.length];
+        const glyph = glyphs[Math.floor(Math.random() + 1)];
+        context.fillText(
+          glyph,
+          column * cellSize + cellSize / 2,
+          row * cellSize + cellSize / 2,
+        );
+      }
+    }
+
+    state.glowCanvas.style.opacity = "0";
+  };
+
+  const drawGlow = (state: MatrixState) => {
+    const { pointerX: x, pointerY: y } = state;
+    const left = x - glowRadius;
+    const top = y - glowRadius;
+    const diameter = glowRadius * 2;
+    state.glowCanvas.style.left = `${left}px`;
+    state.glowCanvas.style.top = `${top}px`;
+
+    const context = state.glowContext;
+    context.clearRect(0, 0, diameter, diameter);
+    const orb = context.createRadialGradient(
+      glowRadius,
+      glowRadius,
+      0,
+      glowRadius,
+      glowRadius,
+      glowRadius,
+    );
+    orb.addColorStop(0, "rgba(52, 211, 153, 0.18)");
+    orb.addColorStop(1, "rgba(52, 211, 153, 0)");
+    context.fillStyle = orb;
+    context.fillRect(0, 0, diameter, diameter);
+    context.font = `${fontSize}px monospace`;
+    context.textAlign = "center";
+    context.textBaseline = "middle";
+
+    const firstColumn = Math.max(0, Math.floor((x - glowRadius) / cellSize));
+    const lastColumn = Math.min(
+      state.columns - 1,
+      Math.floor((x + glowRadius) / cellSize),
+    );
+    const firstRow = Math.max(0, Math.floor((y - glowRadius) / cellSize));
+    const lastRow = Math.min(
+      state.rows - 1,
+      Math.floor((y + glowRadius) / cellSize),
+    );
+    for (let row = firstRow; row <= lastRow; row += 1) {
+      for (let column = firstColumn; column <= lastColumn; column += 1) {
+        const centerX = column * cellSize + cellSize / 2;
+        const centerY = row * cellSize + cellSize / 2;
+        const distance = Math.hypot(centerX - x, centerY - y);
+        if (distance > glowRadius) continue;
+
+        const intensity = (1 - distance / glowRadius) ** 1.5;
+        const index = row * state.columns + column;
+        context.fillStyle = `rgba(52, 211, 153, ${0.25 + intensity * 0.75})`;
+        context.shadowColor = "rgba(52, 211, 153, 0.8)";
+        context.shadowBlur = intensity * 8;
+        context.fillText(
+          glyphs[(index * 7 + row * 3) % glyphs.length],
+          centerX - left,
+          centerY - top,
+        );
+      }
+    }
+
+    context.shadowBlur = 0;
+    state.glowCanvas.style.opacity = "1";
+  };
+
+  const scheduleGlow = (state: MatrixState) => {
+    if (state.frame !== null) return;
+    state.frame = requestAnimationFrame(() => {
+      state.frame = null;
+      if (state.pointerInside) drawGlow(state);
+    });
+  };
+
+  const cleanupMatrices = () => {
+    resizeObserver?.disconnect();
+    resizeObserver = undefined;
+
+    for (const state of states.values()) {
+      if (state.frame !== null) cancelAnimationFrame(state.frame);
+      state.glowCanvas.style.opacity = "0";
+      state.card.removeEventListener("pointermove", state.onPointerMove);
+      state.card.removeEventListener("pointerleave", state.onPointerLeave);
+    }
+    states.clear();
+  };
+
+  const initializeMatrices = () => {
+    cleanupMatrices();
+    resizeObserver = new ResizeObserver((entries) => {
+      for (const entry of entries) {
+        if (!(entry.target instanceof HTMLElement)) continue;
+        const state = states.get(entry.target);
+        if (!state) continue;
+        drawBase(state);
+        if (state.pointerInside) scheduleGlow(state);
+      }
+    });
+
+    document
+      .querySelectorAll<HTMLElement>("[data-matrix-card]")
+      .forEach((card) => {
+        const baseCanvas =
+          card.querySelector<HTMLCanvasElement>("[data-matrix-base]");
+        const glowCanvas =
+          card.querySelector<HTMLCanvasElement>("[data-matrix-glow]");
+        const baseContext = baseCanvas?.getContext("2d");
+        const glowContext = glowCanvas?.getContext("2d");
+        if (!baseCanvas || !glowCanvas || !baseContext || !glowContext) return;
+
+        const state: MatrixState = {
+          card,
+          baseCanvas,
+          glowCanvas,
+          baseContext,
+          glowContext,
+          width: 0,
+          height: 0,
+          pixelRatio: 0,
+          columns: 0,
+          rows: 0,
+          pointerX: 0,
+          pointerY: 0,
+          frame: null,
+          pointerInside: false,
+          onPointerMove: () => {},
+          onPointerLeave: () => {},
+        };
+
+        state.onPointerMove = (event) => {
+          const bounds = card.getBoundingClientRect();
+          state.pointerX = event.clientX - bounds.left;
+          state.pointerY = event.clientY - bounds.top;
+          state.pointerInside = true;
+          scheduleGlow(state);
+        };
+        state.onPointerLeave = () => {
+          state.pointerInside = false;
+          if (state.frame !== null) {
+            cancelAnimationFrame(state.frame);
+            state.frame = null;
+          }
+          state.glowCanvas.style.opacity = "0";
+        };
+
+        states.set(card, state);
+        resizeObserver?.observe(card);
+        card.addEventListener("pointermove", state.onPointerMove);
+        card.addEventListener("pointerleave", state.onPointerLeave);
+        drawBase(state);
+      });
+  };
+
+  document.addEventListener("astro:before-swap", () => {
+    pendingNavigation = true;
+    cleanupMatrices();
+  });
+  document.addEventListener("astro:page-load", () => {
+    if (!pendingNavigation) return;
+    pendingNavigation = false;
+    initializeMatrices();
+  });
+
+  initializeMatrices();
+</script>
+
+<style>
+  [data-matrix-glow] {
+    width: 120px;
+    height: 120px;
+    opacity: 0;
+    transition: opacity 140ms ease;
+  }
+</style>
