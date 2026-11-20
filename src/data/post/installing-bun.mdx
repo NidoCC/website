@@ -1,0 +1,113 @@
+---
+title: "Installing Bun"
+description: "Week 7: npx tsx main.ts blah blah blah how about just bun main.ts"
+authors: ["Hongmeng Zhai"]
+uploaded: 1795203331000
+lastUpdated: 1795203331000
+tags: ["Week 7", "Bun", "Runtime"] 
+thumbnail: '/images/test-post.jpg'
+---
+
+## WAIT!
+
+Please read this post thoroughly. Bun is harder to install than Node.js, especially for beginners. And remember: if you get stuck on any part of this tutorial, please do not hesitate to message me (fanhongmeng.zhai@students.nido.cl) on GChat.
+
+## With that out of the way...
+
+1. Visit [https://bun.sh/](https://bun.sh/)
+2. Copy the install script the Bun website provides you (copy the entire script, from `curl` to `bash`).
+
+:::spoiler[If you can't find it, here it is.]
+### CAUTION
+This script may VERY well be outdated and not work. Only use this script if for the life of you you cannot find the original install script.
+
+```sh
+curl -fsSL https://bun.sh/install | bash
+```
+:::
+
+3. Paste the script into your terminal (`⌘ + V`) and press enter. 
+
+This can be the terminal inside Visual Studio Code, or the terminal you have installed on your computer (`⌘ + SPACE`, then search for Terminal).
+
+This will install Bun to your computer.
+
+Wait until the loading bar finishes reaching the other side and you see this:
+
+```zsh
+bun was installed successfully to ~/.bun/bin/bun 
+```
+
+Congrats! You've installed Bun. **IT WON'T WORK RIGHT AWAY THOUGH**.
+
+4. Tell your computer where to find Bun when you type `bun` in the terminal.
+
+Firstly, you will have to edit a file whose content is located in `~/.zshrc`. 
+
+If you somehow find a way to open VSCode to that file: congrats, you can skip this step - just edit the file with the 2 lines of code I'm about to give you.
+
+If you cannot find a way to open VSCode to `~/.zshrc`, open your terminal (preferably the app version, but the VSCode one also works if you drag the top of it and make it cover most of your screen), copy the following and paste it in your terminal:
+
+```sh
+nano ~/.zshrc
+```
+
+`nano` is a terminal text editor. We're using this because you can edit your file anywhere on your computer if you just have the path to it. In our case, the path to the file is `~/.zshrc`.
+
+Next, copy this. **Do this if you have the file open in VSCode too!**
+
+```zsh
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
+```
+
+Then paste it at the top of the file. If it's empty, just paste it in. The key combination to paste (`⌘ + V`) should work perfectly fine inside of `nano`.
+
+If you have to move your cursor, use the arrow keys. If you need to scroll up or down, scroll as you would normally scroll a website.
+
+To save the file and close `nano`, press `Ctrl + X`.
+
+`nano` will give you the following prompt:
+
+```
+Save modified buffer (ANSWERING "No" WILL DESTROY CHANGES) ?                                                                                          
+                         Y Yes                                                                                                                        
+^C Cancel                N No                                 
+```
+
+Press the `y` key on your keyboard to save.
+
+After, `nano` will prompt you again:
+
+```
+File Name to write : .zshrc
+^G Get Help              ^T  To Files                                                                                                                 
+^C Cancel                TAB Complete  
+```
+
+For this one, do **NOT** change the name of file. If you accidentally pressed a key, make sure `File Name to write : ` is followed by `.zshrc`, then press enter. If you modified it for it to show as `File Name to write : ~/.zshrc`, aka you turned the file name into the path, that is also okay: just press your `y` when it prompts to overwrite.
+
+After you've done everything correctly, `nano` should close, and you should be back to your usual terminal. One last thing though:
+
+5. Update your current terminal to reflect the changes (optional).
+
+You can do this by copy and pasting in the same terminal the following:
+
+```zsh
+source ~/.zshrc
+```
+
+And you're done!
+
+Instead of running the previous command, you could also just open a new terminal and discard the old one - also does the trick.
+
+6. Check that you've done everything correctly.
+
+After running the Bun install script, adding the two lines to `.zshrc`, and running `source ~/.zshrc` or creating a new terminal: run `bun --help` in your terminal. If a bunch of text comes up on how to use Bun, then congrats, you've done it!
+
+If it still says something like `zsh: command not found: bun` when running `bun --help`, please bring it up the next time we have a meeting. If you want to get this fixed earlier, please send me a GChat - I'll get to you ASAP.
+
+---
+
+Thanks for reading!
