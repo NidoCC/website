@@ -7,7 +7,7 @@ const linkUrl =
   "https://docs.google.com/forms/d/e/1FAIpQLSdjRvvvxS-Ed3zshhSqeWVHB8ELzm-PALgskc29ojHyK03M-w/viewform?usp=dialog";
 ---
 
-<section class="grid place-items-center" id="join">
+<section class="grid place-items-center lg:mt-0 mt-10" id="join">
   <div class="relative">
     <h1 class="font-mono text-4xl text-center mb-6">
       Want to <Backlight class="text-emerald-400 inline-block">join?</Backlight>
@@ -27,7 +27,7 @@ const linkUrl =
           .reverse()
           .map((i) => (
             <div
-              class="absolute top-0 left-0 h-full w-full flex justify-center items-center"
+              class="absolute top-0 left-0 h-full w-full lg:flex lg:justify-center hidden items-center"
               style={`
               transform: translateX(${-i * 20}px) translateY(${i * 8}px) scale(${1 - i * 0.02});
               opacity: ${Math.max(0, 1 - i / layers.length)};
@@ -37,7 +37,7 @@ const linkUrl =
             `}
             >
               <div class="block w-full h-full">
-                <div class="flex justify-center items-center flex-col px-6 py-4 rounded-xl border-emerald-900 border-2 bg-neutral-900 w-full h-full">
+                <div class="flex justify-center items-center flex-col px-6 py-4 rounded-xl border-emerald-900 border-2 bg-neutral-900 lg:w-full lg:h-full">
                   <QRCode
                     value={linkUrl}
                     fgColor="#00d492"
@@ -50,12 +50,42 @@ const linkUrl =
             </div>
           ))
       }
+      <div
+        class="absolute top-0 left-0 w-full h-full flex items-center justify-center"
+        style={`
+            transform: translateX(0px) translateY(0px) scale(1);
+            opacity: 1;
+            z-index: ${layers.length};
+            filter: blur(0px) saturate(1);
+            pointer-events: "auto";
+          `}
+      >
+        <a
+          href={linkUrl}
+          target="_blank"
+          rel="noreferrer"
+          class="block w-full h-full"
+          aria-label={linkUrl}
+        >
+          <div
+            class="flex justify-center items-center flex-col px-6 py-4 rounded-xl border-emerald-900 border-2 bg-neutral-900 w-full h-full"
+          >
+            <QRCode
+              value={linkUrl}
+              fgColor="#00d492"
+              bgColor="#171717"
+              width={400}
+              height={400}
+            />
+          </div>
+        </a>
+      </div>
 
       {
         // right-side layers including the interactive top card
-        layers.map((i) => (
+        layers.slice(1).map((i) => (
           <div
-            class="absolute top-0 left-0 w-full h-full flex items-center justify-center"
+            class="absolute top-0 left-0 w-full h-full lg:flex lg:items-center lg:justify-center hidden"
             style={`
             transform: translateX(${i * 20}px) translateY(${i * 8}px) scale(${1 - i * 0.02});
             opacity: ${Math.max(0, 1 - i / layers.length)};
@@ -64,37 +94,17 @@ const linkUrl =
             pointer-events: ${i === 0 ? "auto" : "none"};
           `}
           >
-            {i === 0 ? (
-              <a
-                href={linkUrl}
-                target="_blank"
-                rel="noreferrer"
-                class="block w-full h-full"
-                aria-label={linkUrl}
-              >
-                <div class="flex justify-center items-center flex-col px-6 py-4 rounded-xl border-emerald-900 border-2 bg-neutral-900 w-full h-full">
-                  <QRCode
-                    value={linkUrl}
-                    fgColor="#00d492"
-                    bgColor="#171717"
-                    width={400}
-                    height={400}
-                  />
-                </div>
-              </a>
-            ) : (
-              <div class="block w-full h-full">
-                <div class="flex justify-center items-center flex-col px-6 py-4 rounded-xl border-emerald-900 border-2 bg-neutral-900 w-full h-full">
-                  <QRCode
-                    value={linkUrl}
-                    fgColor="#00d492"
-                    bgColor="#171717"
-                    width={400}
-                    height={400}
-                  />
-                </div>
+            <div class="block w-full h-full">
+              <div class="flex justify-center items-center flex-col px-6 py-4 rounded-xl border-emerald-900 border-2 bg-neutral-900 w-full h-full">
+                <QRCode
+                  value={linkUrl}
+                  fgColor="#00d492"
+                  bgColor="#171717"
+                  width={400}
+                  height={400}
+                />
               </div>
-            )}
+            </div>
           </div>
         ))
       }

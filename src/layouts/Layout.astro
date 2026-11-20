@@ -5,7 +5,7 @@ import { Font } from "astro:assets";
 import LoadingIndicator from "astro-loading-indicator/component";
 import { ClientRouter } from "astro:transitions";
 
-const { title = "<NidoCC />" } = Astro.props;
+const { title = "<NidoCC />", description = "Nothing here yet!" } = Astro.props;
 
 const year = new Date().getFullYear();
 ---
@@ -23,6 +23,11 @@ const year = new Date().getFullYear();
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/katex@0.13.0/dist/katex.min.css"
     />
+    <!-- opengraph -->
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content="https://nidocc.vercel.app" />
+    <meta property="og:type" content="website" />
     <!-- fonts -->
     <Font cssVariable="--font-sans" preload />
     <Font cssVariable="--font-mono" preload />

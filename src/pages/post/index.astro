@@ -9,8 +9,11 @@ const posts = (await getCollection("post")).sort(
 );
 ---
 
-<Layout title="<NidoCC.Post />">
-  <section class="m-20 relative grid place-items-center h-75">
+<Layout
+  title="<NidoCC.Post />"
+  description="In the resources page of the Nido Coding Club website, you can find all the handwritten posts that teach you how to code, packed with exercises for the reader. Check it out!"
+>
+  <section class="lg:m-20 m-0 relative grid place-items-center h-75">
     <div
       class="absolute inset-0 pointer-events-none opacity-20"
       style="
@@ -57,7 +60,10 @@ const posts = (await getCollection("post")).sort(
       Showing {posts.length} posts
     </p>
 
-    <div id="post-list" class="grid grid-cols-2 justify-center gap-6">
+    <div
+      id="post-list"
+      class="lg:grid lg:grid-cols-2 flex flex-col justify-center gap-6"
+    >
       {posts.map((post) => <PostCard post={post} />)}
     </div>
 

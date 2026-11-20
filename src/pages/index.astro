@@ -2,11 +2,15 @@
 import Layout from "@layouts/Layout.astro";
 import Hero from "@components/sections/Hero.astro";
 import About from "@components/sections/About.astro";
-import Join from "@components/sections/Join.astro";
+// import Join from "@components/sections/Join.astro";
+import JoinNoQr from "@components/sections/JoinNoQr.astro";
 ---
 
-<Layout title="<NidoCC.Home />">
+<Layout
+  title="<NidoCC.Home />"
+  description="Welcome to the Nido Coding club website! Here you can find ways to collaborate with us if you have your own club and also find material to help you grow as a coder at Nido! Make sure to check out our posts!"
+>
   <Hero />
   <About />
-  <Join />
+  <JoinNoQr />
 </Layout>

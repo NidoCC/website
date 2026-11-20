@@ -22,14 +22,23 @@ interface Props {
 
 const { post } = Astro.props;
 const { Content } = await render(post);
+
+const wordsPerMinute = 200;
+const words = (post.body ?? "").replace(/<[^>]*>/g, "").split(/\s+/);
+const wordCount = words.length;
+const readingTime = wordCount / wordsPerMinute;
+const minutes = Math.ceil(readingTime);
 ---
 
-<Layout title={`<NidoCC.Post name="${post.data.title}" />`}>
+<Layout
+  title={`<NidoCC.Post name="${post.data.title}" />`}
+  description=`[${minutes} MINUTE(S) READ] ${(post.body ?? "Nothing here yet").slice(0, 35) + "..."}`
+>
   <ScrollProgressAstroComponent client:load class="mt-10.75" />
   <TopButton />
 
   <div class="flex justify-center">
-    <article class="w-[75ch] bg-secondary mt-32 pb-5">
+    <article class="lg:w-[75ch] w-screen bg-secondary lg:mt-32 mt-14 pb-5">
       <div class="relative">
         <Image
           src={post.data.thumbnail}
@@ -56,7 +65,9 @@ const { Content } = await render(post);
           Description
         </p>
         <p class="break-before-all text-justify">{post.data.description}</p>
-        <div class="flex justify-between items-start mt-4">
+        <div
+          class="flex lg:flex-row lg:space-y-0 flex-col space-y-3 justify-between items-start mt-4"
+        >
           <span>
             <p class="text-muted-foreground font-mono uppercase">Author(s)</p>
             <ul>{post.data.authors.map((author) => <li>{author}</li>)}</ul>
@@ -79,7 +90,7 @@ const { Content } = await render(post);
           </span>
         </div>
         <hr class="my-8" />
-        <div class="prose prose-invert prose-lg mx-auto">
+        <div class="prose prose-invert lg:prose-lg mx-auto">
           <Content />
         </div>
       </div>

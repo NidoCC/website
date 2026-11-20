@@ -3,14 +3,16 @@ import { Image } from "astro:assets";
 import { Backlight } from "$lib/components/magic/backlight";
 ---
 
-<section class="m-20" id="about">
+<section class="lg:m-20 m-5" id="about">
   <h1 class="font-mono text-5xl">
     &gt; About Nido<Backlight class="text-emerald-400 inline-block"
       >CC</Backlight
     >
   </h1>
-  <div class="mt-8 flex justify-between space-x-12">
-    <p class="w-[70ch] text-xl">
+  <div
+    class="mt-8 flex lg:flex-row lg:text-left flex-col text-justify justify-between lg:space-x-12 lg:space-y-0 items-center space-y-12"
+  >
+    <p class="lg:w-[70ch] w-fit text-xl">
       The Nido Coding Club has been here for countless years. From being Girls
       who Code, to just a general coding club for everybody to join - the Nido
       Coding Club has gone through many changes and leaders today.<br /><br /> This
@@ -25,8 +27,10 @@ import { Backlight } from "$lib/components/magic/backlight";
       request! :)
     </p>
     <Image
+      class=""
       src="/images/group-picture.jpg"
       alt="Coding Club group picture!"
+      class="aspect-video object-cover"
       height={400}
       width={600}
     />

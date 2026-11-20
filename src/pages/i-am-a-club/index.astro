@@ -5,7 +5,10 @@ import { Signature } from "$lib/components/spell/signature";
 import { MoveLeft } from "@lucide/astro";
 ---
 
-<Layout>
+<Layout
+  title="<NidoCC.ForLeaders />"
+  description="This is where you need to be if you have a club at Nido and would like to collaborate with the Coding Club! I hope to see us working together soon!"
+>
   <section class="m-20 relative grid place-items-center h-75">
     <div
       class="absolute inset-0 pointer-events-none opacity-20"
@@ -28,7 +31,7 @@ import { MoveLeft } from "@lucide/astro";
     >
     </div>
 
-    <h1 class="text-5xl">
+    <h1 class="lg:text-5xl text-2xl">
       <SpecialText client:visible>Are you a club?</SpecialText>
     </h1>
   </section>
@@ -49,10 +52,12 @@ import { MoveLeft } from "@lucide/astro";
       to receive a product in the style you desire!
     </p>
 
-    <div class="text-center">
+    <div class="text-center lg:mt-0 mt-4">
       <p class="text-xl">Just contact</p>
       <p class="text-3xl">
-        Zhai <span id="mail" class="cursor-pointer text-lg hover:brightness-75"
+        Zhai <span
+          id="mail"
+          class="cursor-pointer text-lg hover:brightness-75 text-ellipsis"
           >(fanhongmeng.zhai@students.nido.cl)</span
         >!
       </p>

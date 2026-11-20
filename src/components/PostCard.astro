@@ -1,5 +1,4 @@
 ---
-import { Image } from "astro:assets";
 import type { CollectionEntry } from "astro:content";
 
 interface Props {
@@ -29,7 +28,7 @@ const minutes = Math.ceil(readingTime);
 
 <a
   href={`/post/${post.id}`}
-  class="bg-secondary hover:brightness-125 flex h-72 w-full overflow-hidden relative"
+  class="bg-secondary hover:brightness-125 flex min-h-72 w-full overflow-hidden relative"
   data-search={searchText}
   data-button
   data-matrix-card
