@@ -1,16 +1,16 @@
 ---
 import { ArrowUp } from "@lucide/astro";
-
-interface Props {
-  href?: string;
-}
-
-const { href = "#" } = Astro.props;
 ---
 
-<a
+<button
+  id="top-btn"
   class="fixed bottom-8 right-8 px-2 py-2 border border-emerald-400 text-emerald-400 hover:bg-emerald-400/10 transition-colors text-sm font-medium"
-  href={href}
 >
   <ArrowUp />
-</a>
+</button>
+
+<script>
+  document.querySelector("#top-btn")?.addEventListener("click", (_) => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  });
+</script>
