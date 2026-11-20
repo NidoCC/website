@@ -1,4 +1,5 @@
 ---
+import { Image } from "astro:assets";
 import { Backlight } from "$lib/components/magic/backlight";
 ---
 
@@ -23,10 +24,11 @@ import { Backlight } from "$lib/components/magic/backlight";
       offering to create and design tools and websites for other clubs upon
       request! :)
     </p>
-    <img
-      src="https://placehold.co/600x400?text=some+image+here"
-      width="600"
-      height="400"
+    <Image
+      src="/images/group-picture.jpg"
+      alt="Coding Club group picture!"
+      height={400}
+      width={600}
     />
   </div>
 </section>
